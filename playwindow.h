@@ -22,6 +22,7 @@ private:
 signals:
     void buttonPressedSignal(QChar key);
     void buttonReleasedSignal(QChar key);
+
     // QWidget interface
 protected:
     void keyPressEvent(QKeyEvent *event);

@@ -2,7 +2,10 @@
 #define KEYMAINWINDOW_H
 #include "keyelement.h"
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QDebug>
 #include "playwindow.h"
+#include "keyeditdialog.h"
 namespace Ui {
 class KeyMainWindow;
 }
@@ -29,10 +32,17 @@ public slots:
     void startPlay(QChar key);
     void stopPlay(QChar key);
     void stopAllPlay();
+
+    void editOk(KeyElement* element);
 private:
+    void getDir(QString path, QTreeWidgetItem* parent);
+
     Ui::KeyMainWindow *ui;
 
     QList<KeyElement*> keys;
+
+    QList<QTreeWidgetItem*> treeItems;
+
     int shift;
     int stop;
 };

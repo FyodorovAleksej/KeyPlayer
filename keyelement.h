@@ -23,6 +23,7 @@ public:
     int getFormat();
     void setFormat(int format);
 
+
     QTreeWidgetItem* getItem();
     void setItem(QTreeWidgetItem* item);
 

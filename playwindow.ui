@@ -13,438 +13,278 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="keyQButton">
-   <property name="geometry">
-    <rect>
-     <x>18</x>
-     <y>13</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>Q</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyWButton">
-   <property name="geometry">
-    <rect>
-     <x>79</x>
-     <y>13</y>
-     <width>48</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>W</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyEButton">
-   <property name="geometry">
-    <rect>
-     <x>139</x>
-     <y>13</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>E</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyRButton">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>13</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>R</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyTButton">
-   <property name="geometry">
-    <rect>
-     <x>261</x>
-     <y>13</y>
-     <width>48</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>T</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyYButton">
-   <property name="geometry">
-    <rect>
-     <x>321</x>
-     <y>13</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>Y</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyUButton">
-   <property name="geometry">
-    <rect>
-     <x>382</x>
-     <y>13</y>
-     <width>48</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>U</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyIButton">
-   <property name="geometry">
-    <rect>
-     <x>442</x>
-     <y>13</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>I</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyOButton">
-   <property name="geometry">
-    <rect>
-     <x>503</x>
-     <y>13</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>O</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyPButton">
-   <property name="geometry">
-    <rect>
-     <x>564</x>
-     <y>13</y>
-     <width>48</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>P</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyGButton">
-   <property name="geometry">
-    <rect>
-     <x>291</x>
-     <y>80</y>
-     <width>48</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>G</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyDButton">
-   <property name="geometry">
-    <rect>
-     <x>169</x>
-     <y>80</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>D</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyHButton">
-   <property name="geometry">
-    <rect>
-     <x>351</x>
-     <y>80</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>H</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyJButton">
-   <property name="geometry">
-    <rect>
-     <x>412</x>
-     <y>80</y>
-     <width>48</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>J</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyLButton">
-   <property name="geometry">
-    <rect>
-     <x>533</x>
-     <y>80</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>L</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keySButton">
-   <property name="geometry">
-    <rect>
-     <x>109</x>
-     <y>80</y>
-     <width>48</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>S</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyKButton">
-   <property name="geometry">
-    <rect>
-     <x>472</x>
-     <y>80</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>K</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyAButton">
-   <property name="geometry">
-    <rect>
-     <x>48</x>
-     <y>80</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>A</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyFButton">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>80</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>F</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyBButton">
-   <property name="geometry">
-    <rect>
-     <x>381</x>
-     <y>140</y>
-     <width>48</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>B</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyCButton">
-   <property name="geometry">
-    <rect>
-     <x>259</x>
-     <y>140</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>C</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyNButton">
-   <property name="geometry">
-    <rect>
-     <x>441</x>
-     <y>140</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>N</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyMButton">
-   <property name="geometry">
-    <rect>
-     <x>502</x>
-     <y>140</y>
-     <width>51</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>M</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyXButton">
-   <property name="geometry">
-    <rect>
-     <x>199</x>
-     <y>140</y>
-     <width>48</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>X</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyZButton">
-   <property name="geometry">
-    <rect>
-     <x>138</x>
-     <y>140</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>Z</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyVButton">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>140</y>
-     <width>49</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>V</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="keyShiftButton">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>140</y>
-     <width>91</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="text">
-    <string>Shift</string>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QPushButton" name="keyQButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Q</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="2">
+    <widget class="QPushButton" name="keyWButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>W</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3" colspan="2">
+    <widget class="QPushButton" name="keyEButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>E</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="5" colspan="2">
+    <widget class="QPushButton" name="keyRButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>R</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="7" colspan="2">
+    <widget class="QPushButton" name="keyTButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>T</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="9" colspan="2">
+    <widget class="QPushButton" name="keyYButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Y</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="11" colspan="2">
+    <widget class="QPushButton" name="keyUButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>U</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="13" colspan="2">
+    <widget class="QPushButton" name="keyIButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>I</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="15" colspan="2">
+    <widget class="QPushButton" name="keyOButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>O</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="17">
+    <widget class="QPushButton" name="keyPButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>P</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QPushButton" name="keyAButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>A</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2" colspan="2">
+    <widget class="QPushButton" name="keySButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>S</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4" colspan="2">
+    <widget class="QPushButton" name="keyDButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>D</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="6" colspan="2">
+    <widget class="QPushButton" name="keyFButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>F</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="8" colspan="2">
+    <widget class="QPushButton" name="keyGButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>G</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="10" colspan="2">
+    <widget class="QPushButton" name="keyHButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>H</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="12" colspan="2">
+    <widget class="QPushButton" name="keyJButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>J</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="14" colspan="2">
+    <widget class="QPushButton" name="keyKButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>K</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="16" colspan="2">
+    <widget class="QPushButton" name="keyLButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>L</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="3">
+    <widget class="QPushButton" name="keyShiftButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Shift</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3" colspan="2">
+    <widget class="QPushButton" name="keyZButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Z</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="5" colspan="2">
+    <widget class="QPushButton" name="keyXButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="7" colspan="2">
+    <widget class="QPushButton" name="keyCButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>C</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="9" colspan="2">
+    <widget class="QPushButton" name="keyVButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>V</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="11" colspan="2">
+    <widget class="QPushButton" name="keyBButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>B</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="13" colspan="2">
+    <widget class="QPushButton" name="keyNButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>N</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="15" colspan="2">
+    <widget class="QPushButton" name="keyMButton">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>M</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

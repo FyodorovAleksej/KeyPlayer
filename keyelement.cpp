@@ -20,7 +20,7 @@ KeyElement::KeyElement(QString name)
     this->key = ' ';
     this->player = new QMediaPlayer();
     player->setMedia(QMediaContent(name));
-    this->format = 1;
+    this->format = 0;
     this->valid = player->isAvailable();
     this->item = new QTreeWidgetItem();
     this->repeating = false;
@@ -57,6 +57,11 @@ QTreeWidgetItem* KeyElement::getItem()
     return this->item;
 }
 
+void KeyElement::setItem(QTreeWidgetItem *item)
+{
+    this->item = item;
+}
+
 void KeyElement::setVolume(int volume)
 {
     if (this->player != NULL)
@@ -77,7 +82,7 @@ qint64 KeyElement::duration()
 
 bool KeyElement::isValid()
 {
-    return valid;
+    return player->isMetaDataAvailable();
 }
 
 void KeyElement::setRepeated(bool repeat)
