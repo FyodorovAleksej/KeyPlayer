@@ -88,6 +88,34 @@ private slots:
     void on_keyNButton_released();
     void on_keyMButton_released();
     void on_keyShiftButton_released();
+
+private:
+bool qShift;
+bool wShift;
+bool eShift;
+bool rShift;
+bool tShift;
+bool yShift;
+bool uShift;
+bool iShift;
+bool oShift;
+bool pShift;
+bool aShift;
+bool sShift;
+bool dShift;
+bool fShift;
+bool gShift;
+bool hShift;
+bool jShift;
+bool kShift;
+bool lShift;
+bool zShift;
+bool xShift;
+bool cShift;
+bool vShift;
+bool bShift;
+bool nShift;
+bool mShift;
 };
 
 #endif // PLAYWINDOW_H

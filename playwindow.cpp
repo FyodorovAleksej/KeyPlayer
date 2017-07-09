@@ -98,6 +98,33 @@ PlayWindow::PlayWindow(QWidget *parent) :
     connect(ui->keyNButton,SIGNAL(released()),this,SLOT(on_keyNButton_released()));
     connect(ui->keyMButton,SIGNAL(released()),this,SLOT(on_keyMButton_released()));
     connect(ui->keyShiftButton,SIGNAL(released()),this,SLOT(on_keyShiftButton_released()));
+
+    qShift = false;
+    wShift = false;
+    eShift = false;
+    rShift = false;
+    tShift = false;
+    yShift = false;
+    uShift = false;
+    iShift = false;
+    oShift = false;
+    pShift = false;
+    aShift = false;
+    sShift = false;
+    dShift = false;
+    fShift = false;
+    gShift = false;
+    hShift = false;
+    jShift = false;
+    kShift = false;
+    lShift = false;
+    zShift = false;
+    xShift = false;
+    cShift = false;
+    vShift = false;
+    bShift = false;
+    nShift = false;
+    mShift = false;
 }
 
 PlayWindow::~PlayWindow()
@@ -189,140 +216,241 @@ void PlayWindow::on_keyQButton_pressed()
 {
     emit buttonPressedSignal('Q');
     ui->keyQButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        qShift = !qShift;
+    }
 }
 void PlayWindow::on_keyWButton_pressed()
 {
     emit buttonPressedSignal('W');
     ui->keyWButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        wShift = !wShift;
+    }
 }
 void PlayWindow::on_keyEButton_pressed()
 {
     emit buttonPressedSignal('E');
     ui->keyEButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        eShift = !eShift;
+    }
 }
 void PlayWindow::on_keyRButton_pressed()
 {
     emit buttonPressedSignal('R');
     ui->keyRButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        rShift = !rShift;
+    }
 }
 void PlayWindow::on_keyTButton_pressed()
 {
     emit buttonPressedSignal('T');
     ui->keyTButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        tShift = !tShift;
+    }
 }
 void PlayWindow::on_keyYButton_pressed()
 {
     emit buttonPressedSignal('Y');
     ui->keyYButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        yShift = !yShift;
+    }
 }
 void PlayWindow::on_keyUButton_pressed()
 {
     emit buttonPressedSignal('U');
     ui->keyUButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        uShift = !uShift;
+    }
 }
 void PlayWindow::on_keyIButton_pressed()
 {
     emit buttonPressedSignal('I');
     ui->keyIButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        iShift = !iShift;
+    }
 }
 void PlayWindow::on_keyOButton_pressed()
 {
     emit buttonPressedSignal('O');
     ui->keyOButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        oShift = !oShift;
+    }
 }
 void PlayWindow::on_keyPButton_pressed()
 {
     emit buttonPressedSignal('P');
     ui->keyPButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        pShift = !pShift;
+    }
 }
 void PlayWindow::on_keyAButton_pressed()
 {
     emit buttonPressedSignal('A');
     ui->keyAButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        aShift = !aShift;
+    }
 }
 void PlayWindow::on_keySButton_pressed()
 {
     emit buttonPressedSignal('S');
     ui->keySButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        sShift = !sShift;
+    }
 }
 void PlayWindow::on_keyDButton_pressed()
 {
     emit buttonPressedSignal('D');
     ui->keyDButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        dShift = !dShift;
+    }
 }
 void PlayWindow::on_keyFButton_pressed()
 {
     emit buttonPressedSignal('F');
     ui->keyFButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        fShift = !fShift;
+    }
 }
 void PlayWindow::on_keyGButton_pressed()
 {
     emit buttonPressedSignal('G');
     ui->keyGButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        gShift = !gShift;
+    }
 }
 void PlayWindow::on_keyHButton_pressed()
 {
     emit buttonPressedSignal('H');
     ui->keyHButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        hShift = !hShift;
+    }
 }
 void PlayWindow::on_keyJButton_pressed()
 {
     emit buttonPressedSignal('J');
     ui->keyJButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        jShift = !jShift;
+    }
 }
 void PlayWindow::on_keyKButton_pressed()
 {
     emit buttonPressedSignal('K');
     ui->keyKButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        kShift = !kShift;
+    }
 }
 void PlayWindow::on_keyLButton_pressed()
 {
     emit buttonPressedSignal('L');
     ui->keyLButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        lShift = !lShift;
+    }
 }
 void PlayWindow::on_keyZButton_pressed()
 {
     emit buttonPressedSignal('Z');
     ui->keyZButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        zShift = !zShift;
+    }
 }
 void PlayWindow::on_keyXButton_pressed()
 {
     emit buttonPressedSignal('X');
     ui->keyXButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        xShift = !xShift;
+    }
 }
 void PlayWindow::on_keyCButton_pressed()
 {
     emit buttonPressedSignal('C');
     ui->keyCButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        cShift = !cShift;
+    }
 }
 void PlayWindow::on_keyVButton_pressed()
 {
     emit buttonPressedSignal('V');
     ui->keyVButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        vShift = !vShift;
+    }
 }
 void PlayWindow::on_keyBButton_pressed()
 {
     emit buttonPressedSignal('B');
     ui->keyBButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        bShift = !bShift;
+    }
 }
 void PlayWindow::on_keyNButton_pressed()
 {
     emit buttonPressedSignal('N');
     ui->keyNButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        nShift = !nShift;
+    }
 }
 void PlayWindow::on_keyMButton_pressed()
 {
     emit buttonPressedSignal('M');
     ui->keyMButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
+    if (shift)
+    {
+        mShift = !mShift;
+    }
 }
 void PlayWindow::on_keyShiftButton_pressed()
 {
     emit buttonPressedSignal('.');
-    shift = !shift;
-    if (shift)
-        ui->keyShiftButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
-    else
-        ui->keyShiftButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    shift = true;
+    ui->keyShiftButton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 248, 40);"));
 }
 
 
@@ -332,134 +460,292 @@ void PlayWindow::on_keyShiftButton_pressed()
 void PlayWindow::on_keyQButton_released()
 {
     emit buttonReleasedSignal('Q');
-    ui->keyQButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!qShift || !shift)
+    {
+        qShift = false;
+        ui->keyQButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyQButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyWButton_released()
 {
     emit buttonReleasedSignal('W');
-    ui->keyWButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!wShift || !shift)
+    {
+        wShift = false;
+        ui->keyWButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyWButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyEButton_released()
 {
     emit buttonReleasedSignal('E');
-    ui->keyEButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!eShift || !shift)
+    {
+        eShift = false;
+        ui->keyEButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyEButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyRButton_released()
 {
     emit buttonReleasedSignal('R');
-    ui->keyRButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!rShift || !shift)
+    {
+        rShift = false;
+        ui->keyRButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyRButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyTButton_released()
 {
     emit buttonReleasedSignal('T');
-    ui->keyTButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!tShift || !shift)
+    {
+        tShift = false;
+        ui->keyTButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyTButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyYButton_released()
 {
     emit buttonReleasedSignal('Y');
-    ui->keyYButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!yShift || !shift)
+    {
+        yShift = false;
+        ui->keyYButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyYButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyUButton_released()
 {
     emit buttonReleasedSignal('U');
-    ui->keyUButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!uShift || !shift)
+    {
+        uShift = false;
+        ui->keyUButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyUButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyIButton_released()
 {
     emit buttonReleasedSignal('I');
-    ui->keyIButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!iShift || !shift)
+    {
+        iShift = false;
+        ui->keyIButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyIButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyOButton_released()
 {
     emit buttonReleasedSignal('O');
-    ui->keyOButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!oShift || !shift)
+    {
+        oShift = false;
+        ui->keyOButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyOButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyPButton_released()
 {
     emit buttonReleasedSignal('P');
-    ui->keyPButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!pShift || !shift)
+    {
+        pShift = false;
+        ui->keyPButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyPButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyAButton_released()
 {
     emit buttonReleasedSignal('A');
-    ui->keyAButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!aShift || !shift)
+    {
+        aShift = false;
+        ui->keyAButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyAButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keySButton_released()
 {
     emit buttonReleasedSignal('S');
-    ui->keySButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!sShift || !shift)
+    {
+        sShift = false;
+        ui->keySButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keySButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyDButton_released()
 {
     emit buttonReleasedSignal('D');
-    ui->keyDButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!dShift || !shift)
+    {
+        dShift = false;
+        ui->keyDButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyDButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyFButton_released()
 {
     emit buttonReleasedSignal('F');
-    ui->keyFButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!fShift || !shift)
+    {
+        fShift = false;
+        ui->keyFButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyFButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyGButton_released()
 {
     emit buttonReleasedSignal('G');
-    ui->keyGButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!gShift || !shift)
+    {
+        gShift = false;
+        ui->keyGButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyGButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyHButton_released()
 {
     emit buttonReleasedSignal('H');
-    ui->keyHButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!hShift || !shift)
+    {
+        hShift = false;
+        ui->keyHButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyHButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyJButton_released()
 {
     emit buttonReleasedSignal('J');
-    ui->keyJButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!jShift || !shift)
+    {
+        jShift = false;
+        ui->keyJButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyJButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyKButton_released()
 {
     emit buttonReleasedSignal('K');
-    ui->keyKButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!kShift || !shift)
+    {
+        kShift = false;
+        ui->keyKButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyKButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyLButton_released()
 {
     emit buttonReleasedSignal('L');
-    ui->keyLButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!lShift || !shift)
+    {
+        lShift = false;
+        ui->keyLButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyLButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyZButton_released()
 {
     emit buttonReleasedSignal('Z');
-    ui->keyZButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!zShift || !shift)
+    {
+        zShift = false;
+        ui->keyZButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyZButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyXButton_released()
 {
     emit buttonReleasedSignal('X');
-    ui->keyXButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!xShift || !shift)
+    {
+        xShift = false;
+        ui->keyXButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyXButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyCButton_released()
 {
     emit buttonReleasedSignal('C');
-    ui->keyCButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!cShift || !shift)
+    {
+        cShift = false;
+        ui->keyCButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyCButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyVButton_released()
 {
     emit buttonReleasedSignal('V');
-    ui->keyVButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!vShift || !shift)
+    {
+        vShift = false;
+        ui->keyVButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyVButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyBButton_released()
 {
     emit buttonReleasedSignal('B');
-    ui->keyBButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!bShift || !shift)
+    {
+        bShift = false;
+        ui->keyBButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyBButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyNButton_released()
 {
     emit buttonReleasedSignal('N');
-    ui->keyNButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!nShift || !shift)
+    {
+        nShift = false;
+        ui->keyNButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyNButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyMButton_released()
 {
     emit buttonReleasedSignal('M');
-    ui->keyMButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    if (!mShift || !shift)
+    {
+        mShift = false;
+        ui->keyMButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
+    }
+    else
+        ui->keyMButton->setStyleSheet(QString::fromUtf8("background-color: rgb(50, 50, 248);"));
 }
 void PlayWindow::on_keyShiftButton_released()
 {
     emit buttonReleasedSignal('.');
+    shift = false;
+    ui->keyShiftButton->setStyleSheet(QString::fromUtf8("background-color: rgb(248, 248, 10);"));
 }

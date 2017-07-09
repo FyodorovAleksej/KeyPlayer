@@ -43,7 +43,9 @@ private:
 
     QList<QTreeWidgetItem*> treeItems;
 
-    int shift;
+    bool shift;
+    bool prelistening;
+
     int stop;
 };
 

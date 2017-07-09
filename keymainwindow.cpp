@@ -32,10 +32,14 @@ KeyMainWindow::KeyMainWindow(QWidget *parent) :
     headsList.append("Name");
     ui->fileTreeWidget->setHeaderLabels(headsList);
     ui->fileTreeWidget->setSortingEnabled(true);
+
+    prelistening = false;
 }
 
 KeyMainWindow::~KeyMainWindow()
 {
+    stopAllPlay();
+    on_deleteAllButton_clicked();
     delete ui;
 }
 
@@ -62,12 +66,34 @@ void KeyMainWindow::on_addButton_clicked()
 
 void KeyMainWindow::on_deleteButton_clicked()
 {
-
+    int index = ui->keyListWidget->currentIndex().row();
+    if (index >= 0)
+    {
+        KeyElement* elem = this->keys.at(index);
+        keys.removeAt(index);
+        elem->getItem()->setBackgroundColor(0,QColor(0,0,0,0));
+        ui->keyListWidget->takeItem(index);
+        if (index > 0)
+        {
+            ui->keyListWidget->setCurrentRow(index - 1);
+        }
+        else
+        {
+            ui->keyListWidget->setCurrentRow(index);
+        }
+        delete elem;
+    }
 }
 
 void KeyMainWindow::on_deleteAllButton_clicked()
 {
-
+  for (int i = 0; i < keys.length(); i++)
+  {
+      keys.at(i)->getItem()->setBackgroundColor(0,QColor(0,0,0,0));
+      delete keys.at(i);
+  }
+  keys.clear();
+  ui->keyListWidget->clear();
 }
 
 void KeyMainWindow::on_playButton_clicked()
@@ -77,41 +103,50 @@ void KeyMainWindow::on_playButton_clicked()
     connect (window,SIGNAL(buttonReleasedSignal(QChar)),this,SLOT(stopPlay(QChar)));
     connect(window,SIGNAL(rejected()),this,SLOT(stopAllPlay()));
 
+    shift = false;
     window->show();
 }
 
 void KeyMainWindow::on_fileTreeWidget_doubleClicked(const QModelIndex &index)
 {
-
+    on_editButton_clicked();
 }
 
 void KeyMainWindow::on_keyListWidget_doubleClicked(const QModelIndex &index)
 {
-
+    if (!prelistening)
+    {
+        keys.at(index.row())->play();
+    }
+    else
+    {
+        stopAllPlay();
+    }
+    prelistening = !prelistening;
 }
 
 void KeyMainWindow::startPlay(QChar key)
 {
     if (key == '.')
     {
-        shift = shift*(-1);
+        shift = true;
     }
     else
     {
         QList<QListWidgetItem*> list = ui->keyListWidget->findItems(key,Qt::MatchStartsWith);
-        qDebug() << list.at(0)->text();
+        //qDebug() << list.at(0)->text();
         if (!list.isEmpty())
         {
             if (list.at(0)->text()[0] == key)
             {
-                qDebug() << key;
+                //qDebug() << key;
                 for (int i = 0; i < keys.length(); i++)
                 {
                     if (keys.value(i)->getKey() == key)
                     {
-                        qDebug() << key;
+                        //qDebug() << key;
                         KeyElement *elem = keys.value(i);
-                        if (shift == 1 && elem->getFormat() == 1)
+                        if (shift && elem->getFormat() == 1)
                         {
                             elem->setFormat(0);
                             elem->stop();
@@ -119,7 +154,7 @@ void KeyMainWindow::startPlay(QChar key)
                         }
                         else
                         {
-                            if (shift == 1 && elem->getFormat() == 0)
+                            if (shift && elem->getFormat() == 0)
                             {
                                 elem->setFormat(1);
                                 elem->play();
@@ -138,7 +173,7 @@ void KeyMainWindow::stopPlay(QChar key)
 {
     if (key == '.')
     {
-        shift = shift*(-1);
+        shift = false;
     }
     else
     {
@@ -152,18 +187,14 @@ void KeyMainWindow::stopPlay(QChar key)
                     if (keys.value(i)->getKey() == key)
                     {
                         KeyElement *elem = keys.value(i);
-                        if (shift == 1 && elem->getFormat() == 1)
+                        if (shift && elem->getFormat() == 1)
                         {
-                            elem->setFormat(0);
-                            elem->stop();
                             return;
                         }
                         else
                         {
-                            if (shift == 1 && elem->getFormat() == 0)
+                            if (shift && elem->getFormat() == 0)
                             {
-                                elem->setFormat(0);
-                                elem->stop();
                                 return;
                             }
                         }
@@ -177,16 +208,18 @@ void KeyMainWindow::stopPlay(QChar key)
 
 void KeyMainWindow::stopAllPlay()
 {
+    //qDebug() << keys.length();
     for (int i = 0; i < keys.length(); i++)
     {
         keys.value(i)->setFormat(0);
         keys.value(i)->stop();
     }
+    shift = false;
 }
 
 void KeyMainWindow::editOk(KeyElement *element)
 {
-    QString buffer = " ";
+    QString buffer = ": ";
     buffer.insert(0, element->getKey());
     buffer += element->getName();
     ui->keyListWidget->addItem(buffer);

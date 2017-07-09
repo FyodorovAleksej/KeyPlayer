@@ -82,12 +82,20 @@ qint64 KeyElement::duration()
 
 bool KeyElement::isValid()
 {
-    return player->isMetaDataAvailable();
+    return player->isAvailable();
 }
 
 void KeyElement::setRepeated(bool repeat)
 {
     this->repeating = repeat;
+    if (repeat)
+    {
+        //connect(player, SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(play()));
+    }
+    else
+    {
+        //disconnect(player, SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(play()));
+    }
 }
 
 bool KeyElement::isRepeated()
