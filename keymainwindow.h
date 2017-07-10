@@ -34,8 +34,17 @@ public slots:
     void stopAllPlay();
 
     void editOk(KeyElement* element);
+private slots:
+    void on_actionSaveFile_triggered();
+
+    void on_actionOpenFile_triggered();
+
+    void on_actionSaveFileMenu_triggered();
+
+    void on_actionOpenFileMenu_triggered();
+
 private:
-    void getDir(QString path, QTreeWidgetItem* parent);
+    QTreeWidgetItem* getDir(QString path, QTreeWidgetItem* parent);
 
     Ui::KeyMainWindow *ui;
 

@@ -42,6 +42,11 @@ QString KeyElement::getName()
     return this->item->text(1);
 }
 
+QString KeyElement::getPath()
+{
+    return this->item->text(0);
+}
+
 int KeyElement::getFormat()
 {
     return this->format;
@@ -67,6 +72,18 @@ void KeyElement::setVolume(int volume)
     if (this->player != NULL)
     {
         this->player->setVolume(volume);
+    }
+}
+
+int KeyElement::getVolume()
+{
+    if (this->player != NULL)
+    {
+        return this->player->volume();
+    }
+    else
+    {
+        return 0;
     }
 }
 

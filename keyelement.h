@@ -19,15 +19,16 @@ public:
     void setKey(QChar key);
 
     QString getName();
+    QString getPath();
 
     int getFormat();
     void setFormat(int format);
-
 
     QTreeWidgetItem* getItem();
     void setItem(QTreeWidgetItem* item);
 
     void setVolume(int volume);
+    int getVolume();
 
     QMediaPlayer* getPlayer();
     qint64 duration();
