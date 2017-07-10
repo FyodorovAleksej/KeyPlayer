@@ -10,26 +10,39 @@ QTreeWidgetItem* KeyMainWindow::getDir(QString path, QTreeWidgetItem* parent)
     QFileInfo pathInfo(path);
     if (pathInfo.isDir())
     {
+        logging("adding folder...");
         for (QFileInfo temp : folder.entryInfoList())
         {
             if (check > 2)
             {
-                item = new QTreeWidgetItem(parent);
-                item->setText(0, temp.absoluteFilePath());
-                item->setText(1, temp.fileName());
-                ui->fileTreeWidget->addTopLevelItem(item);
+                if (temp.fileName().endsWith(".mp3") || temp.fileName().endsWith(".wav"))
+                {
+                    item = new QTreeWidgetItem(parent);
+                    item->setText(0, temp.absoluteFilePath());
+                    item->setText(1, temp.fileName());
+                    ui->fileTreeWidget->addTopLevelItem(item);
+                }
                 if (temp.isDir())
-                    getDir(temp.absoluteFilePath(), item);
+                {
+                    QTreeWidgetItem* parentFolder;
+                    parentFolder = new QTreeWidgetItem(parent);
+                    parentFolder->setText(0, temp.absoluteFilePath());
+                    parentFolder->setText(1, temp.fileName());
+                    getDir(temp.absoluteFilePath(), parentFolder);
+                }
             }
             check++;
         }
+        logging("folder was added");
     }
     else
     {
+        logging("adding file...");
         item = new QTreeWidgetItem(parent);
         item->setText(0,pathInfo.absoluteFilePath());
         item->setText(1, pathInfo.fileName());
         ui->fileTreeWidget->addTopLevelItem(item);
+        logging("file was added");
     }
     return item;
 }
@@ -60,20 +73,40 @@ void KeyMainWindow::on_editButton_clicked()
 {
     if (ui->fileTreeWidget->currentItem() != NULL)
     {
-        KeyEditDialog* dialog = new KeyEditDialog();
-        dialog->setPath(ui->fileTreeWidget->currentItem());
-        connect(dialog,SIGNAL(finish(KeyElement*)),this, SLOT(editOk(KeyElement*)));
-        dialog->show();
+        if (ui->fileTreeWidget->currentItem()->text(1).endsWith(".mp3") || ui->fileTreeWidget->currentItem()->text(1).endsWith(".wav"))
+        {
+            logging("start editing...");
+            KeyEditDialog* dialog = new KeyEditDialog();
+            dialog->setPath(ui->fileTreeWidget->currentItem());
+            connect(dialog,SIGNAL(finish(KeyElement*)),this, SLOT(editOk(KeyElement*)));
+            dialog->show();
+            logging("finish editing");
+        }
+        else
+        {
+            logging("it's folder");
+        }
+    }
+    else
+    {
+        logging("nothing to edit");
     }
 }
 
 void KeyMainWindow::on_addButton_clicked()
 {
+    logging("adding folder with resources...");
     QString root = QFileDialog::getExistingDirectoryUrl().toLocalFile();
+    if (root.isEmpty())
+    {
+        logging("cancelling adding dirictory");
+        return;
+    }
     QTreeWidgetItem* item = new QTreeWidgetItem();
     item->setText(0, root);
     ui->fileTreeWidget->addTopLevelItem(item);
     getDir(root, item);
+    logging("dirictory was added");
 }
 
 
@@ -82,6 +115,7 @@ void KeyMainWindow::on_deleteButton_clicked()
     int index = ui->keyListWidget->currentIndex().row();
     if (index >= 0)
     {
+        logging("deleting element...");
         KeyElement* elem = this->keys.at(index);
         keys.removeAt(index);
         elem->getItem()->setBackgroundColor(0,QColor(0,0,0,0));
@@ -95,27 +129,34 @@ void KeyMainWindow::on_deleteButton_clicked()
             ui->keyListWidget->setCurrentRow(index);
         }
         delete elem;
+        logging("key element was deleted");
+    }
+    else
+    {
+        logging("nothing to delete");
     }
 }
 
 void KeyMainWindow::on_deleteAllButton_clicked()
 {
-  for (int i = 0; i < keys.length(); i++)
-  {
-      keys.at(i)->getItem()->setBackgroundColor(0,QColor(0,0,0,0));
-      delete keys.at(i);
-  }
-  keys.clear();
-  ui->keyListWidget->clear();
+    logging("deleting all key elements...");
+    for (int i = 0; i < keys.length(); i++)
+    {
+        keys.at(i)->getItem()->setBackgroundColor(0,QColor(0,0,0,0));
+        delete keys.at(i);
+    }
+    keys.clear();
+    ui->keyListWidget->clear();
+    logging("all key elements was deleted");
 }
 
 void KeyMainWindow::on_playButton_clicked()
 {
+    logging("start playing... Enjoy =)");
     PlayWindow* window = new PlayWindow(this);
     connect (window,SIGNAL(buttonPressedSignal(QChar)),this,SLOT(startPlay(QChar)));
     connect (window,SIGNAL(buttonReleasedSignal(QChar)),this,SLOT(stopPlay(QChar)));
     connect(window,SIGNAL(rejected()),this,SLOT(stopAllPlay()));
-
     shift = false;
     window->show();
 }
@@ -130,6 +171,7 @@ void KeyMainWindow::on_keyListWidget_doubleClicked(const QModelIndex &index)
     if (!prelistening)
     {
         keys.at(index.row())->play();
+        logging("listening - " + keys.at(index.row())->getName());
     }
     else
     {
@@ -147,32 +189,34 @@ void KeyMainWindow::startPlay(QChar key)
     else
     {
         QList<QListWidgetItem*> list = ui->keyListWidget->findItems(key,Qt::MatchStartsWith);
-        //qDebug() << list.at(0)->text();
         if (!list.isEmpty())
         {
             if (list.at(0)->text()[0] == key)
             {
-                //qDebug() << key;
                 for (int i = 0; i < keys.length(); i++)
                 {
                     if (keys.value(i)->getKey() == key)
                     {
-                        //qDebug() << key;
                         KeyElement *elem = keys.value(i);
                         if (shift && elem->getFormat() == 1)
                         {
                             elem->setFormat(0);
+                            if (elem->isRepeated())
+                            {
+                                disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
+                            }
                             elem->stop();
                             return;
                         }
-                        else
+                        if (shift && elem->getFormat() == 0)
                         {
-                            if (shift && elem->getFormat() == 0)
+                            elem->setFormat(1);
+                            elem->play();
+                            if (elem->isRepeated())
                             {
-                                elem->setFormat(1);
-                                elem->play();
-                                return;
+                                connect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
                             }
+                            return;
                         }
                         elem->play();
                     }
@@ -200,18 +244,15 @@ void KeyMainWindow::stopPlay(QChar key)
                     if (keys.value(i)->getKey() == key)
                     {
                         KeyElement *elem = keys.value(i);
-                        if (shift && elem->getFormat() == 1)
+                        if (!shift)
                         {
-                            return;
-                        }
-                        else
-                        {
-                            if (shift && elem->getFormat() == 0)
+                            if (elem->isRepeated())
                             {
-                                return;
+                                disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
                             }
+                            elem->setFormat(0);
+                            elem->stop();
                         }
-                        elem->stop();
                     }
                 }
             }
@@ -221,26 +262,23 @@ void KeyMainWindow::stopPlay(QChar key)
 
 void KeyMainWindow::stopAllPlay()
 {
-    //qDebug() << keys.length();
+    logging("stopping all...");
     for (int i = 0; i < keys.length(); i++)
     {
         keys.value(i)->setFormat(0);
+        if (keys.value(i)->isRepeated())
+        {
+            disconnect(keys.value(i)->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), keys.value(i)->getPlayer(), SLOT(play()));
+        }
         keys.value(i)->stop();
     }
     shift = false;
+    logging("all plays was stopped");
 }
 
 void KeyMainWindow::editOk(KeyElement *element)
 {
-    QString buffer = ": ";
-    qDebug() << "settng buffer";
-    buffer.insert(0, element->getKey());
-    qDebug() << "after key";
-    buffer += element->getName();
-    qDebug() << "adding key Item";
-    ui->keyListWidget->addItem(buffer);
-    keys.append(element);
-    qDebug() << "append element";
+    addInList(element);
     if (element->isValid())
     {
         if (element->isRepeated())
@@ -256,17 +294,27 @@ void KeyMainWindow::editOk(KeyElement *element)
     {
         element->getItem()->setBackgroundColor(0,QColor(250,80,80,235));
     }
+    logging("element was added");
 }
 
 void KeyMainWindow::on_actionSaveFile_triggered()
 {
     FILE *file = new FILE;
+    logging("choosing file...");
     QString name = QFileDialog::getSaveFileName(this, tr("Save Key List"), QDir::currentPath(), tr("Key List files (*.kpl);; All files(*.*)"));
-    file = fopen(name.toLatin1().data(), "w+b");
-    if (!file)
+    if (name.isEmpty())
     {
+        logging("canceling saving file");
         return;
     }
+    file = fopen(name.toLatin1().data(), "w+b");
+    logging("rewriting file...");
+    if (!file)
+    {
+        logging("can't create file...");
+        return;
+    }
+    logging("file was created. Writting...");
     int len = keys.length();
     fwrite(&len,sizeof(int),1,file);
     for (int i = 0; i < keys.length(); i++)
@@ -283,23 +331,34 @@ void KeyMainWindow::on_actionSaveFile_triggered()
         fwrite(str, sizeof(char), qstr.length(), file);
     }
     fclose(file);
+    logging("file - " + name +" was saved");
 }
 
 void KeyMainWindow::on_actionOpenFile_triggered()
 {
 
     FILE *file = new FILE;
+    logging("choosing file...");
+
     QString name = QFileDialog::getOpenFileName(this, tr("Open Key List"), QDir::currentPath(), tr("Key List files (*.kpl);; All files(*.*)"));
+    if (name.isEmpty())
+    {
+        logging("canceling opening file");
+        return;
+    }
     file = fopen(name.toLatin1().data(), "r+b");
     if (!file)
     {
+        logging("file not founded");
         return;
     }
-    qDebug() << "start reading";
+
+    logging("opening file...");
+
     on_deleteAllButton_clicked();
     int len = 0;
     fread(&len,sizeof(int),1,file);
-    qDebug() << "len - " << len;
+
     for (int i = 0; i < len; i++)
     {
         bool repeat = false;
@@ -307,11 +366,8 @@ void KeyMainWindow::on_actionOpenFile_triggered()
         char key;
         char temp = ' ';
         fread(&repeat, sizeof(bool), 1, file);
-        qDebug() << "repeat - " << repeat;
         fread(&volume, sizeof(int), 1, file);
-        qDebug() << "volume - " << volume;
         fread(&key, sizeof(char), 1, file);
-        qDebug() << "key - " << key;
         fseek(file, 1, 1);
         QString qstr = "";
         while (true)
@@ -326,26 +382,26 @@ void KeyMainWindow::on_actionOpenFile_triggered()
                 break;
             }
         }
-        qDebug() << "path - " << qstr;
         KeyElement* elem = new KeyElement(qstr);
         elem->setVolume(volume);
         elem->setKey(key);
         elem->setRepeated(repeat);
 
         QList<QTreeWidgetItem*> list = ui->fileTreeWidget->findItems(qstr, Qt::MatchRecursive | Qt::MatchFixedString, 0);
-        qDebug() << "tree len - " << list.length();
         if (list.isEmpty())
         {
             elem->setItem(getDir(qstr, NULL));
-            qDebug() << "adding Item";
+            logging("adding Item - " + elem->getItem()->text(0));
         }
         else
         {
             elem->setItem(list.at(0));
         }
         editOk(elem);
+        logging("added key item from file");
     }
     fclose(file);
+    logging("file - " + name + " was readed");
 }
 
 void KeyMainWindow::on_actionSaveFileMenu_triggered()
@@ -356,4 +412,21 @@ void KeyMainWindow::on_actionSaveFileMenu_triggered()
 void KeyMainWindow::on_actionOpenFileMenu_triggered()
 {
     on_actionOpenFile_triggered();
+}
+
+
+void KeyMainWindow::logging(QString message)
+{
+    this->ui->infoLabel->setText("Info: " + message);
+    qDebug() << message;
+}
+
+void KeyMainWindow::addInList(KeyElement *element)
+{
+    QString buffer = ": ";
+    logging("adding key element...");
+    buffer.insert(0, element->getKey());
+    buffer += element->getName();
+    ui->keyListWidget->addItem(buffer);
+    keys.append(element);
 }

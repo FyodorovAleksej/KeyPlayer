@@ -27,19 +27,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     keymainwindow.cpp \
     keyelement.cpp \
-    rootdialog.cpp \
     playwindow.cpp \
     keyeditdialog.cpp
 
 HEADERS  += \
     keymainwindow.h \
     keyelement.h \
-    rootdialog.h \
     playwindow.h \
     keyeditdialog.h
 
 FORMS    += \
     keymainwindow.ui \
-    rootdialog.ui \
     playwindow.ui \
     keyeditdialog.ui

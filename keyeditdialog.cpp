@@ -37,11 +37,6 @@ void KeyEditDialog::on_cancelButton_clicked()
     this->close();
 }
 
-QTreeWidgetItem* KeyEditDialog::getPath()
-{
-    return this->path;
-}
-
 void KeyEditDialog::setPath(QTreeWidgetItem *newPath)
 {
     this->path = newPath;
