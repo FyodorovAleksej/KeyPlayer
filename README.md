@@ -2,7 +2,7 @@
 
 the rebirth of the lost KeyPlayer
 
-the current version of KeyPlayer - KeyPlayer 0.2
+the current version of KeyPlayer - KeyPlayer 0.21
 
 Documentation ([En](https://fyodorovaleksej.github.io/KeyPlayer/))
 
