@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QDebug>
+#include <QListWidgetItem>
 #include "playwindow.h"
 #include "keyeditdialog.h"
 namespace Ui {
@@ -112,7 +113,22 @@ private slots:
      */
     void logging(QString message);
 
+    /**
+     * @brief fileInfo output file info into File Info Label
+     * @param info the message for output
+     */
+    void fileInfo(QString info);
+
+    /**
+     * @brief on_autoButton_clicked auto filling music files
+     */
     void on_autoButton_clicked();
+
+    /**
+     * @brief on_keyListWidget_itemClicked when item in Key List was clicked. Out info about file
+     * @param item clicked item
+     */
+    void on_keyListWidget_itemClicked(QListWidgetItem *item);
 
 private:
 
@@ -124,6 +140,11 @@ private:
      */
     QTreeWidgetItem* getDir(QString path, QTreeWidgetItem* parent);
 
+    /**
+     * @brief autoFill recursive autofilling. Using for iterate childs in tree
+     * @param current current root of tree
+     * @return is full filling keyboard?
+     */
     bool autoFill(QTreeWidgetItem* current);
 
     Ui::KeyMainWindow *ui;

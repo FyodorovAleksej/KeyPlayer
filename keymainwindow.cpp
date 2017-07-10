@@ -151,6 +151,7 @@ void KeyMainWindow::on_deleteAllButton_clicked()
 
 void KeyMainWindow::on_playButton_clicked()
 {
+    stopAllPlay();
     logging("start playing... Enjoy =)");
     PlayWindow* window = new PlayWindow(this);
     connect (window,SIGNAL(buttonPressedSignal(QChar)),this,SLOT(startPlay(QChar)));
@@ -432,6 +433,7 @@ void KeyMainWindow::addInList(KeyElement *element)
 
 void KeyMainWindow::on_autoButton_clicked()
 {
+    logging("autoFilling...");
     on_deleteAllButton_clicked();
     sum = 0;
     for (int i = 0; i < ui->fileTreeWidget->topLevelItemCount(); i++)
@@ -441,6 +443,7 @@ void KeyMainWindow::on_autoButton_clicked()
             return;
         }
     }
+    logging("autoFilling finished sucessfully");
 }
 
 bool KeyMainWindow::autoFill(QTreeWidgetItem* current)
@@ -473,4 +476,22 @@ bool KeyMainWindow::autoFill(QTreeWidgetItem* current)
         }
     }
     return true;
+}
+
+void KeyMainWindow::on_keyListWidget_itemClicked(QListWidgetItem *item)
+{
+    int i = ui->keyListWidget->currentIndex().row();
+    QString out = keys.at(i)->getName() + " ";
+    qint64 sec = keys.at(i)->duration()/1000;
+    out += QString::number(sec / 3600  % 24);
+    out += ":";
+    out += QString::number(sec / 60 % 60);
+    out += ":";
+    out += QString::number(sec % 60);
+    fileInfo(out);
+}
+
+void KeyMainWindow::fileInfo(QString info)
+{
+    ui->fileLabel->setText("File Info: " + info);
 }

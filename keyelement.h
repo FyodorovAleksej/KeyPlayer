@@ -122,6 +122,11 @@ public slots:
      * @brief stop stop playing music file
      */
     void stop();
+
+    /**
+     * @brief errorSlot slot of error, when file was loading
+     */
+    void errorSlot();
 private:
     QChar key;
     QMediaPlayer *player;

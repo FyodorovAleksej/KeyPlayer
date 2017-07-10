@@ -12,13 +12,15 @@ KeyElement::KeyElement(QObject *parent) : QObject(parent)
 
 KeyElement::~KeyElement()
 {
-
+    disconnect(player, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
 }
 
 KeyElement::KeyElement(QString name)
 {
     this->key = ' ';
+    this->valid = true;
     this->player = new QMediaPlayer();
+    connect(player, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
     player->setMedia(QMediaContent(name));
     this->format = 0;
     this->valid = player->isAvailable();
@@ -64,7 +66,9 @@ QTreeWidgetItem* KeyElement::getItem()
 
 void KeyElement::setItem(QTreeWidgetItem *item)
 {
+    QColor color = this->item->backgroundColor(1);
     this->item = item;
+    this->item->setBackgroundColor(1,color);
 }
 
 void KeyElement::setVolume(int volume)
@@ -99,20 +103,12 @@ qint64 KeyElement::duration()
 
 bool KeyElement::isValid()
 {
-    return player->isAvailable();
+    return valid;
 }
 
 void KeyElement::setRepeated(bool repeat)
 {
     this->repeating = repeat;
-    if (repeat)
-    {
-        //connect(player, SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(play()));
-    }
-    else
-    {
-        //disconnect(player, SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),this,SLOT(play()));
-    }
 }
 
 bool KeyElement::isRepeated()
@@ -135,4 +131,9 @@ void KeyElement::stop()
     {
         this->player->stop();
     }
+}
+void KeyElement::errorSlot()
+{
+    this->valid = false;
+    this->item->setBackgroundColor(1,QColor(250,80,80,235));
 }
