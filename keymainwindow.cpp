@@ -27,7 +27,6 @@ QTreeWidgetItem* KeyMainWindow::getDir(QString path, QTreeWidgetItem* parent)
                     QTreeWidgetItem* parentFolder;
                     parentFolder = new QTreeWidgetItem(parent);
                     parentFolder->setText(0, temp.absoluteFilePath());
-                    parentFolder->setText(1, temp.fileName());
                     getDir(temp.absoluteFilePath(), parentFolder);
                 }
             }
@@ -118,7 +117,7 @@ void KeyMainWindow::on_deleteButton_clicked()
         logging("deleting element...");
         KeyElement* elem = this->keys.at(index);
         keys.removeAt(index);
-        elem->getItem()->setBackgroundColor(0,QColor(0,0,0,0));
+        elem->getItem()->setBackgroundColor(1,QColor(0,0,0,0));
         ui->keyListWidget->takeItem(index);
         if (index > 0)
         {
@@ -142,7 +141,7 @@ void KeyMainWindow::on_deleteAllButton_clicked()
     logging("deleting all key elements...");
     for (int i = 0; i < keys.length(); i++)
     {
-        keys.at(i)->getItem()->setBackgroundColor(0,QColor(0,0,0,0));
+        keys.at(i)->getItem()->setBackgroundColor(1,QColor(0,0,0,0));
         delete keys.at(i);
     }
     keys.clear();
@@ -283,16 +282,16 @@ void KeyMainWindow::editOk(KeyElement *element)
     {
         if (element->isRepeated())
         {
-            element->getItem()->setBackgroundColor(0,QColor(80,80,250,235));
+            element->getItem()->setBackgroundColor(1,QColor(80,80,250,235));
         }
         else
         {
-            element->getItem()->setBackgroundColor(0,QColor(80,250,80,235));
+            element->getItem()->setBackgroundColor(1,QColor(80,250,80,235));
         }
     }
     else
     {
-        element->getItem()->setBackgroundColor(0,QColor(250,80,80,235));
+        element->getItem()->setBackgroundColor(1,QColor(250,80,80,235));
     }
     logging("element was added");
 }
@@ -429,4 +428,49 @@ void KeyMainWindow::addInList(KeyElement *element)
     buffer += element->getName();
     ui->keyListWidget->addItem(buffer);
     keys.append(element);
+}
+
+void KeyMainWindow::on_autoButton_clicked()
+{
+    on_deleteAllButton_clicked();
+    sum = 0;
+    for (int i = 0; i < ui->fileTreeWidget->topLevelItemCount(); i++)
+    {
+        if (!autoFill(ui->fileTreeWidget->topLevelItem(i)))
+        {
+            return;
+        }
+    }
+}
+
+bool KeyMainWindow::autoFill(QTreeWidgetItem* current)
+{
+    if (current->childCount() > 0)
+    {
+        for (int j = 0; j < current->childCount(); j++)
+        {
+            if (!(this->autoFill(current->child(j))))
+            {
+                return false;
+            }
+        }
+    }
+    else
+    {
+        if (current->text(1).endsWith(".mp3") || current->text(1).endsWith(".wav"))
+        {
+            if (sum + 'A' > 'Z')
+            {
+                return false;
+            }
+            KeyElement* element = new KeyElement(current->text(0));
+            element->setKey('A' + sum);
+            sum++;
+            element->setItem(current);
+            element->setRepeated(true);
+            element->setVolume(100);
+            editOk(element);
+        }
+    }
+    return true;
 }

@@ -112,6 +112,8 @@ private slots:
      */
     void logging(QString message);
 
+    void on_autoButton_clicked();
+
 private:
 
     /**
@@ -122,6 +124,8 @@ private:
      */
     QTreeWidgetItem* getDir(QString path, QTreeWidgetItem* parent);
 
+    bool autoFill(QTreeWidgetItem* current);
+
     Ui::KeyMainWindow *ui;
 
     QList<KeyElement*> keys;
@@ -131,7 +135,7 @@ private:
     bool shift;
     bool prelistening;
 
-    int stop;
+    char sum;
 };
 
 #endif // KEYMAINWINDOW_H
