@@ -1,8 +1,8 @@
-# KeyPlayer 0.22
+# KeyPlayer 0.23
 
 the rebirth of the lost KeyPlayer
 
-the current version of KeyPlayer - KeyPlayer 0.22
+the current version of KeyPlayer - KeyPlayer 0.23
 
 Documentation (for version 0.2) ([En](https://fyodorovaleksej.github.io/KeyPlayer/))
 
