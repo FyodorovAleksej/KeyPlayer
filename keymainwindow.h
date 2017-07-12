@@ -7,6 +7,7 @@
 #include <QListWidgetItem>
 #include "playwindow.h"
 #include "keyeditdialog.h"
+#include "tryplayer.h"
 namespace Ui {
 class KeyMainWindow;
 }

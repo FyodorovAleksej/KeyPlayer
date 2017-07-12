@@ -21,6 +21,7 @@ QTreeWidgetItem* KeyMainWindow::getDir(QString path, QTreeWidgetItem* parent)
                     item->setText(0, temp.absoluteFilePath());
                     item->setText(1, temp.fileName());
                     ui->fileTreeWidget->addTopLevelItem(item);
+                    new TryPlayer(item);
                 }
                 if (temp.isDir())
                 {
@@ -117,7 +118,10 @@ void KeyMainWindow::on_deleteButton_clicked()
         logging("deleting element...");
         KeyElement* elem = this->keys.at(index);
         keys.removeAt(index);
-        elem->getItem()->setBackgroundColor(1,QColor(0,0,0,0));
+        if (elem->getItem()->backgroundColor(1) != QColor(250,80,80,235))
+        {
+            elem->getItem()->setBackgroundColor(1,QColor(0,0,0,0));
+        }
         ui->keyListWidget->takeItem(index);
         if (index > 0)
         {
@@ -141,7 +145,10 @@ void KeyMainWindow::on_deleteAllButton_clicked()
     logging("deleting all key elements...");
     for (int i = 0; i < keys.length(); i++)
     {
-        keys.at(i)->getItem()->setBackgroundColor(1,QColor(0,0,0,0));
+        if (keys.at(i)->getItem()->backgroundColor(1) != QColor(250,80,80,235))
+        {
+            keys.at(i)->getItem()->setBackgroundColor(1,QColor(0,0,0,0));
+        }
         delete keys.at(i);
     }
     keys.clear();
@@ -462,17 +469,20 @@ bool KeyMainWindow::autoFill(QTreeWidgetItem* current)
     {
         if (current->text(1).endsWith(".mp3") || current->text(1).endsWith(".wav"))
         {
-            if (sum + 'A' > 'Z')
+            if (current->backgroundColor(1) != QColor(250,80,80,235))
             {
-                return false;
+                if (sum + 'A' > 'Z')
+                {
+                    return false;
+                }
+                KeyElement* element = new KeyElement(current->text(0));
+                element->setKey('A' + sum);
+                sum++;
+                element->setItem(current);
+                element->setRepeated(true);
+                element->setVolume(100);
+                editOk(element);
             }
-            KeyElement* element = new KeyElement(current->text(0));
-            element->setKey('A' + sum);
-            sum++;
-            element->setItem(current);
-            element->setRepeated(true);
-            element->setVolume(100);
-            editOk(element);
         }
     }
     return true;
