@@ -15,6 +15,11 @@ class KeyElement : public QObject
     Q_OBJECT
 public:
     explicit KeyElement(QObject* parent = 0);
+
+    /**
+     * @brief KeyElement the constructor with path of the music file
+     * @param name the path of music file to create link
+     */
     KeyElement(QString name);
     ~KeyElement();
 
@@ -125,8 +130,10 @@ public slots:
 
     /**
      * @brief errorSlot slot of error, when file was loading
+     * used for check validation of music file for QMediaPlayer
      */
     void errorSlot();
+
 private:
     QChar key;
     QMediaPlayer *player;

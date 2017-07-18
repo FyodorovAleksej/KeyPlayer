@@ -8,6 +8,9 @@ namespace Ui {
 class PlayWindow;
 }
 
+/**
+ * @brief The PlayWindow class the window with virtual keyboard. Sending signals with pressed/released keys to main window
+ */
 class PlayWindow : public QDialog
 {
     Q_OBJECT
@@ -34,7 +37,18 @@ signals:
 
     // QWidget interface
 protected:
+
+    /**
+     * @brief keyPressEvent method of processing pressed keys
+     * @param event the press event
+     * sending key to main window and displaying it on this window
+     */
     void keyPressEvent(QKeyEvent *event);
+    /**
+     * @brief keyReleaseEvent method of processing released keys
+     * @param event the releases event
+     * sending key to main window and displaying it on this window
+     */
     void keyReleaseEvent(QKeyEvent *event);
 private slots:
 
@@ -287,6 +301,117 @@ private slots:
     void on_keyShiftButton_released();
 
 
+    // ------------ LAYERS--PRESSED-----------------------
+
+    /**
+     * @brief on_push1Button_pressed when 1 tab was selected
+     */
+    void on_push1Button_pressed();
+
+    /**
+     * @brief on_push2Button_pressed when 2 tab was selected
+     */
+    void on_push2Button_pressed();
+
+    /**
+     * @brief on_push3Button_pressed when 3 tab was selected
+     */
+    void on_push3Button_pressed();
+
+    /**
+     * @brief on_push4Button_pressed when 4 tab was selected
+     */
+    void on_push4Button_pressed();
+
+    /**
+     * @brief on_push5Button_pressed when 5 tab was selected
+     */
+    void on_push5Button_pressed();
+
+    /**
+     * @brief on_push6Button_pressed when 6 tab was selected
+     */
+    void on_push6Button_pressed();
+
+    /**
+     * @brief on_push7Button_pressed when 7 tab was selected
+     */
+    void on_push7Button_pressed();
+
+    /**
+     * @brief on_push8Button_pressed when 8 tab was selected
+     */
+    void on_push8Button_pressed();
+
+    /**
+     * @brief on_push9Button_pressed when 9 tab was selected
+     */
+    void on_push9Button_pressed();
+
+    /**
+     * @brief on_push0Button_pressed when 0 tab was selected
+     */
+    void on_push0Button_pressed();
+
+
+    //-------------LAYERS--RELEASED--------------------------
+
+    /**
+     * @brief on_push1Button_released when 1 tab was selected
+     */
+    void on_push1Button_released();
+
+    /**
+     * @brief on_push2Button_released when 2 tab was selected
+     */
+    void on_push2Button_released();
+
+    /**
+     * @brief on_push3Button_released when 3 tab was selected
+     */
+    void on_push3Button_released();
+
+    /**
+     * @brief on_push4Button_released when 4 tab was selected
+     */
+    void on_push4Button_released();
+
+    /**
+     * @brief on_push5Button_released when 5 tab was selected
+     */
+    void on_push5Button_released();
+
+    /**
+     * @brief on_push6Button_released when 6 tab was selected
+     */
+    void on_push6Button_released();
+
+    /**
+     * @brief on_push7Button_released when 7 tab was selected
+     */
+    void on_push7Button_released();
+
+    /**
+     * @brief on_push8Button_released when 8 tab was selected
+     */
+    void on_push8Button_released();
+
+    /**
+     * @brief on_push9Button_released when 9 tab was selected
+     */
+    void on_push9Button_released();
+
+    /**
+     * @brief on_push0Button_released when 0 tab was selected
+     */
+    void on_push0Button_released();
+
+
+
+
+    void setCurrentLay(int lay);
+
+
 private:
 bool qShift;
 bool wShift;
@@ -314,6 +439,35 @@ bool vShift;
 bool bShift;
 bool nShift;
 bool mShift;
+
+int currentLay;
+
+char qStatus[10];
+char wStatus[10];
+char eStatus[10];
+char rStatus[10];
+char tStatus[10];
+char yStatus[10];
+char uStatus[10];
+char iStatus[10];
+char oStatus[10];
+char pStatus[10];
+char aStatus[10];
+char sStatus[10];
+char dStatus[10];
+char fStatus[10];
+char gStatus[10];
+char hStatus[10];
+char jStatus[10];
+char kStatus[10];
+char lStatus[10];
+char zStatus[10];
+char xStatus[10];
+char cStatus[10];
+char vStatus[10];
+char bStatus[10];
+char nStatus[10];
+char mStatus[10];
 };
 
 #endif // PLAYWINDOW_H

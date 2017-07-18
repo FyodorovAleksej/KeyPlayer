@@ -11,6 +11,9 @@ class KeyEditDialog;
 
 /**
  * @brief The KeyEditDialog class of window for binding key for music file, and setup some properties for it's playing
+ * such as: Volume - the volume of music file, that will played
+ *              Repeating - file will repeated, when it was finished
+ *              Key - the key, that will linked with this music file
  */
 class KeyEditDialog : public QDialog
 {
@@ -35,17 +38,20 @@ signals:
 private slots:
 
     /**
-     * @brief on_keySequenceEdit_editingFinished the action, when property key was pressed
+     * @brief on_keySequenceEdit_editingFinished the action, when property key was pressed.
+     * unblocked OK Button
      */
     void on_keySequenceEdit_editingFinished();
 
     /**
      * @brief on_okButton_clicked the action, when "OK" button was pressed
+     * closed window and send properties to main window
      */
     void on_okButton_clicked();
 
     /**
      * @brief on_cancelButton_clicked the action, when "Cancel" button was pressed
+     * closed window and don't send signal to main window
      */
     void on_cancelButton_clicked();
 

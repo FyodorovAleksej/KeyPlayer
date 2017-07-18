@@ -13,6 +13,11 @@ class TryPlayer : public QObject
     Q_OBJECT
 public:
     explicit TryPlayer(QObject *parent = 0);
+
+    /**
+     * @brief TryPlayer creating selfdestructed object of TryPlayer, with this file.
+     * @param item the file for checking
+     */
     TryPlayer(QTreeWidgetItem* item);
     ~TryPlayer();
 signals:
