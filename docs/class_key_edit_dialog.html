@@ -23,8 +23,9 @@
   <td id="projectlogo"><img alt="Logo" src="w256h2561350657674tone.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">KeyPlayer
-   &#160;<span id="projectnumber">0.2</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
+   <div id="projectbrief">The music syntezator</div>
   </td>
  </tr>
  </tbody>
@@ -69,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_key_edit_dialog.html" title="The KeyEditDialog class of window for binding key for music file, and setup some properties for it&#39;s ...">KeyEditDialog</a> class of window for binding key for music file, and setup some properties for it's playing.  
+<p>The <a class="el" href="class_key_edit_dialog.html" title="The KeyEditDialog class of window for binding key for music file, and setup some properties for it&#39;s ...">KeyEditDialog</a> class of window for binding key for music file, and setup some properties for it's playing such as: Volume - the volume of music file, that will played Repeating - file will repeated, when it was finished Key - the key, that will linked with this music file.  
  <a href="class_key_edit_dialog.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="keyeditdialog_8h_source.html">keyeditdialog.h</a>&gt;</code></p>
@@ -90,16 +91,67 @@ Signals</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad71e9b9fec5ecb5fc89010dd17b60478"><td class="memItemLeft" align="right" valign="top"><a id="ad71e9b9fec5ecb5fc89010dd17b60478"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KeyEditDialog</b> (QWidget *parent=0)</td></tr>
+<tr class="memitem:ad71e9b9fec5ecb5fc89010dd17b60478"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#ad71e9b9fec5ecb5fc89010dd17b60478">KeyEditDialog</a> (QWidget *parent=0)</td></tr>
 <tr class="separator:ad71e9b9fec5ecb5fc89010dd17b60478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e7534d33148ea3125c57019b83da8e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a4e7534d33148ea3125c57019b83da8e7">~KeyEditDialog</a> ()</td></tr>
+<tr class="separator:a4e7534d33148ea3125c57019b83da8e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88b517565674d5112be255d7f0808efe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a88b517565674d5112be255d7f0808efe">setPath</a> (QTreeWidgetItem *newPath)</td></tr>
 <tr class="memdesc:a88b517565674d5112be255d7f0808efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">setPath setting path of current file for setting propeties of playing this file  <a href="#a88b517565674d5112be255d7f0808efe">More...</a><br /></td></tr>
 <tr class="separator:a88b517565674d5112be255d7f0808efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_key_edit_dialog.html" title="The KeyEditDialog class of window for binding key for music file, and setup some properties for it&#39;s ...">KeyEditDialog</a> class of window for binding key for music file, and setup some properties for it's playing. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>The <a class="el" href="class_key_edit_dialog.html" title="The KeyEditDialog class of window for binding key for music file, and setup some properties for it&#39;s ...">KeyEditDialog</a> class of window for binding key for music file, and setup some properties for it's playing such as: Volume - the volume of music file, that will played Repeating - file will repeated, when it was finished Key - the key, that will linked with this music file. </p>
+
+<p class="definition">Definition at line <a class="el" href="keyeditdialog_8h_source.html#l00018">18</a> of file <a class="el" href="keyeditdialog_8h_source.html">keyeditdialog.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad71e9b9fec5ecb5fc89010dd17b60478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad71e9b9fec5ecb5fc89010dd17b60478">&#9670;&nbsp;</a></span>KeyEditDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">KeyEditDialog::KeyEditDialog </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="keyeditdialog_8cpp_source.html#l00004">4</a> of file <a class="el" href="keyeditdialog_8cpp_source.html">keyeditdialog.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4e7534d33148ea3125c57019b83da8e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e7534d33148ea3125c57019b83da8e7">&#9670;&nbsp;</a></span>~KeyEditDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KeyEditDialog::~KeyEditDialog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="keyeditdialog_8cpp_source.html#l00012">12</a> of file <a class="el" href="keyeditdialog_8cpp_source.html">keyeditdialog.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a97e7fe242369a04650fea473fb1d68a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97e7fe242369a04650fea473fb1d68a4">&#9670;&nbsp;</a></span>finish</h2>
 
@@ -158,11 +210,13 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="keyeditdialog_8cpp_source.html#l00040">40</a> of file <a class="el" href="keyeditdialog_8cpp_source.html">keyeditdialog.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="keyeditdialog_8h_source.html">keyeditdialog.h</a></li>
-<li>keyeditdialog.cpp</li>
+<li><a class="el" href="keyeditdialog_8cpp_source.html">keyeditdialog.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

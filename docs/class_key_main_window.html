@@ -23,8 +23,9 @@
   <td id="projectlogo"><img alt="Logo" src="w256h2561350657674tone.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">KeyPlayer
-   &#160;<span id="projectnumber">0.2</span>
+   &#160;<span id="projectnumber">0.3</span>
    </div>
+   <div id="projectbrief">The music syntezator</div>
   </td>
  </tr>
  </tbody>
@@ -69,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_key_main_window.html" title="The KeyMainWindow class the main window with main interface. ">KeyMainWindow</a> class the main window with main interface.  
+<p>The <a class="el" href="class_key_main_window.html" title="The KeyMainWindow class the main window with main interface and logic system. ">KeyMainWindow</a> class the main window with main interface and logic system.  
  <a href="class_key_main_window.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="keymainwindow_8h_source.html">keymainwindow.h</a>&gt;</code></p>
@@ -84,25 +85,20 @@ Inheritance diagram for KeyMainWindow:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:a683dc7c13297f6f0bd3401ebfbf46e42"><td class="memItemLeft" align="right" valign="top"><a id="a683dc7c13297f6f0bd3401ebfbf46e42"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a683dc7c13297f6f0bd3401ebfbf46e42">on_editButton_clicked</a> ()</td></tr>
-<tr class="memdesc:a683dc7c13297f6f0bd3401ebfbf46e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_editButton_clicked the action, when "Edit" button was clicked <br /></td></tr>
+<tr class="memitem:a683dc7c13297f6f0bd3401ebfbf46e42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a683dc7c13297f6f0bd3401ebfbf46e42">on_editButton_clicked</a> ()</td></tr>
+<tr class="memdesc:a683dc7c13297f6f0bd3401ebfbf46e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_editButton_clicked the action, when "Edit" button was clicked create edit window and link it with slot editOK.  <a href="#a683dc7c13297f6f0bd3401ebfbf46e42">More...</a><br /></td></tr>
 <tr class="separator:a683dc7c13297f6f0bd3401ebfbf46e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e22453536f1a459df12248b5590c31b"><td class="memItemLeft" align="right" valign="top"><a id="a3e22453536f1a459df12248b5590c31b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a3e22453536f1a459df12248b5590c31b">on_addButton_clicked</a> ()</td></tr>
-<tr class="memdesc:a3e22453536f1a459df12248b5590c31b"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_addButton_clicked the action, when "Add" button was clicked <br /></td></tr>
+<tr class="memitem:a3e22453536f1a459df12248b5590c31b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a3e22453536f1a459df12248b5590c31b">on_addButton_clicked</a> ()</td></tr>
+<tr class="memdesc:a3e22453536f1a459df12248b5590c31b"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_addButton_clicked the action, when "Add" button was clicked create window of choosing dirivtory for adding folder with music files.  <a href="#a3e22453536f1a459df12248b5590c31b">More...</a><br /></td></tr>
 <tr class="separator:a3e22453536f1a459df12248b5590c31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f4dc1cdd9398259fba83c17cf61ae53"><td class="memItemLeft" align="right" valign="top"><a id="a5f4dc1cdd9398259fba83c17cf61ae53"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a5f4dc1cdd9398259fba83c17cf61ae53">on_deleteButton_clicked</a> ()</td></tr>
-<tr class="memdesc:a5f4dc1cdd9398259fba83c17cf61ae53"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_deleteButton_clicked the action, when "Delete" button was clicked <br /></td></tr>
+<tr class="memitem:a5f4dc1cdd9398259fba83c17cf61ae53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a5f4dc1cdd9398259fba83c17cf61ae53">on_deleteButton_clicked</a> ()</td></tr>
+<tr class="memdesc:a5f4dc1cdd9398259fba83c17cf61ae53"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_deleteButton_clicked the action, when "Delete" button was clicked delete choosed keyElement from QListWidget  <a href="#a5f4dc1cdd9398259fba83c17cf61ae53">More...</a><br /></td></tr>
 <tr class="separator:a5f4dc1cdd9398259fba83c17cf61ae53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d07b299cbc4bf9550defad3ccbf0029"><td class="memItemLeft" align="right" valign="top"><a id="a2d07b299cbc4bf9550defad3ccbf0029"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a2d07b299cbc4bf9550defad3ccbf0029">on_deleteAllButton_clicked</a> ()</td></tr>
-<tr class="memdesc:a2d07b299cbc4bf9550defad3ccbf0029"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_deleteAllButton_clicked the action, when "Delete all" button was clicked <br /></td></tr>
+<tr class="memitem:a2d07b299cbc4bf9550defad3ccbf0029"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a2d07b299cbc4bf9550defad3ccbf0029">on_deleteAllButton_clicked</a> ()</td></tr>
+<tr class="memdesc:a2d07b299cbc4bf9550defad3ccbf0029"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_deleteAllButton_clicked the action, when "Delete all" button was clicked delete all keyElements from all tabs  <a href="#a2d07b299cbc4bf9550defad3ccbf0029">More...</a><br /></td></tr>
 <tr class="separator:a2d07b299cbc4bf9550defad3ccbf0029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b13e5083f4da72a98d710e0f1f41878"><td class="memItemLeft" align="right" valign="top"><a id="a0b13e5083f4da72a98d710e0f1f41878"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a0b13e5083f4da72a98d710e0f1f41878">on_playButton_clicked</a> ()</td></tr>
-<tr class="memdesc:a0b13e5083f4da72a98d710e0f1f41878"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_playButton_clicked the action, when "Play" button was clicked <br /></td></tr>
+<tr class="memitem:a0b13e5083f4da72a98d710e0f1f41878"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a0b13e5083f4da72a98d710e0f1f41878">on_playButton_clicked</a> ()</td></tr>
+<tr class="memdesc:a0b13e5083f4da72a98d710e0f1f41878"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_playButton_clicked the action, when "Play" button was clicked open <a class="el" href="class_play_window.html">PlayWindow</a> and connect it with logiv system of processing pressed keys  <a href="#a0b13e5083f4da72a98d710e0f1f41878">More...</a><br /></td></tr>
 <tr class="separator:a0b13e5083f4da72a98d710e0f1f41878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13f36481d6b0d1f68dceca8a1c1ec2c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a13f36481d6b0d1f68dceca8a1c1ec2c1">on_fileTreeWidget_doubleClicked</a> (const QModelIndex &amp;index)</td></tr>
 <tr class="memdesc:a13f36481d6b0d1f68dceca8a1c1ec2c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_fileTreeWidget_doubleClicked the action, when item on TreeWidget was doubleClicked (Edit)  <a href="#a13f36481d6b0d1f68dceca8a1c1ec2c1">More...</a><br /></td></tr>
@@ -116,26 +112,76 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a545142222ff293b73d57fb22ac6a122d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a545142222ff293b73d57fb22ac6a122d">stopPlay</a> (QChar key)</td></tr>
 <tr class="memdesc:a545142222ff293b73d57fb22ac6a122d"><td class="mdescLeft">&#160;</td><td class="mdescRight">stopPlay stop playing key element with KEY  <a href="#a545142222ff293b73d57fb22ac6a122d">More...</a><br /></td></tr>
 <tr class="separator:a545142222ff293b73d57fb22ac6a122d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fe2594084ecccb578c5991b8bf9844b"><td class="memItemLeft" align="right" valign="top"><a id="a2fe2594084ecccb578c5991b8bf9844b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a2fe2594084ecccb578c5991b8bf9844b">stopAllPlay</a> ()</td></tr>
-<tr class="memdesc:a2fe2594084ecccb578c5991b8bf9844b"><td class="mdescLeft">&#160;</td><td class="mdescRight">stopAllPlay stopped all key elements <br /></td></tr>
+<tr class="memitem:a2fe2594084ecccb578c5991b8bf9844b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a2fe2594084ecccb578c5991b8bf9844b">stopAllPlay</a> ()</td></tr>
+<tr class="memdesc:a2fe2594084ecccb578c5991b8bf9844b"><td class="mdescLeft">&#160;</td><td class="mdescRight">stopAllPlay stopped all key elements stopping all music files, that can be used  <a href="#a2fe2594084ecccb578c5991b8bf9844b">More...</a><br /></td></tr>
 <tr class="separator:a2fe2594084ecccb578c5991b8bf9844b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf05ff47462e7e4e396edc946a64fd7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#aaf05ff47462e7e4e396edc946a64fd7d">editOk</a> (<a class="el" href="class_key_element.html">KeyElement</a> *element)</td></tr>
-<tr class="memdesc:aaf05ff47462e7e4e396edc946a64fd7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">editOk shen Key Element was created (after edit window)  <a href="#aaf05ff47462e7e4e396edc946a64fd7d">More...</a><br /></td></tr>
+<tr class="memdesc:aaf05ff47462e7e4e396edc946a64fd7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">editOk when Key Element was created (after edit window)  <a href="#aaf05ff47462e7e4e396edc946a64fd7d">More...</a><br /></td></tr>
 <tr class="separator:aaf05ff47462e7e4e396edc946a64fd7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a91ed8b3bdc93749b0be61f28cffbb07a"><td class="memItemLeft" align="right" valign="top"><a id="a91ed8b3bdc93749b0be61f28cffbb07a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KeyMainWindow</b> (QWidget *parent=0)</td></tr>
+<tr class="memitem:a91ed8b3bdc93749b0be61f28cffbb07a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a91ed8b3bdc93749b0be61f28cffbb07a">KeyMainWindow</a> (QWidget *parent=0)</td></tr>
 <tr class="separator:a91ed8b3bdc93749b0be61f28cffbb07a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62d11449a43d327e78d3b2f53b22e4dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#a62d11449a43d327e78d3b2f53b22e4dd">~KeyMainWindow</a> ()</td></tr>
+<tr class="separator:a62d11449a43d327e78d3b2f53b22e4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8658a2a9309909505bf6c0780919068"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_main_window.html#ac8658a2a9309909505bf6c0780919068">addInList</a> (<a class="el" href="class_key_element.html">KeyElement</a> *element)</td></tr>
 <tr class="memdesc:ac8658a2a9309909505bf6c0780919068"><td class="mdescLeft">&#160;</td><td class="mdescRight">addInList adding key element in list of keys elements and in GUI ListWidget  <a href="#ac8658a2a9309909505bf6c0780919068">More...</a><br /></td></tr>
 <tr class="separator:ac8658a2a9309909505bf6c0780919068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_key_main_window.html" title="The KeyMainWindow class the main window with main interface. ">KeyMainWindow</a> class the main window with main interface. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>The <a class="el" href="class_key_main_window.html" title="The KeyMainWindow class the main window with main interface and logic system. ">KeyMainWindow</a> class the main window with main interface and logic system. </p>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8h_source.html#l00018">18</a> of file <a class="el" href="keymainwindow_8h_source.html">keymainwindow.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a91ed8b3bdc93749b0be61f28cffbb07a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91ed8b3bdc93749b0be61f28cffbb07a">&#9670;&nbsp;</a></span>KeyMainWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">KeyMainWindow::KeyMainWindow </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00051">51</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a62d11449a43d327e78d3b2f53b22e4dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62d11449a43d327e78d3b2f53b22e4dd">&#9670;&nbsp;</a></span>~KeyMainWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KeyMainWindow::~KeyMainWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00115">115</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac8658a2a9309909505bf6c0780919068"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8658a2a9309909505bf6c0780919068">&#9670;&nbsp;</a></span>addInList()</h2>
 
@@ -155,10 +201,12 @@ Public Member Functions</h2></td></tr>
 <p>addInList adding key element in list of keys elements and in GUI ListWidget </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">element</td><td>the key elment for ading </td></tr>
+    <tr><td class="paramname">element</td><td>the key element for adding </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00513">513</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -186,13 +234,131 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>editOk shen Key Element was created (after edit window) </p>
+<p>editOk when Key Element was created (after edit window) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">element</td><td>the element, that was created </td></tr>
+    <tr><td class="paramname">element</td><td>the element, that was created adding new element with all propertyes into KeyList and QListWidget </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00355">355</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3e22453536f1a459df12248b5590c31b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e22453536f1a459df12248b5590c31b">&#9670;&nbsp;</a></span>on_addButton_clicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyMainWindow::on_addButton_clicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_addButton_clicked the action, when "Add" button was clicked create window of choosing dirivtory for adding folder with music files. </p>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00151">151</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2d07b299cbc4bf9550defad3ccbf0029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d07b299cbc4bf9550defad3ccbf0029">&#9670;&nbsp;</a></span>on_deleteAllButton_clicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyMainWindow::on_deleteAllButton_clicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_deleteAllButton_clicked the action, when "Delete all" button was clicked delete all keyElements from all tabs </p>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00198">198</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5f4dc1cdd9398259fba83c17cf61ae53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f4dc1cdd9398259fba83c17cf61ae53">&#9670;&nbsp;</a></span>on_deleteButton_clicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyMainWindow::on_deleteButton_clicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_deleteButton_clicked the action, when "Delete" button was clicked delete choosed keyElement from QListWidget </p>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00168">168</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a683dc7c13297f6f0bd3401ebfbf46e42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a683dc7c13297f6f0bd3401ebfbf46e42">&#9670;&nbsp;</a></span>on_editButton_clicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyMainWindow::on_editButton_clicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_editButton_clicked the action, when "Edit" button was clicked create edit window and link it with slot editOK. </p>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00127">127</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -223,10 +389,12 @@ Public Member Functions</h2></td></tr>
 <p>on_fileTreeWidget_doubleClicked the action, when item on TreeWidget was doubleClicked (Edit) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td></td></tr>
+    <tr><td class="paramname">index</td><td>index of current item open editWindow for creating keyElement with current music file in QTreeWidget </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00230">230</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -257,10 +425,41 @@ Public Member Functions</h2></td></tr>
 <p>on_keyListWidget_doubleClicked the action, when item on ListWidget was doubleClicked (Listening) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td></td></tr>
+    <tr><td class="paramname">index</td><td>index of current item play this file in keyList or stoping </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00235">235</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0b13e5083f4da72a98d710e0f1f41878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b13e5083f4da72a98d710e0f1f41878">&#9670;&nbsp;</a></span>on_playButton_clicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyMainWindow::on_playButton_clicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_playButton_clicked the action, when "Play" button was clicked open <a class="el" href="class_play_window.html">PlayWindow</a> and connect it with logiv system of processing pressed keys </p>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00217">217</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -291,10 +490,41 @@ Public Member Functions</h2></td></tr>
 <p>startPlay start playing key element with KEY </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td>the key of element for playing </td></tr>
+    <tr><td class="paramname">key</td><td>the key of element for playing: '0' - '9' - tabs 'a' - 'z' - keys '.' - SHIFT start play the music file, that was linked with param key </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00249">249</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2fe2594084ecccb578c5991b8bf9844b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fe2594084ecccb578c5991b8bf9844b">&#9670;&nbsp;</a></span>stopAllPlay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyMainWindow::stopAllPlay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>stopAllPlay stopped all key elements stopping all music files, that can be used </p>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00336">336</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,16 +555,18 @@ Public Member Functions</h2></td></tr>
 <p>stopPlay stop playing key element with KEY </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td>the key of element for stopping </td></tr>
+    <tr><td class="paramname">key</td><td>the key of element for stopping: 'a' - 'z' - keys '.' - SHIFT stop play the music file, that was linked with param key </td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="keymainwindow_8cpp_source.html#l00302">302</a> of file <a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="keymainwindow_8h_source.html">keymainwindow.h</a></li>
-<li>keymainwindow.cpp</li>
+<li><a class="el" href="keymainwindow_8cpp_source.html">keymainwindow.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
