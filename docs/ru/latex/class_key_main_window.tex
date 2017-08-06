@@ -1,0 +1,158 @@
+\hypertarget{class_key_main_window}{}\section{Key\+Main\+Window Class Reference}
+\label{class_key_main_window}\index{Key\+Main\+Window@{Key\+Main\+Window}}
+
+
+\hyperlink{class_key_main_window}{Key\+Main\+Window} -\/ класс главного окна с главным интерфейсом и с основной логикой  
+
+
+
+
+{\ttfamily \#include $<$keymainwindow.\+h$>$}
+
+Inheritance diagram for Key\+Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_key_main_window}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_key_main_window_a683dc7c13297f6f0bd3401ebfbf46e42}\label{class_key_main_window_a683dc7c13297f6f0bd3401ebfbf46e42}} 
+void \hyperlink{class_key_main_window_a683dc7c13297f6f0bd3401ebfbf46e42}{on\+\_\+edit\+Button\+\_\+clicked} ()
+\begin{DoxyCompactList}\small\item\em on\+\_\+edit\+Button\+\_\+clicked -\/ действие, которое выполниться при нажатии на кнопку \char`\"{}\+Edit\char`\"{} открывает окно для создания элемента плеера с выбранными параметрами. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_key_main_window_a3e22453536f1a459df12248b5590c31b}\label{class_key_main_window_a3e22453536f1a459df12248b5590c31b}} 
+void \hyperlink{class_key_main_window_a3e22453536f1a459df12248b5590c31b}{on\+\_\+add\+Button\+\_\+clicked} ()
+\begin{DoxyCompactList}\small\item\em on\+\_\+add\+Button\+\_\+clicked -\/ действие, которое выполниться при нажатии на кнопку \char`\"{}\+Add\char`\"{} открывает окно проводника для выбора папки, содержащей музыкальные файлы (\char`\"{}$\ast$.\+mp3, $\ast$.\+wav\char`\"{}). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_key_main_window_a5f4dc1cdd9398259fba83c17cf61ae53}\label{class_key_main_window_a5f4dc1cdd9398259fba83c17cf61ae53}} 
+void \hyperlink{class_key_main_window_a5f4dc1cdd9398259fba83c17cf61ae53}{on\+\_\+delete\+Button\+\_\+clicked} ()
+\begin{DoxyCompactList}\small\item\em on\+\_\+delete\+Button\+\_\+clicked -\/ действие, которое выполниться при нажатии на кнопку \char`\"{}\+Delete\char`\"{} удаляет выбранный элемент плеера из системы. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_key_main_window_a2d07b299cbc4bf9550defad3ccbf0029}\label{class_key_main_window_a2d07b299cbc4bf9550defad3ccbf0029}} 
+void \hyperlink{class_key_main_window_a2d07b299cbc4bf9550defad3ccbf0029}{on\+\_\+delete\+All\+Button\+\_\+clicked} ()
+\begin{DoxyCompactList}\small\item\em on\+\_\+delete\+All\+Button\+\_\+clicked -\/ действие, которое выполниться при нажатии на кнопку \char`\"{}\+Delete all\char`\"{} удаляет все элементы плеера из всех слоёв. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_key_main_window_a0b13e5083f4da72a98d710e0f1f41878}\label{class_key_main_window_a0b13e5083f4da72a98d710e0f1f41878}} 
+void \hyperlink{class_key_main_window_a0b13e5083f4da72a98d710e0f1f41878}{on\+\_\+play\+Button\+\_\+clicked} ()
+\begin{DoxyCompactList}\small\item\em on\+\_\+play\+Button\+\_\+clicked -\/ действие, которое выполниться при нажатии на кнопку \char`\"{}\+Play\char`\"{} открывает окно \hyperlink{class_play_window}{Play\+Window} и свзывает нажатия кнопок и клавиши в \hyperlink{class_play_window}{Play\+Window} с основной логической системой \end{DoxyCompactList}\item 
+void \hyperlink{class_key_main_window_a13f36481d6b0d1f68dceca8a1c1ec2c1}{on\+\_\+file\+Tree\+Widget\+\_\+double\+Clicked} (const Q\+Model\+Index \&index)
+\begin{DoxyCompactList}\small\item\em on\+\_\+file\+Tree\+Widget\+\_\+double\+Clicked -\/ действие, которое выполниться при двойном нажатии на элемент в Q\+Tree\+Widget ( = \char`\"{}\+Edit\char`\"{}) \end{DoxyCompactList}\item 
+void \hyperlink{class_key_main_window_af82eadd35c704bc554d2465554dc48c0}{on\+\_\+key\+List\+Widget\+\_\+double\+Clicked} (const Q\+Model\+Index \&index)
+\begin{DoxyCompactList}\small\item\em on\+\_\+key\+List\+Widget\+\_\+double\+Clicked -\/ действие, которое выполниться при двойном нажатии на элемент в Q\+List\+Widget \end{DoxyCompactList}\item 
+void \hyperlink{class_key_main_window_a7a7856ea2f3e6d5bc6c4411057e64957}{start\+Play} (Q\+Char key)
+\begin{DoxyCompactList}\small\item\em start\+Play -\/ начинает вопроизводить элемент плеера, связанный с данной клавишей \end{DoxyCompactList}\item 
+void \hyperlink{class_key_main_window_a545142222ff293b73d57fb22ac6a122d}{stop\+Play} (Q\+Char key)
+\begin{DoxyCompactList}\small\item\em stop\+Play -\/ останавливает воспроизведение элемента плеера, связанного с данной клавишей \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_key_main_window_a2fe2594084ecccb578c5991b8bf9844b}\label{class_key_main_window_a2fe2594084ecccb578c5991b8bf9844b}} 
+void \hyperlink{class_key_main_window_a2fe2594084ecccb578c5991b8bf9844b}{stop\+All\+Play} ()
+\begin{DoxyCompactList}\small\item\em stop\+All\+Play -\/ останавливает воспроизведение всех элементов плеера \end{DoxyCompactList}\item 
+void \hyperlink{class_key_main_window_aaf05ff47462e7e4e396edc946a64fd7d}{edit\+Ok} (\hyperlink{class_key_element}{Key\+Element} $\ast$element)
+\begin{DoxyCompactList}\small\item\em edit\+Ok -\/ слот, в который передаётся созданный элемент плеера для добавления в систему. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_key_main_window_a91ed8b3bdc93749b0be61f28cffbb07a}\label{class_key_main_window_a91ed8b3bdc93749b0be61f28cffbb07a}} 
+{\bfseries Key\+Main\+Window} (Q\+Widget $\ast$parent=0)
+\item 
+void \hyperlink{class_key_main_window_ac8658a2a9309909505bf6c0780919068}{add\+In\+List} (\hyperlink{class_key_element}{Key\+Element} $\ast$element)
+\begin{DoxyCompactList}\small\item\em add\+In\+List -\/ добавляет элемент плеера в текущий список (keys, Q\+List\+Widget) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_key_main_window}{Key\+Main\+Window} -\/ класс главного окна с главным интерфейсом и с основной логикой 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_key_main_window_ac8658a2a9309909505bf6c0780919068}\label{class_key_main_window_ac8658a2a9309909505bf6c0780919068}} 
+\index{Key\+Main\+Window@{Key\+Main\+Window}!add\+In\+List@{add\+In\+List}}
+\index{add\+In\+List@{add\+In\+List}!Key\+Main\+Window@{Key\+Main\+Window}}
+\subsubsection{\texorpdfstring{add\+In\+List()}{addInList()}}
+{\footnotesize\ttfamily void Key\+Main\+Window\+::add\+In\+List (\begin{DoxyParamCaption}\item[{\hyperlink{class_key_element}{Key\+Element} $\ast$}]{element }\end{DoxyParamCaption})}
+
+
+
+add\+In\+List -\/ добавляет элемент плеера в текущий список (keys, Q\+List\+Widget) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & -\/ элемент плеера для добавления \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_key_main_window_aaf05ff47462e7e4e396edc946a64fd7d}\label{class_key_main_window_aaf05ff47462e7e4e396edc946a64fd7d}} 
+\index{Key\+Main\+Window@{Key\+Main\+Window}!edit\+Ok@{edit\+Ok}}
+\index{edit\+Ok@{edit\+Ok}!Key\+Main\+Window@{Key\+Main\+Window}}
+\subsubsection{\texorpdfstring{edit\+Ok}{editOk}}
+{\footnotesize\ttfamily void Key\+Main\+Window\+::edit\+Ok (\begin{DoxyParamCaption}\item[{\hyperlink{class_key_element}{Key\+Element} $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+edit\+Ok -\/ слот, в который передаётся созданный элемент плеера для добавления в систему. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & -\/ созданный элемент плеера добавляет созданный элемент плеера со всеми параметрами в Key\+List и Q\+List\+Widget \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_key_main_window_a13f36481d6b0d1f68dceca8a1c1ec2c1}\label{class_key_main_window_a13f36481d6b0d1f68dceca8a1c1ec2c1}} 
+\index{Key\+Main\+Window@{Key\+Main\+Window}!on\+\_\+file\+Tree\+Widget\+\_\+double\+Clicked@{on\+\_\+file\+Tree\+Widget\+\_\+double\+Clicked}}
+\index{on\+\_\+file\+Tree\+Widget\+\_\+double\+Clicked@{on\+\_\+file\+Tree\+Widget\+\_\+double\+Clicked}!Key\+Main\+Window@{Key\+Main\+Window}}
+\subsubsection{\texorpdfstring{on\+\_\+file\+Tree\+Widget\+\_\+double\+Clicked}{on\_fileTreeWidget\_doubleClicked}}
+{\footnotesize\ttfamily void Key\+Main\+Window\+::on\+\_\+file\+Tree\+Widget\+\_\+double\+Clicked (\begin{DoxyParamCaption}\item[{const Q\+Model\+Index \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+on\+\_\+file\+Tree\+Widget\+\_\+double\+Clicked -\/ действие, которое выполниться при двойном нажатии на элемент в Q\+Tree\+Widget ( = \char`\"{}\+Edit\char`\"{}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & -\/ индекс текущего элемента открывает окно для создания элемента плеера с выбранными параметрами. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_key_main_window_af82eadd35c704bc554d2465554dc48c0}\label{class_key_main_window_af82eadd35c704bc554d2465554dc48c0}} 
+\index{Key\+Main\+Window@{Key\+Main\+Window}!on\+\_\+key\+List\+Widget\+\_\+double\+Clicked@{on\+\_\+key\+List\+Widget\+\_\+double\+Clicked}}
+\index{on\+\_\+key\+List\+Widget\+\_\+double\+Clicked@{on\+\_\+key\+List\+Widget\+\_\+double\+Clicked}!Key\+Main\+Window@{Key\+Main\+Window}}
+\subsubsection{\texorpdfstring{on\+\_\+key\+List\+Widget\+\_\+double\+Clicked}{on\_keyListWidget\_doubleClicked}}
+{\footnotesize\ttfamily void Key\+Main\+Window\+::on\+\_\+key\+List\+Widget\+\_\+double\+Clicked (\begin{DoxyParamCaption}\item[{const Q\+Model\+Index \&}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+on\+\_\+key\+List\+Widget\+\_\+double\+Clicked -\/ действие, которое выполниться при двойном нажатии на элемент в Q\+List\+Widget 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & -\/ индекс текущего элемента воспроизведение текущего жлемента плеера, либо его остановка. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_key_main_window_a7a7856ea2f3e6d5bc6c4411057e64957}\label{class_key_main_window_a7a7856ea2f3e6d5bc6c4411057e64957}} 
+\index{Key\+Main\+Window@{Key\+Main\+Window}!start\+Play@{start\+Play}}
+\index{start\+Play@{start\+Play}!Key\+Main\+Window@{Key\+Main\+Window}}
+\subsubsection{\texorpdfstring{start\+Play}{startPlay}}
+{\footnotesize\ttfamily void Key\+Main\+Window\+::start\+Play (\begin{DoxyParamCaption}\item[{Q\+Char}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+start\+Play -\/ начинает вопроизводить элемент плеера, связанный с данной клавишей 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & -\/ код символа, который был активирован\+: \textquotesingle{}0\textquotesingle{} -\/ \textquotesingle{}9\textquotesingle{} -\/ переход к другому слою \textquotesingle{}a\textquotesingle{} -\/ \textquotesingle{}z\textquotesingle{} -\/ клавиши \textquotesingle{}.\textquotesingle{} -\/ S\+H\+I\+FT \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_key_main_window_a545142222ff293b73d57fb22ac6a122d}\label{class_key_main_window_a545142222ff293b73d57fb22ac6a122d}} 
+\index{Key\+Main\+Window@{Key\+Main\+Window}!stop\+Play@{stop\+Play}}
+\index{stop\+Play@{stop\+Play}!Key\+Main\+Window@{Key\+Main\+Window}}
+\subsubsection{\texorpdfstring{stop\+Play}{stopPlay}}
+{\footnotesize\ttfamily void Key\+Main\+Window\+::stop\+Play (\begin{DoxyParamCaption}\item[{Q\+Char}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+stop\+Play -\/ останавливает воспроизведение элемента плеера, связанного с данной клавишей 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & -\/ код символа, который был активирован\+: \textquotesingle{}a\textquotesingle{} -\/ \textquotesingle{}z\textquotesingle{} -\/ клавиши \textquotesingle{}.\textquotesingle{} -\/ S\+H\+I\+FT \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alexey/\+Documents/\+Key\+Player3.\+x\+Rus/keymainwindow.\+h\item 
+C\+:/\+Users/\+Alexey/\+Documents/\+Key\+Player3.\+x\+Rus/keymainwindow.\+cpp\end{DoxyCompactItemize}

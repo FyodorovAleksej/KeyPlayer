@@ -1,0 +1,302 @@
+\hypertarget{class_key_element}{}\section{Key\+Element Class Reference}
+\label{class_key_element}\index{Key\+Element@{Key\+Element}}
+
+
+\hyperlink{class_key_element}{Key\+Element} -\/ класс элемента, который хранит все параметры для воспроизведения музыкального файла. Таких как\+: адрес/клавиша/громкость/повторение  
+
+
+
+
+{\ttfamily \#include $<$keyelement.\+h$>$}
+
+Inheritance diagram for Key\+Element\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_key_element}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_key_element_aaaf9e68dd1d0456ba75b107542576161}\label{class_key_element_aaaf9e68dd1d0456ba75b107542576161}} 
+void \hyperlink{class_key_element_aaaf9e68dd1d0456ba75b107542576161}{play} ()
+\begin{DoxyCompactList}\small\item\em play -\/ запускает плеер \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_key_element_abeb24994e811465ee0e9ebd57bb83d18}\label{class_key_element_abeb24994e811465ee0e9ebd57bb83d18}} 
+void \hyperlink{class_key_element_abeb24994e811465ee0e9ebd57bb83d18}{stop} ()
+\begin{DoxyCompactList}\small\item\em stop -\/ останавливает плеер \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_key_element_a24e2928e97f101790f4f0c9bdfeced4c}\label{class_key_element_a24e2928e97f101790f4f0c9bdfeced4c}} 
+void \hyperlink{class_key_element_a24e2928e97f101790f4f0c9bdfeced4c}{error\+Slot} ()
+\begin{DoxyCompactList}\small\item\em error\+Slot -\/ слот ошибки, когда информация о файле загрузиться используется для проверки поддержки текущего файла плеером \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_key_element_a633b887fb11d894f467f4ab75eca4c06}\label{class_key_element_a633b887fb11d894f467f4ab75eca4c06}} 
+{\bfseries Key\+Element} (Q\+Object $\ast$parent=0)
+\item 
+\hyperlink{class_key_element_aee0ae2b886fdc51944e3ea51d5f78162}{Key\+Element} (Q\+String name)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_key_element}{Key\+Element} -\/ конструктор, в который передайтся алрес музыкального файла для связи \end{DoxyCompactList}\item 
+Q\+Char \hyperlink{class_key_element_a6e0591a132b0b7c56196393552e7facd}{get\+Key} ()
+\begin{DoxyCompactList}\small\item\em get\+Key получить клавишу, к которой привязан файл \end{DoxyCompactList}\item 
+void \hyperlink{class_key_element_a19d376b834c91498ac136cf39ee31b5d}{set\+Key} (Q\+Char key)
+\begin{DoxyCompactList}\small\item\em set\+Key -\/ установка клавиши, к которой будет привязан файл \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_key_element_a30701d7ff9a6ab3ec4ac69c0487f462c}{get\+Name} ()
+\begin{DoxyCompactList}\small\item\em get\+Name -\/ получить локальное имя музыкального файла \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_key_element_a04460e1dedb060dd7c21a7a4ef3a3ee2}{get\+Path} ()
+\begin{DoxyCompactList}\small\item\em get\+Path получить полный адрес музыкального файла \end{DoxyCompactList}\item 
+int \hyperlink{class_key_element_ab9a05ec48e81319c0f9648535bf448ef}{get\+Format} ()
+\begin{DoxyCompactList}\small\item\em get\+Format -\/ получить текущий статус музыкального файла \end{DoxyCompactList}\item 
+void \hyperlink{class_key_element_aaee575ca9fabebd253806da9dcdc512f}{set\+Format} (int format)
+\begin{DoxyCompactList}\small\item\em set\+Format -\/ установить текущий статус музыкального файла \end{DoxyCompactList}\item 
+Q\+Tree\+Widget\+Item $\ast$ \hyperlink{class_key_element_aa4180885b87bb3eb0ed7418a96b79ffc}{get\+Item} ()
+\begin{DoxyCompactList}\small\item\em get\+Item -\/ получить привязанный элемент из Q\+Tree\+Widget \end{DoxyCompactList}\item 
+void \hyperlink{class_key_element_ab05c8efbfa5efad73e4e3b46d1521336}{set\+Item} (Q\+Tree\+Widget\+Item $\ast$item)
+\begin{DoxyCompactList}\small\item\em set\+Item -\/ устанавливает связь с элементом из Q\+Tree\+Widget \end{DoxyCompactList}\item 
+void \hyperlink{class_key_element_ae702f4dcd7becbce1737e6f4f3f69afe}{set\+Volume} (int volume)
+\begin{DoxyCompactList}\small\item\em set\+Volume -\/ устанавливает громкость воспроизведения \end{DoxyCompactList}\item 
+int \hyperlink{class_key_element_a088397040b8daccb6c7f5cd6cc8ef29f}{get\+Volume} ()
+\begin{DoxyCompactList}\small\item\em get\+Volume -\/ получает текущее значение громкости \end{DoxyCompactList}\item 
+Q\+Media\+Player $\ast$ \hyperlink{class_key_element_ae961bfbc0ce3eeb9b62ad12100ca977f}{get\+Player} ()
+\begin{DoxyCompactList}\small\item\em get\+Player -\/ получает плеер воспроизведения текщего файла \end{DoxyCompactList}\item 
+qint64 \hyperlink{class_key_element_a30c837b84299e75fcd41e0c6544d86ad}{duration} ()
+\begin{DoxyCompactList}\small\item\em duration -\/ получает длительность музыкального файла (в мс) \end{DoxyCompactList}\item 
+bool \hyperlink{class_key_element_ae4ec608b097cae6a325cbfc0d70ac01d}{is\+Valid} ()
+\begin{DoxyCompactList}\small\item\em is\+Valid -\/ получает статус самого плеера. \end{DoxyCompactList}\item 
+bool \hyperlink{class_key_element_a1b70040900c774127a3c1b6530e3374a}{is\+Repeated} ()
+\begin{DoxyCompactList}\small\item\em is\+Repeated -\/ получает параметр повторения музыкального файла (при запуске с S\+H\+I\+FT) \end{DoxyCompactList}\item 
+void \hyperlink{class_key_element_a3e9909b7a88b5bbba3b9fafe0d3a6652}{set\+Repeated} (bool repeat)
+\begin{DoxyCompactList}\small\item\em set\+Repeated -\/ устанавливает параметр повторения музыкального файла (при запуске с S\+H\+I\+FT) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_key_element}{Key\+Element} -\/ класс элемента, который хранит все параметры для воспроизведения музыкального файла. Таких как\+: адрес/клавиша/громкость/повторение 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_key_element_aee0ae2b886fdc51944e3ea51d5f78162}\label{class_key_element_aee0ae2b886fdc51944e3ea51d5f78162}} 
+\index{Key\+Element@{Key\+Element}!Key\+Element@{Key\+Element}}
+\index{Key\+Element@{Key\+Element}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{Key\+Element()}{KeyElement()}}
+{\footnotesize\ttfamily Key\+Element\+::\+Key\+Element (\begin{DoxyParamCaption}\item[{Q\+String}]{name }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_key_element}{Key\+Element} -\/ конструктор, в который передайтся алрес музыкального файла для связи 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & -\/ адрес музыкального файла для создания связи \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_key_element_a30c837b84299e75fcd41e0c6544d86ad}\label{class_key_element_a30c837b84299e75fcd41e0c6544d86ad}} 
+\index{Key\+Element@{Key\+Element}!duration@{duration}}
+\index{duration@{duration}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{duration()}{duration()}}
+{\footnotesize\ttfamily qint64 Key\+Element\+::duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+duration -\/ получает длительность музыкального файла (в мс) 
+
+\begin{DoxyReturn}{Returns}
+-\/ длительность музыкального файла (в мс) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_ab9a05ec48e81319c0f9648535bf448ef}\label{class_key_element_ab9a05ec48e81319c0f9648535bf448ef}} 
+\index{Key\+Element@{Key\+Element}!get\+Format@{get\+Format}}
+\index{get\+Format@{get\+Format}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{get\+Format()}{getFormat()}}
+{\footnotesize\ttfamily int Key\+Element\+::get\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Format -\/ получить текущий статус музыкального файла 
+
+\begin{DoxyReturn}{Returns}
+-\/ код статуса\+: 0 -\/ в настоящий момент не проигрывается с помощью S\+H\+I\+FT 1 -\/ в настоящий момент проигрывается с помощью S\+H\+I\+FT 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_aa4180885b87bb3eb0ed7418a96b79ffc}\label{class_key_element_aa4180885b87bb3eb0ed7418a96b79ffc}} 
+\index{Key\+Element@{Key\+Element}!get\+Item@{get\+Item}}
+\index{get\+Item@{get\+Item}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{get\+Item()}{getItem()}}
+{\footnotesize\ttfamily Q\+Tree\+Widget\+Item $\ast$ Key\+Element\+::get\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Item -\/ получить привязанный элемент из Q\+Tree\+Widget 
+
+\begin{DoxyReturn}{Returns}
+-\/ привязанный элемент из Q\+Tree\+Widget 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_a6e0591a132b0b7c56196393552e7facd}\label{class_key_element_a6e0591a132b0b7c56196393552e7facd}} 
+\index{Key\+Element@{Key\+Element}!get\+Key@{get\+Key}}
+\index{get\+Key@{get\+Key}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{get\+Key()}{getKey()}}
+{\footnotesize\ttfamily Q\+Char Key\+Element\+::get\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Key получить клавишу, к которой привязан файл 
+
+\begin{DoxyReturn}{Returns}
+-\/ привязанная клавиша 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_a30701d7ff9a6ab3ec4ac69c0487f462c}\label{class_key_element_a30701d7ff9a6ab3ec4ac69c0487f462c}} 
+\index{Key\+Element@{Key\+Element}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily Q\+String Key\+Element\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Name -\/ получить локальное имя музыкального файла 
+
+\begin{DoxyReturn}{Returns}
+-\/ локальное имя файла 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_a04460e1dedb060dd7c21a7a4ef3a3ee2}\label{class_key_element_a04460e1dedb060dd7c21a7a4ef3a3ee2}} 
+\index{Key\+Element@{Key\+Element}!get\+Path@{get\+Path}}
+\index{get\+Path@{get\+Path}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{get\+Path()}{getPath()}}
+{\footnotesize\ttfamily Q\+String Key\+Element\+::get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Path получить полный адрес музыкального файла 
+
+\begin{DoxyReturn}{Returns}
+-\/ адрес файла 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_ae961bfbc0ce3eeb9b62ad12100ca977f}\label{class_key_element_ae961bfbc0ce3eeb9b62ad12100ca977f}} 
+\index{Key\+Element@{Key\+Element}!get\+Player@{get\+Player}}
+\index{get\+Player@{get\+Player}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{get\+Player()}{getPlayer()}}
+{\footnotesize\ttfamily Q\+Media\+Player $\ast$ Key\+Element\+::get\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Player -\/ получает плеер воспроизведения текщего файла 
+
+\begin{DoxyReturn}{Returns}
+-\/ плеер воспроизведения 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_a088397040b8daccb6c7f5cd6cc8ef29f}\label{class_key_element_a088397040b8daccb6c7f5cd6cc8ef29f}} 
+\index{Key\+Element@{Key\+Element}!get\+Volume@{get\+Volume}}
+\index{get\+Volume@{get\+Volume}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{get\+Volume()}{getVolume()}}
+{\footnotesize\ttfamily int Key\+Element\+::get\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Volume -\/ получает текущее значение громкости 
+
+\begin{DoxyReturn}{Returns}
+-\/ значение громкости (от 0 до 100) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_a1b70040900c774127a3c1b6530e3374a}\label{class_key_element_a1b70040900c774127a3c1b6530e3374a}} 
+\index{Key\+Element@{Key\+Element}!is\+Repeated@{is\+Repeated}}
+\index{is\+Repeated@{is\+Repeated}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{is\+Repeated()}{isRepeated()}}
+{\footnotesize\ttfamily bool Key\+Element\+::is\+Repeated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+is\+Repeated -\/ получает параметр повторения музыкального файла (при запуске с S\+H\+I\+FT) 
+
+\begin{DoxyReturn}{Returns}
+bool -\/ повторяется ли файл 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_ae4ec608b097cae6a325cbfc0d70ac01d}\label{class_key_element_ae4ec608b097cae6a325cbfc0d70ac01d}} 
+\index{Key\+Element@{Key\+Element}!is\+Valid@{is\+Valid}}
+\index{is\+Valid@{is\+Valid}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{is\+Valid()}{isValid()}}
+{\footnotesize\ttfamily bool Key\+Element\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+is\+Valid -\/ получает статус самого плеера. 
+
+\begin{DoxyReturn}{Returns}
+-\/ готов ли плеер к работе 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_key_element_aaee575ca9fabebd253806da9dcdc512f}\label{class_key_element_aaee575ca9fabebd253806da9dcdc512f}} 
+\index{Key\+Element@{Key\+Element}!set\+Format@{set\+Format}}
+\index{set\+Format@{set\+Format}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{set\+Format()}{setFormat()}}
+{\footnotesize\ttfamily void Key\+Element\+::set\+Format (\begin{DoxyParamCaption}\item[{int}]{format }\end{DoxyParamCaption})}
+
+
+
+set\+Format -\/ установить текущий статус музыкального файла 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & -\/ код формата для установки 0 -\/ в настоящий момент не проигрывается с помощью S\+H\+I\+FT 1 -\/ в настоящий момент проигрывается с помощью S\+H\+I\+FT \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_key_element_ab05c8efbfa5efad73e4e3b46d1521336}\label{class_key_element_ab05c8efbfa5efad73e4e3b46d1521336}} 
+\index{Key\+Element@{Key\+Element}!set\+Item@{set\+Item}}
+\index{set\+Item@{set\+Item}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{set\+Item()}{setItem()}}
+{\footnotesize\ttfamily void Key\+Element\+::set\+Item (\begin{DoxyParamCaption}\item[{Q\+Tree\+Widget\+Item $\ast$}]{item }\end{DoxyParamCaption})}
+
+
+
+set\+Item -\/ устанавливает связь с элементом из Q\+Tree\+Widget 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & -\/ элемент из Q\+Tree\+Widget для привязки \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_key_element_a19d376b834c91498ac136cf39ee31b5d}\label{class_key_element_a19d376b834c91498ac136cf39ee31b5d}} 
+\index{Key\+Element@{Key\+Element}!set\+Key@{set\+Key}}
+\index{set\+Key@{set\+Key}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{set\+Key()}{setKey()}}
+{\footnotesize\ttfamily void Key\+Element\+::set\+Key (\begin{DoxyParamCaption}\item[{Q\+Char}]{key }\end{DoxyParamCaption})}
+
+
+
+set\+Key -\/ установка клавиши, к которой будет привязан файл 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & -\/ клавиша для привязки \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_key_element_a3e9909b7a88b5bbba3b9fafe0d3a6652}\label{class_key_element_a3e9909b7a88b5bbba3b9fafe0d3a6652}} 
+\index{Key\+Element@{Key\+Element}!set\+Repeated@{set\+Repeated}}
+\index{set\+Repeated@{set\+Repeated}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{set\+Repeated()}{setRepeated()}}
+{\footnotesize\ttfamily void Key\+Element\+::set\+Repeated (\begin{DoxyParamCaption}\item[{bool}]{repeat }\end{DoxyParamCaption})}
+
+
+
+set\+Repeated -\/ устанавливает параметр повторения музыкального файла (при запуске с S\+H\+I\+FT) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em repeat} & -\/ будет ли файл повторяться \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_key_element_ae702f4dcd7becbce1737e6f4f3f69afe}\label{class_key_element_ae702f4dcd7becbce1737e6f4f3f69afe}} 
+\index{Key\+Element@{Key\+Element}!set\+Volume@{set\+Volume}}
+\index{set\+Volume@{set\+Volume}!Key\+Element@{Key\+Element}}
+\subsubsection{\texorpdfstring{set\+Volume()}{setVolume()}}
+{\footnotesize\ttfamily void Key\+Element\+::set\+Volume (\begin{DoxyParamCaption}\item[{int}]{volume }\end{DoxyParamCaption})}
+
+
+
+set\+Volume -\/ устанавливает громкость воспроизведения 
+
+
+\begin{DoxyParams}{Parameters}
+{\em volume} & -\/ значение громкости (от 0 до 100) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alexey/\+Documents/\+Key\+Player3.\+x\+Rus/keyelement.\+h\item 
+C\+:/\+Users/\+Alexey/\+Documents/\+Key\+Player3.\+x\+Rus/keyelement.\+cpp\end{DoxyCompactItemize}
