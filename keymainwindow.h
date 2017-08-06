@@ -13,7 +13,7 @@ class KeyMainWindow;
 }
 
 /**
- * @brief The KeyMainWindow class the main window with main interface and logic system
+ * @brief The KeyMainWindow class of the main window with main interface and logic system, that can be used for manipulate all system
  */
 class KeyMainWindow : public QMainWindow
 {
@@ -74,25 +74,22 @@ public slots:
     void on_keyListWidget_doubleClicked(const QModelIndex &index);
 
     /**
-     * @brief startPlay start playing key element with KEY
-     * @param key the key of element for playing:
-     * '0' - '9' - tabs
-     * 'a' - 'z' - keys
-     * '.' - SHIFT
-     * start play the music file, that was linked with param key
+     * @brief start - the slot, that starts playing music file with this key
+     * @param key - the key of music file for playing
+     * @param page - the current page of keypad
      */
-    void startPlay(QChar key);
+    void start(QChar key, int page);
+
     /**
-     * @brief stopPlay stop playing key element with KEY
-     * @param key the key of element for stopping:
-     * 'a' - 'z' - keys
-     * '.' - SHIFT
-     * stop play the music file, that was linked with param key
+     * @brief stop - the slot, that stop playing music file with this key
+     * @param key - the key of music file for stoping
+     * @param page - the current page of keypad
      */
-    void stopPlay(QChar key);
+    void stop(QChar key, int page);
+
     /**
      * @brief stopAllPlay stopped all key elements
-     * stopping all music files, that can be used
+     * stopping all music files from all tabs, that can be used
      */
     void stopAllPlay();
 
@@ -179,6 +176,10 @@ private:
      * @return the number of current active tab (0 - 9)
      */
     int getCurrentPage();
+
+
+
+
 
     Ui::KeyMainWindow *ui;
 

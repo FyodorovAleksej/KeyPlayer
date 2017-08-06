@@ -29,14 +29,16 @@ SOURCES += main.cpp \
     keyelement.cpp \
     playwindow.cpp \
     keyeditdialog.cpp \
-    tryplayer.cpp
+    tryplayer.cpp \
+    playbutton.cpp
 
 HEADERS  += \
     keymainwindow.h \
     keyelement.h \
     playwindow.h \
     keyeditdialog.h \
-    tryplayer.h
+    tryplayer.h \
+    playbutton.h
 
 FORMS    += \
     keymainwindow.ui \

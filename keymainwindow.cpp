@@ -220,8 +220,12 @@ void KeyMainWindow::on_playButton_clicked()
     currentPage = 0;
     logging("start playing... Enjoy =)");
     PlayWindow* window = new PlayWindow(this);
-    connect (window,SIGNAL(buttonPressedSignal(QChar)),this,SLOT(startPlay(QChar)));
-    connect (window,SIGNAL(buttonReleasedSignal(QChar)),this,SLOT(stopPlay(QChar)));
+    //connect (window,SIGNAL(buttonPressedSignal(QChar)),this,SLOT(startPlay(QChar)));
+    //connect (window,SIGNAL(buttonReleasedSignal(QChar)),this,SLOT(stopPlay(QChar)));
+
+    connect(window, SIGNAL(startSignal(QChar,int)), this, SLOT(start(QChar,int)));
+    connect(window, SIGNAL(stopSignal(QChar,int)), this, SLOT(stop(QChar,int)));
+
     connect(window,SIGNAL(rejected()),this,SLOT(stopAllPlay()));
     shift = false;
     window->show();
@@ -246,6 +250,72 @@ void KeyMainWindow::on_keyListWidget_doubleClicked(const QModelIndex &index)
     prelistening = !prelistening;
 }
 
+
+void KeyMainWindow::start(QChar key, int page)
+{
+    QList<QListWidgetItem*> list = keyPagesList.at(page)->findItems(key,Qt::MatchStartsWith);
+    if (!list.isEmpty())
+    {
+        if (list.at(0)->text()[0] == key)
+        {
+            for (int i = 0; i < keys.at(page)->length(); i++)
+            {
+                if (keys.at(page)->value(i)->getKey() == key)
+                {
+                    KeyElement *elem = keys.at(page)->value(i);
+                    if (elem->getFormat() == 1)
+                    {
+                        elem->setFormat(0);
+                        if (elem->isRepeated())
+                        {
+                            disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
+                        }
+                        elem->stop();
+                        return;
+                    }
+                    if (elem->getFormat() == 0)
+                    {
+                        elem->setFormat(1);
+                        elem->play();
+                        if (elem->isRepeated())
+                        {
+                            connect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
+                        }
+                        return;
+                    }
+                    elem->play();
+                }
+            }
+        }
+    }
+}
+
+void KeyMainWindow::stop(QChar key, int page)
+{
+    QList<QListWidgetItem*> list = keyPagesList.at(page)->findItems(key,Qt::MatchStartsWith);
+    if (!list.isEmpty())
+    {
+        if (list.at(0)->text()[0] == key)
+        {
+            for (int i = 0; i < keys.at(page)->length(); i++)
+            {
+                if (keys.at(page)->value(i)->getKey() == key)
+                {
+                    KeyElement *elem = keys.at(page)->value(i);
+                    if (elem->isRepeated())
+                    {
+                        disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
+                    }
+                    elem->setFormat(0);
+                    elem->stop();
+                }
+            }
+        }
+    }
+}
+
+
+/*
 void KeyMainWindow::startPlay(QChar key)
 {
     if (key == '.')
@@ -332,6 +402,7 @@ void KeyMainWindow::stopPlay(QChar key)
         }
     }
 }
+*/
 
 void KeyMainWindow::stopAllPlay()
 {
