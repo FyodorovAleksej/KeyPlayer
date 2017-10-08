@@ -8,7 +8,7 @@
 #### 2.1 [Программные интерфейсы](#userSoft)
 Проект является независимым и не взаимодествует с внешними системами и сервисами.
 #### 2.2 [Интерфейс пользователя](#userInterf)
-Графический интерфейс проекта представлен с помощью мокапов. Отдельного рассмотрения требует окно проигрывания:
+Графический интерфейс проекта представлен с помощью мокапов [главного окна](https://fyodorovaleksej.github.io/KeyPlayer/KeyPlayerMocups/MainWindow.png), [окна проишрывания](https://fyodorovaleksej.github.io/KeyPlayer/KeyPlayerMocups/PlayWindow.png), [окна редакции](https://fyodorovaleksej.github.io/KeyPlayer/KeyPlayerMocups/EditDialog.png). Отдельного рассмотрения требует окно проигрывания:
 
 |Клавиша (Кнопка)|Реакция|
 |:---|:---|
