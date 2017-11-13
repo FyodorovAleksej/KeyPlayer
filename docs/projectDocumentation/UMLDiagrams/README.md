@@ -3,7 +3,8 @@
  1. [Диаграммы активности](#Activity)
  2. [Диаграмма классов](#Class)
  3. [Диаграмма последовательности](#Sequence)
- 3. [Диаграмма прецедентов](#UseCase)
+ 4. [Диаграмма состояний](#State) 
+ 5. [Диаграмма прецедентов](#UseCase)
 
 
 <a name="Activity"></a>
@@ -23,9 +24,14 @@
 <a name="Sequence"></a>
 ### 3. Диаграмма последовательности
 Диаграмма последовательности основного варианта использования представляет из себя следующую диаграмму:
-![Диаграмма последовательности](https://fyodorovaleksej.github.io/KeyPlayer/projectDocumentation/UMLDiagrams/Sequence/SequenceDiagram.jpg) 
+![Диаграмма последовательности](https://fyodorovaleksej.github.io/KeyPlayer/projectDocumentation/UMLDiagrams/Sequence/SequenceDiagram.jpg)
+
+<a name="State"></a>
+### 4. Диаграмма состояний
+На диаграмме состояний показаны состояния объекта класса KeyButton при взаимодействии его с Окном проигрывания и соответствующим Ключом. Диаграмма представлена ниже
+![Диаграмма состояний](https://fyodorovaleksej.github.io/KeyPlayer/projectDocumentation/UMLDiagrams/State/KeyStateDiagram.jpg)
 
 <a name="UseCase"></a>
-### 4. Диаграмма прецедентов
+### 5. Диаграмма прецедентов
 Диаграмма прецедентов представляет собой следующую диаграмму:
 ![Диаграмма прецедентов](https://fyodorovaleksej.github.io/KeyPlayer/projectDocumentation/UMLDiagrams/UseCase/UseCaseDiagram.jpg)
