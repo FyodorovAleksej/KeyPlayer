@@ -4,7 +4,8 @@
  2. [Диаграмма классов](#Class)
  3. [Диаграмма последовательности](#Sequence)
  4. [Диаграмма состояний](#State) 
- 5. [Диаграмма прецедентов](#UseCase)
+ 5. [Диаграмма развёртывания](#Deploy) 
+ 6. [Диаграмма прецедентов](#UseCase)
 
 
 <a name="Activity"></a>
@@ -31,7 +32,12 @@
 На диаграмме состояний показаны состояния объекта класса KeyButton при взаимодействии его с Окном проигрывания и соответствующим Ключом. Диаграмма представлена ниже
 ![Диаграмма состояний](https://fyodorovaleksej.github.io/KeyPlayer/projectDocumentation/UMLDiagrams/State/KeyStateDiagram.jpg)
 
+<a name="Deploy"></a>
+### 5. Диаграмма развёртывания
+Диаграмма развёртывания представляет собой следующую диаграмму:
+![Диаграмма развёртывания](https://fyodorovaleksej.github.io/KeyPlayer/projectDocumentation/UMLDiagrams/Deploy/DeploymentDiagramm.jpg)
+
 <a name="UseCase"></a>
-### 5. Диаграмма прецедентов
+### 6. Диаграмма прецедентов
 Диаграмма прецедентов представляет собой следующую диаграмму:
 ![Диаграмма прецедентов](https://fyodorovaleksej.github.io/KeyPlayer/projectDocumentation/UMLDiagrams/UseCase/UseCaseDiagram.jpg)
