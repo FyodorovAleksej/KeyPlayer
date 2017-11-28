@@ -53,6 +53,7 @@ KeyMainWindow::KeyMainWindow(QWidget *parent) :
     ui(new Ui::KeyMainWindow)
 {
     ui->setupUi(this);
+
     ui->fileTreeWidget->setColumnCount(2);
     QStringList headsList(QString("Path"));
     headsList.append("Name");
@@ -313,96 +314,6 @@ void KeyMainWindow::stop(QChar key, int page)
         }
     }
 }
-
-
-/*
-void KeyMainWindow::startPlay(QChar key)
-{
-    if (key == '.')
-    {
-        shift = true;
-    }
-    else
-    {
-        if (key >= '0' && key <= '9')
-        {
-            currentPage = key.toLatin1() - '0';
-        }
-        else
-        {
-            QList<QListWidgetItem*> list = keyPagesList.at(currentPage)->findItems(key,Qt::MatchStartsWith);
-            if (!list.isEmpty())
-            {
-                if (list.at(0)->text()[0] == key)
-                {
-                    for (int i = 0; i < keys.at(currentPage)->length(); i++)
-                    {
-                        if (keys.at(currentPage)->value(i)->getKey() == key)
-                        {
-                            KeyElement *elem = keys.at(currentPage)->value(i);
-                            if (shift && elem->getFormat() == 1)
-                            {
-                                elem->setFormat(0);
-                                if (elem->isRepeated())
-                                {
-                                    disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
-                                }
-                                elem->stop();
-                                return;
-                            }
-                            if (shift && elem->getFormat() == 0)
-                            {
-                                elem->setFormat(1);
-                                elem->play();
-                                if (elem->isRepeated())
-                                {
-                                    connect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
-                                }
-                                return;
-                            }
-                            elem->play();
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-void KeyMainWindow::stopPlay(QChar key)
-{
-    if (key == '.')
-    {
-        shift = false;
-    }
-    else
-    {
-        QList<QListWidgetItem*> list = keyPagesList.at(currentPage)->findItems(key,Qt::MatchStartsWith);
-        if (!list.isEmpty())
-        {
-            if (list.at(0)->text()[0] == key)
-            {
-                for (int i = 0; i < keys.at(currentPage)->length(); i++)
-                {
-                    if (keys.at(currentPage)->value(i)->getKey() == key)
-                    {
-                        KeyElement *elem = keys.at(currentPage)->value(i);
-                        if (!shift)
-                        {
-                            if (elem->isRepeated())
-                            {
-                                disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
-                            }
-                            elem->setFormat(0);
-                            elem->stop();
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-*/
 
 void KeyMainWindow::stopAllPlay()
 {

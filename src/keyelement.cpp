@@ -21,7 +21,7 @@ KeyElement::KeyElement(QString name)
     this->valid = true;
     this->player = new QMediaPlayer();
     connect(player, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
-    player->setMedia(QMediaContent(name));
+    player->setMedia(QMediaContent(QUrl::fromLocalFile(name)));
     this->format = 0;
     this->valid = player->isAvailable();
     this->item = new QTreeWidgetItem();

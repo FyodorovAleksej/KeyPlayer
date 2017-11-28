@@ -34,7 +34,7 @@ signals:
      * @brief finish the signal of correct ending editing.
      * @param element the result of editing. The key element with setted properties
      */
-    finish(KeyElement* element);
+    void finish(KeyElement* element);
 private slots:
 
     /**
