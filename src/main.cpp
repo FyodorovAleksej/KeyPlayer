@@ -1,6 +1,7 @@
 #include "keymainwindow.h"
 #include <QApplication>
 #include <QDebug>
+#include <QStyleFactory>
 #include <QtMultimedia/QMediaPlayer>
 
 int main(int argc, char *argv[])
@@ -8,5 +9,5 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     KeyMainWindow w;
     w.show();
-     return a.exec();
+    return a.exec();
 }

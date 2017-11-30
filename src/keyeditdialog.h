@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QDebug>
 #include "keyelement.h"
+#include "properties.h"
 
 namespace Ui {
 class KeyEditDialog;
@@ -20,7 +21,12 @@ class KeyEditDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit KeyEditDialog(QWidget *parent = 0);
+    /**
+     * @brief KeyEditDialog - creating new KeyEditDialog window for build KeyElement
+     * @param parent parent object for destroying
+     * @param prop object with properties
+     */
+    explicit KeyEditDialog(QWidget *parent = 0, Properties *prop = NULL);
     ~KeyEditDialog();
 
     /**
@@ -34,7 +40,7 @@ signals:
      * @brief finish the signal of correct ending editing.
      * @param element the result of editing. The key element with setted properties
      */
-    finish(KeyElement* element);
+    void finish(KeyElement* element);
 private slots:
 
     /**
@@ -58,6 +64,7 @@ private slots:
 private:
     Ui::KeyEditDialog *ui;
     QTreeWidgetItem* path;
+    Properties* prop;
 };
 
 #endif // KEYEDITDIALOG_H

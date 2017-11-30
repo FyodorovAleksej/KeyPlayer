@@ -13,7 +13,8 @@ TryPlayer::TryPlayer(QTreeWidgetItem *item)
     this->player = new QMediaPlayer();
     connect(player, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
     connect(player, SIGNAL(durationChanged(qint64)), this, SLOT(durationChangedSlot()));
-    player->setMedia(QMediaContent(item->text(0)));
+    player->setMedia(QMediaContent(QUrl::fromLocalFile(item->text(0))));
+    qDebug() << "add new try" << item->text(0);
 }
 
 TryPlayer::~TryPlayer()
@@ -25,11 +26,13 @@ TryPlayer::~TryPlayer()
 
 void TryPlayer::errorSlot()
 {
+    qDebug() << "error" << item->text(0);
     item->setBackgroundColor(1,QColor(250,80,80,235));
-    delete this;
+    this->deleteLater();
 }
 
 void TryPlayer::durationChangedSlot()
 {
-    delete this;
+    qDebug() << "correct" << item->text(0);
+    this->deleteLater();
 }

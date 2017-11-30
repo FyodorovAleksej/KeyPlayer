@@ -30,7 +30,10 @@ SOURCES += main.cpp \
     playwindow.cpp \
     keyeditdialog.cpp \
     tryplayer.cpp \
-    playbutton.cpp
+    playbutton.cpp \
+    propertiesdialog.cpp \
+    properties.cpp \
+    nullproperties.cpp
 
 HEADERS  += \
     keymainwindow.h \
@@ -38,9 +41,13 @@ HEADERS  += \
     playwindow.h \
     keyeditdialog.h \
     tryplayer.h \
-    playbutton.h
+    playbutton.h \
+    propertiesdialog.h \
+    properties.h \
+    nullproperties.h
 
 FORMS    += \
     keymainwindow.ui \
     playwindow.ui \
-    keyeditdialog.ui
+    keyeditdialog.ui \
+    propertiesdialog.ui

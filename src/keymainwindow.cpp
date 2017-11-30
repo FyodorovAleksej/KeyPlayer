@@ -2,6 +2,12 @@
 #include "ui_keymainwindow.h"
 
 
+QString rgbToString(QColor color)
+{
+    return "rgb(" + QString::number(color.red()) + "," + QString::number(color.green()) + "," + QString::number(color.blue()) + ");";
+}
+
+
 QTreeWidgetItem* KeyMainWindow::getDir(QString path, QTreeWidgetItem* parent)
 {
     int check = 1;
@@ -52,7 +58,9 @@ KeyMainWindow::KeyMainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::KeyMainWindow)
 {
+    this->prop = NULL;
     ui->setupUi(this);
+    this->changeMainProp(Properties::loadProperties());
     ui->fileTreeWidget->setColumnCount(2);
     QStringList headsList(QString("Path"));
     headsList.append("Name");
@@ -219,7 +227,7 @@ void KeyMainWindow::on_playButton_clicked()
     stopAllPlay();
     currentPage = 0;
     logging("start playing... Enjoy =)");
-    PlayWindow* window = new PlayWindow(this);
+    PlayWindow* window = new PlayWindow(this, this->prop);
     //connect (window,SIGNAL(buttonPressedSignal(QChar)),this,SLOT(startPlay(QChar)));
     //connect (window,SIGNAL(buttonReleasedSignal(QChar)),this,SLOT(stopPlay(QChar)));
 
@@ -314,96 +322,6 @@ void KeyMainWindow::stop(QChar key, int page)
     }
 }
 
-
-/*
-void KeyMainWindow::startPlay(QChar key)
-{
-    if (key == '.')
-    {
-        shift = true;
-    }
-    else
-    {
-        if (key >= '0' && key <= '9')
-        {
-            currentPage = key.toLatin1() - '0';
-        }
-        else
-        {
-            QList<QListWidgetItem*> list = keyPagesList.at(currentPage)->findItems(key,Qt::MatchStartsWith);
-            if (!list.isEmpty())
-            {
-                if (list.at(0)->text()[0] == key)
-                {
-                    for (int i = 0; i < keys.at(currentPage)->length(); i++)
-                    {
-                        if (keys.at(currentPage)->value(i)->getKey() == key)
-                        {
-                            KeyElement *elem = keys.at(currentPage)->value(i);
-                            if (shift && elem->getFormat() == 1)
-                            {
-                                elem->setFormat(0);
-                                if (elem->isRepeated())
-                                {
-                                    disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
-                                }
-                                elem->stop();
-                                return;
-                            }
-                            if (shift && elem->getFormat() == 0)
-                            {
-                                elem->setFormat(1);
-                                elem->play();
-                                if (elem->isRepeated())
-                                {
-                                    connect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
-                                }
-                                return;
-                            }
-                            elem->play();
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-void KeyMainWindow::stopPlay(QChar key)
-{
-    if (key == '.')
-    {
-        shift = false;
-    }
-    else
-    {
-        QList<QListWidgetItem*> list = keyPagesList.at(currentPage)->findItems(key,Qt::MatchStartsWith);
-        if (!list.isEmpty())
-        {
-            if (list.at(0)->text()[0] == key)
-            {
-                for (int i = 0; i < keys.at(currentPage)->length(); i++)
-                {
-                    if (keys.at(currentPage)->value(i)->getKey() == key)
-                    {
-                        KeyElement *elem = keys.at(currentPage)->value(i);
-                        if (!shift)
-                        {
-                            if (elem->isRepeated())
-                            {
-                                disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
-                            }
-                            elem->setFormat(0);
-                            elem->stop();
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-*/
-
 void KeyMainWindow::stopAllPlay()
 {
     logging("stopping all...");
@@ -446,7 +364,7 @@ void KeyMainWindow::editOk(KeyElement *element)
 
 void KeyMainWindow::on_actionSaveFile_triggered()
 {
-    FILE *file = new FILE;
+    FILE *file;
     logging("choosing file...");
     QString name = QFileDialog::getSaveFileName(this, tr("Save Key List"), QDir::currentPath(), tr("Key List files (*.kpl);; All files(*.*)"));
     if (name.isEmpty())
@@ -484,12 +402,13 @@ void KeyMainWindow::on_actionSaveFile_triggered()
     }
     fclose(file);
     logging("file - " + name +" was saved");
+    delete file;
 }
 
 void KeyMainWindow::on_actionOpenFile_triggered()
 {
 
-    FILE *file = new FILE;
+    FILE *file;
     logging("choosing file...");
 
     QString name = QFileDialog::getOpenFileName(this, tr("Open Key List"), QDir::currentPath(), tr("Key List files (*.kpl);; All files(*.*)"));
@@ -562,6 +481,7 @@ void KeyMainWindow::on_actionOpenFile_triggered()
     fclose(file);
     ui->tabWidget->setCurrentIndex(temp);
     logging("file - " + name + " was readed");
+    delete file;
 }
 
 void KeyMainWindow::on_actionSaveFileMenu_triggered()
@@ -594,9 +514,9 @@ void KeyMainWindow::addInList(KeyElement *element)
 void KeyMainWindow::on_autoButton_clicked()
 {
     logging("autoFilling...");
+    int oldPage = ui->tabWidget->currentIndex();
     on_deleteAllButton_clicked();
     sum = 0;
-    int temp = currentPage;
     currentPage = 0;
     ui->tabWidget->setCurrentIndex(currentPage);
     for (int i = 0; i < ui->fileTreeWidget->topLevelItemCount(); i++)
@@ -606,7 +526,7 @@ void KeyMainWindow::on_autoButton_clicked()
             return;
         }
     }
-    currentPage = temp;
+    currentPage = oldPage;
     ui->tabWidget->setCurrentIndex(currentPage);
     logging("autoFilling finished sucessfully");
 }
@@ -642,8 +562,8 @@ bool KeyMainWindow::autoFill(QTreeWidgetItem* current)
                 element->setKey('A' + sum);
                 sum++;
                 element->setItem(current);
-                element->setRepeated(true);
-                element->setVolume(100);
+                element->setRepeated(this->prop->getRepeat());
+                element->setVolume(this->prop->getVolume());
                 editOk(element);
             }
         }
@@ -672,4 +592,55 @@ void KeyMainWindow::fileInfo(QString info)
 int KeyMainWindow::getCurrentPage()
 {
     return ui->tabWidget->currentIndex();
+}
+
+void KeyMainWindow::on_actionProperties_triggered()
+{
+    PropertiesDialog* dialog = new PropertiesDialog(this);
+    connect(dialog, SIGNAL(changeProperties(Properties*)), this, SLOT(changeMainProp(Properties*)));
+    dialog->show();
+}
+
+void KeyMainWindow::changeMainProp(Properties *prop)
+{
+    if (prop != NULL)
+    {
+        QApplication::setPalette(prop->getPalette());
+        ui->fileTreeWidget->headerItem()->setBackgroundColor(0, prop->getPalette().button().color());
+        ui->fileTreeWidget->headerItem()->setBackgroundColor(1, prop->getPalette().button().color());
+        ui->addButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->deleteButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->editButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->playButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->deleteAllButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->autoButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+
+        ui->keyListWidget_0->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->keyListWidget_1->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->keyListWidget_2->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->keyListWidget_3->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->keyListWidget_4->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->keyListWidget_5->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->keyListWidget_6->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->keyListWidget_7->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->keyListWidget_8->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->keyListWidget_9->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+
+        ui->tabWidget->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui->tabWidget->setStyleSheet("qproperty-titleColor:" + rgbToString(prop->getPalette().button().color()));
+        ui->tabWidget->setStyleSheet("qproperty-titleButtonColor:" + rgbToString(prop->getPalette().button().color()));
+
+#ifdef __WIN32
+        qDebug() << prop->getPalette().button().color();
+        qDebug() << prop->getPalette().window().color();
+
+#endif
+
+        if (this->prop != NULL)
+        {
+            delete this->prop;
+        }
+        this->prop = prop;
+        this->prop->saveProperties();
+    }
 }

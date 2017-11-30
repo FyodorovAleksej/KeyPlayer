@@ -1,5 +1,6 @@
 #include "playwindow.h"
 #include "ui_playwindow.h"
+#include "nullproperties.h"
 #define POWER 10
 #define passiveButtonColor QString::fromUtf8("background-color: rgb(248, 248, 10);")
 #define activeButtonColor QString::fromUtf8("background-color: rgb(100, 248, 40);")
@@ -8,14 +9,15 @@
 #define passivePageColor NULL
 
 
-PlayWindow::PlayWindow(QWidget *parent) :
+PlayWindow::PlayWindow(QWidget *parent, Properties* prop) :
     QDialog(parent),
     ui(new Ui::PlayWindow)
 {
     ui->setupUi(this);
+    this->prop = prop;
 
     shift = false;
-    caps = false;
+    caps = this->prop->getCaps();
 
     buttons.append(new PlayButton(ui->keyAButton, 'A'));
     buttons.append(new PlayButton(ui->keyBButton, 'B'));
@@ -44,8 +46,23 @@ PlayWindow::PlayWindow(QWidget *parent) :
     buttons.append(new PlayButton(ui->keyYButton, 'Y'));
     buttons.append(new PlayButton(ui->keyZButton, 'Z'));
 
-    ui->keyShiftButton->setStyleSheet(passiveButtonColor);
-    ui->capsLockButton->setStyleSheet(passiveButtonColor);
+    if (shift)
+    {
+        ui->keyShiftButton->setStyleSheet(activeButtonColor);
+    }
+    else
+    {
+        ui->keyShiftButton->setStyleSheet(passiveButtonColor);
+    }
+
+    if (caps)
+    {
+        ui->capsLockButton->setStyleSheet(activeButtonColor);
+    }
+    else
+    {
+        ui->capsLockButton->setStyleSheet(passiveButtonColor);
+    }
 
 
 
@@ -186,7 +203,7 @@ void PlayWindow::on_playButton_pressed(QChar key)
 
 void PlayWindow::on_keyShiftButton_pressed()
 {
-    shift = !caps;
+    shift = (!prop->getShift() || !caps);
     if (shift)
     {
         ui->keyShiftButton->setStyleSheet(activeButtonColor);

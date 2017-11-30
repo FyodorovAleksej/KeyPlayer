@@ -7,7 +7,9 @@
 #include <QListWidgetItem>
 #include "playwindow.h"
 #include "keyeditdialog.h"
+#include "propertiesdialog.h"
 #include "tryplayer.h"
+#include "properties.h"
 namespace Ui {
 class KeyMainWindow;
 }
@@ -154,6 +156,17 @@ private slots:
      */
     void on_keyListWidget_itemClicked(QListWidgetItem *item);
 
+    /**
+     * @brief on_actionProperties_triggered action for opening window with settings of all application
+     */
+    void on_actionProperties_triggered();
+
+    /**
+     * @brief changeMainProp slot for changing properties for all application
+     * @param prop object with all settings needed for changing default params
+     */
+    void changeMainProp(Properties* prop);
+
 private:
 
     /**
@@ -177,10 +190,6 @@ private:
      */
     int getCurrentPage();
 
-
-
-
-
     Ui::KeyMainWindow *ui;
 
     QList<QList<KeyElement*>*> keys;
@@ -192,8 +201,9 @@ private:
 
     QList<QListWidget*> keyPagesList;
     int currentPage;
-
     char sum;
+
+    Properties* prop;
 };
 
 #endif // KEYMAINWINDOW_H

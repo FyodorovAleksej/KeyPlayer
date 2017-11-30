@@ -4,6 +4,8 @@
 #include <QKeyEvent>
 #include <QDialog>
 #include "playbutton.h"
+#include "properties.h"
+#include "nullproperties.h"
 
 namespace Ui {
 class PlayWindow;
@@ -17,7 +19,7 @@ class PlayWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit PlayWindow(QWidget *parent = 0);
+    explicit PlayWindow(QWidget *parent = 0, Properties *prop = new NullProperties());
     ~PlayWindow();
 
 signals:
@@ -217,6 +219,8 @@ private:
     bool shift;
     bool caps;
     int currentLay;
+
+    Properties *prop;
 };
 
 #endif // PLAYWINDOW_H

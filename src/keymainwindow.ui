@@ -267,7 +267,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -292,6 +292,7 @@
    </attribute>
    <addaction name="actionSaveFile"/>
    <addaction name="actionOpenFile"/>
+   <addaction name="actionProperties"/>
   </widget>
   <action name="actionSaveFile">
    <property name="text">
@@ -323,6 +324,17 @@
   <action name="actionOpenFileMenu">
    <property name="text">
     <string>&amp;Open</string>
+   </property>
+  </action>
+  <action name="actionProperties">
+   <property name="text">
+    <string>&amp;Properties</string>
+   </property>
+   <property name="toolTip">
+    <string>properties of all application</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+P</string>
    </property>
   </action>
  </widget>

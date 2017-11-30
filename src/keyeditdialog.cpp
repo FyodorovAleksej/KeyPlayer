@@ -1,12 +1,16 @@
 #include "keyeditdialog.h"
 #include "ui_keyeditdialog.h"
 
-KeyEditDialog::KeyEditDialog(QWidget *parent) :
+KeyEditDialog::KeyEditDialog(QWidget *parent, Properties* prop) :
     QDialog(parent),
     ui(new Ui::KeyEditDialog)
 {
+    this->prop = prop;
     ui->setupUi(this);
     ui->okButton->setEnabled(false);
+    ui->volumeSlider->setValue(prop->getVolume());
+    ui->volumeSpin->setValue(prop->getVolume());
+    ui->repeatBox->setChecked(prop->getRepeat());
 }
 
 KeyEditDialog::~KeyEditDialog()
