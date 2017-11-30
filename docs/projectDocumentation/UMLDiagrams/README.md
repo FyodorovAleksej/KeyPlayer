@@ -35,7 +35,7 @@
 <a name="Deploy"></a>
 ### 5. Диаграмма развёртывания
 Диаграмма развёртывания представляет собой следующую диаграмму:
-![Диаграмма развёртывания](https://fyodorovaleksej.github.io/KeyPlayer/projectDocumentation/UMLDiagrams/Deploy/DeploymentDiagramm.jpg)
+![Диаграмма развёртывания](https://fyodorovaleksej.github.io/KeyPlayer/projectDocumentation/UMLDiagrams/Deployment/DeploymentDiagram.jpg)
 
 <a name="UseCase"></a>
 ### 6. Диаграмма прецедентов

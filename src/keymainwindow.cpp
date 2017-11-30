@@ -60,7 +60,11 @@ KeyMainWindow::KeyMainWindow(QWidget *parent) :
 {
     this->prop = NULL;
     ui->setupUi(this);
+<<<<<<< HEAD
     this->changeMainProp(Properties::loadProperties());
+=======
+
+>>>>>>> origin/master
     ui->fileTreeWidget->setColumnCount(2);
     QStringList headsList(QString("Path"));
     headsList.append("Name");
