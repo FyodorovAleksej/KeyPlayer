@@ -1,5 +1,25 @@
 var searchData=
 [
-  ['waspressed',['wasPressed',['../class_play_button.html#a25d776fd9dde358fb16805b83b8ac08a',1,'PlayButton']]],
-  ['wasreleased',['wasReleased',['../class_play_button.html#adbc452d6e027ef7e1e7cad5f46cc28c6',1,'PlayButton']]]
+  ['passivebuttoncolor',['passiveButtonColor',['../playbutton_8h.html#aba43fda64389b56ceb352b2b68fea497',1,'passiveButtonColor():&#160;playbutton.h'],['../playwindow_8cpp.html#aba43fda64389b56ceb352b2b68fea497',1,'passiveButtonColor():&#160;playwindow.cpp']]],
+  ['passivepagecolor',['passivePageColor',['../playwindow_8cpp.html#a76fa61cc0f5d45a4ec054a72bf2eb7dc',1,'playwindow.cpp']]],
+  ['path',['path',['../class_key_edit_dialog.html#a5e58b1c43b65e999dc804978f01903f8',1,'KeyEditDialog']]],
+  ['play',['play',['../class_key_element.html#aaaf9e68dd1d0456ba75b107542576161',1,'KeyElement']]],
+  ['playbutton',['PlayButton',['../class_play_button.html',1,'PlayButton'],['../class_play_button.html#ace512bd66fe1543e7d078f38e88a2501',1,'PlayButton::PlayButton(QObject *parent=0)'],['../class_play_button.html#a096b43c3a1cc3416740b031da082b456',1,'PlayButton::PlayButton(QPushButton *button, QChar key)']]],
+  ['playbutton_2ecpp',['playbutton.cpp',['../playbutton_8cpp.html',1,'']]],
+  ['playbutton_2eh',['playbutton.h',['../playbutton_8h.html',1,'']]],
+  ['player',['player',['../class_key_element.html#af7ff9543f49bce7be082f5640ca573bc',1,'KeyElement::player()'],['../class_try_player.html#afeb56e1671372bfeabb5cf045f6530d1',1,'TryPlayer::player()']]],
+  ['playwindow',['PlayWindow',['../class_play_window.html',1,'PlayWindow'],['../class_play_window.html#a9ddd1abf315464db50c6545d3f341d01',1,'PlayWindow::PlayWindow()']]],
+  ['playwindow_2ecpp',['playwindow.cpp',['../playwindow_8cpp.html',1,'']]],
+  ['playwindow_2eh',['playwindow.h',['../playwindow_8h.html',1,'']]],
+  ['power',['POWER',['../playwindow_8cpp.html#a0d5e23bac60070676b465522a140f5c7',1,'playwindow.cpp']]],
+  ['prelistening',['prelistening',['../class_key_main_window.html#a3406bdc5dff68c7a819f9409284385ee',1,'KeyMainWindow']]],
+  ['press',['press',['../class_play_button.html#a0e926426362f55e2f498b4f8f0416b90',1,'PlayButton']]],
+  ['pressed',['pressed',['../class_play_button.html#ae8b667819799f7dd30173e45ca9c87a3',1,'PlayButton']]],
+  ['prop',['prop',['../class_key_edit_dialog.html#aea74b55e862c9cd0f76b4efef3baed82',1,'KeyEditDialog::prop()'],['../class_key_main_window.html#a66c8728fb700d8c518e96fc747893337',1,'KeyMainWindow::prop()'],['../class_play_window.html#a238cb4edad20605d4873874f62d48ede',1,'PlayWindow::prop()']]],
+  ['properties',['Properties',['../class_properties.html',1,'Properties'],['../class_properties.html#a81d087b7eab6268a976effac0854c4b7',1,'Properties::Properties(QObject *parent=nullptr)'],['../class_properties.html#a7661e64f9bdb11c4ef007b66feae4924',1,'Properties::Properties(QString theme, bool repeatDefault, int volumeDefault, bool capsDefault, bool shiftInv)']]],
+  ['properties_2ecpp',['properties.cpp',['../properties_8cpp.html',1,'']]],
+  ['properties_2eh',['properties.h',['../properties_8h.html',1,'']]],
+  ['propertiesdialog',['PropertiesDialog',['../class_properties_dialog.html',1,'PropertiesDialog'],['../class_properties_dialog.html#ae9bf1e3ca52e6635240c65ea3fb2e9ca',1,'PropertiesDialog::PropertiesDialog()']]],
+  ['propertiesdialog_2ecpp',['propertiesdialog.cpp',['../propertiesdialog_8cpp.html',1,'']]],
+  ['propertiesdialog_2eh',['propertiesdialog.h',['../propertiesdialog_8h.html',1,'']]]
 ];

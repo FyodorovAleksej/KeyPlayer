@@ -23,9 +23,9 @@
   <td id="projectlogo"><img alt="Logo" src="w256h2561350657674tone.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">KeyPlayer
-   &#160;<span id="projectnumber">0.31</span>
+   &#160;<span id="projectnumber">0.32</span>
    </div>
-   <div id="projectbrief">The music syntezator</div>
+   <div id="projectbrief">music synthesizer</div>
   </td>
  </tr>
  </tbody>
@@ -65,6 +65,8 @@ $(function() {
 <a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_play_window-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PlayWindow Class Reference</div>  </div>
@@ -95,9 +97,10 @@ Signals</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad88fb98822ab0c52b76e4005dfd10647"><td class="memItemLeft" align="right" valign="top"><a id="ad88fb98822ab0c52b76e4005dfd10647"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PlayWindow</b> (QWidget *parent=0)</td></tr>
-<tr class="separator:ad88fb98822ab0c52b76e4005dfd10647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ddd1abf315464db50c6545d3f341d01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a9ddd1abf315464db50c6545d3f341d01">PlayWindow</a> (QWidget *parent=0, <a class="el" href="class_properties.html">Properties</a> *<a class="el" href="class_play_window.html#a238cb4edad20605d4873874f62d48ede">prop</a>=new <a class="el" href="class_null_properties.html">NullProperties</a>())</td></tr>
+<tr class="separator:a9ddd1abf315464db50c6545d3f341d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a861fa52f5a40b13f0819aa174573c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a5a861fa52f5a40b13f0819aa174573c0">~PlayWindow</a> ()</td></tr>
+<tr class="separator:a5a861fa52f5a40b13f0819aa174573c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -107,12 +110,163 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a0812a60414cc058a491d65b9ed919f5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a0812a60414cc058a491d65b9ed919f5f">keyReleaseEvent</a> (QKeyEvent *event)</td></tr>
 <tr class="memdesc:a0812a60414cc058a491d65b9ed919f5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyReleaseEvent method of processing released keys  <a href="#a0812a60414cc058a491d65b9ed919f5f">More...</a><br /></td></tr>
 <tr class="separator:a0812a60414cc058a491d65b9ed919f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr class="memitem:a03d911fc58b331fa400c9cc7982df271"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a03d911fc58b331fa400c9cc7982df271">on_playButton_pressed</a> (QChar key)</td></tr>
+<tr class="memdesc:a03d911fc58b331fa400c9cc7982df271"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_playButton_pressed - the slot, that performed, when some button was pressed  <a href="#a03d911fc58b331fa400c9cc7982df271">More...</a><br /></td></tr>
+<tr class="separator:a03d911fc58b331fa400c9cc7982df271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e31c8e7ef8e7f08bf50eb0dc6b15e11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a4e31c8e7ef8e7f08bf50eb0dc6b15e11">on_keyShiftButton_pressed</a> ()</td></tr>
+<tr class="memdesc:a4e31c8e7ef8e7f08bf50eb0dc6b15e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_keyShiftButton_pressed when SHIFTButton was pressed  <a href="#a4e31c8e7ef8e7f08bf50eb0dc6b15e11">More...</a><br /></td></tr>
+<tr class="separator:a4e31c8e7ef8e7f08bf50eb0dc6b15e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e78b1be02dd7858d539ca85fbc8768"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a66e78b1be02dd7858d539ca85fbc8768">on_playButton_released</a> (QChar key)</td></tr>
+<tr class="memdesc:a66e78b1be02dd7858d539ca85fbc8768"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_playButton_released - the slot, that was performed, when some button was released  <a href="#a66e78b1be02dd7858d539ca85fbc8768">More...</a><br /></td></tr>
+<tr class="separator:a66e78b1be02dd7858d539ca85fbc8768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99fa277b635cc8171292e5aee2284cff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a99fa277b635cc8171292e5aee2284cff">on_keyShiftButton_released</a> ()</td></tr>
+<tr class="memdesc:a99fa277b635cc8171292e5aee2284cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_keyShiftButton_released when SHIFTButton was released  <a href="#a99fa277b635cc8171292e5aee2284cff">More...</a><br /></td></tr>
+<tr class="separator:a99fa277b635cc8171292e5aee2284cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00583d7d679781632557443ea56e3e0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a00583d7d679781632557443ea56e3e0a">on_push1Button_pressed</a> ()</td></tr>
+<tr class="memdesc:a00583d7d679781632557443ea56e3e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push1Button_pressed when 1 tab was selected  <a href="#a00583d7d679781632557443ea56e3e0a">More...</a><br /></td></tr>
+<tr class="separator:a00583d7d679781632557443ea56e3e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bb658dab91fdd64083f94a8979d860c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a4bb658dab91fdd64083f94a8979d860c">on_push2Button_pressed</a> ()</td></tr>
+<tr class="memdesc:a4bb658dab91fdd64083f94a8979d860c"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push2Button_pressed when 2 tab was selected  <a href="#a4bb658dab91fdd64083f94a8979d860c">More...</a><br /></td></tr>
+<tr class="separator:a4bb658dab91fdd64083f94a8979d860c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20a1fbd8bbdb5003a4720bf1745f6263"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a20a1fbd8bbdb5003a4720bf1745f6263">on_push3Button_pressed</a> ()</td></tr>
+<tr class="memdesc:a20a1fbd8bbdb5003a4720bf1745f6263"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push3Button_pressed when 3 tab was selected  <a href="#a20a1fbd8bbdb5003a4720bf1745f6263">More...</a><br /></td></tr>
+<tr class="separator:a20a1fbd8bbdb5003a4720bf1745f6263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca63fd0dfaab3dbffc95e0d890eca7c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#aca63fd0dfaab3dbffc95e0d890eca7c1">on_push4Button_pressed</a> ()</td></tr>
+<tr class="memdesc:aca63fd0dfaab3dbffc95e0d890eca7c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push4Button_pressed when 4 tab was selected  <a href="#aca63fd0dfaab3dbffc95e0d890eca7c1">More...</a><br /></td></tr>
+<tr class="separator:aca63fd0dfaab3dbffc95e0d890eca7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6025ad8d24eac7351b1779410f37be43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a6025ad8d24eac7351b1779410f37be43">on_push5Button_pressed</a> ()</td></tr>
+<tr class="memdesc:a6025ad8d24eac7351b1779410f37be43"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push5Button_pressed when 5 tab was selected  <a href="#a6025ad8d24eac7351b1779410f37be43">More...</a><br /></td></tr>
+<tr class="separator:a6025ad8d24eac7351b1779410f37be43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf97e52db9c2f0b7694e0b1fa7f7d17c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#abf97e52db9c2f0b7694e0b1fa7f7d17c">on_push6Button_pressed</a> ()</td></tr>
+<tr class="memdesc:abf97e52db9c2f0b7694e0b1fa7f7d17c"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push6Button_pressed when 6 tab was selected  <a href="#abf97e52db9c2f0b7694e0b1fa7f7d17c">More...</a><br /></td></tr>
+<tr class="separator:abf97e52db9c2f0b7694e0b1fa7f7d17c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22ade12a0f5bbd8f8ced33989bda8ced"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a22ade12a0f5bbd8f8ced33989bda8ced">on_push7Button_pressed</a> ()</td></tr>
+<tr class="memdesc:a22ade12a0f5bbd8f8ced33989bda8ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push7Button_pressed when 7 tab was selected  <a href="#a22ade12a0f5bbd8f8ced33989bda8ced">More...</a><br /></td></tr>
+<tr class="separator:a22ade12a0f5bbd8f8ced33989bda8ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb5f26866c52af42fe97820509ece56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#abbb5f26866c52af42fe97820509ece56">on_push8Button_pressed</a> ()</td></tr>
+<tr class="memdesc:abbb5f26866c52af42fe97820509ece56"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push8Button_pressed when 8 tab was selected  <a href="#abbb5f26866c52af42fe97820509ece56">More...</a><br /></td></tr>
+<tr class="separator:abbb5f26866c52af42fe97820509ece56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a721ef6de11288b5e7e1b0e08ec738ffd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a721ef6de11288b5e7e1b0e08ec738ffd">on_push9Button_pressed</a> ()</td></tr>
+<tr class="memdesc:a721ef6de11288b5e7e1b0e08ec738ffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push9Button_pressed when 9 tab was selected  <a href="#a721ef6de11288b5e7e1b0e08ec738ffd">More...</a><br /></td></tr>
+<tr class="separator:a721ef6de11288b5e7e1b0e08ec738ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83de74aff501fb4cbf102628895ccc44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a83de74aff501fb4cbf102628895ccc44">on_push0Button_pressed</a> ()</td></tr>
+<tr class="memdesc:a83de74aff501fb4cbf102628895ccc44"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push0Button_pressed when 0 tab was selected  <a href="#a83de74aff501fb4cbf102628895ccc44">More...</a><br /></td></tr>
+<tr class="separator:a83de74aff501fb4cbf102628895ccc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b2a0ebd3b3a28c7bc08ab07eaf99535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a2b2a0ebd3b3a28c7bc08ab07eaf99535">on_push1Button_released</a> ()</td></tr>
+<tr class="memdesc:a2b2a0ebd3b3a28c7bc08ab07eaf99535"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push1Button_released when 1 tab was selected  <a href="#a2b2a0ebd3b3a28c7bc08ab07eaf99535">More...</a><br /></td></tr>
+<tr class="separator:a2b2a0ebd3b3a28c7bc08ab07eaf99535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a616ef8ca06fb51c3470b458d5e1d4538"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a616ef8ca06fb51c3470b458d5e1d4538">on_push2Button_released</a> ()</td></tr>
+<tr class="memdesc:a616ef8ca06fb51c3470b458d5e1d4538"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push2Button_released when 2 tab was selected  <a href="#a616ef8ca06fb51c3470b458d5e1d4538">More...</a><br /></td></tr>
+<tr class="separator:a616ef8ca06fb51c3470b458d5e1d4538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89b68211449fb0390758bc8fbddad308"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a89b68211449fb0390758bc8fbddad308">on_push3Button_released</a> ()</td></tr>
+<tr class="memdesc:a89b68211449fb0390758bc8fbddad308"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push3Button_released when 3 tab was selected  <a href="#a89b68211449fb0390758bc8fbddad308">More...</a><br /></td></tr>
+<tr class="separator:a89b68211449fb0390758bc8fbddad308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8518407009bd1692fe78604f5931a369"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a8518407009bd1692fe78604f5931a369">on_push4Button_released</a> ()</td></tr>
+<tr class="memdesc:a8518407009bd1692fe78604f5931a369"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push4Button_released when 4 tab was selected  <a href="#a8518407009bd1692fe78604f5931a369">More...</a><br /></td></tr>
+<tr class="separator:a8518407009bd1692fe78604f5931a369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae28debc796b59aaa2318759f10536224"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#ae28debc796b59aaa2318759f10536224">on_push5Button_released</a> ()</td></tr>
+<tr class="memdesc:ae28debc796b59aaa2318759f10536224"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push5Button_released when 5 tab was selected  <a href="#ae28debc796b59aaa2318759f10536224">More...</a><br /></td></tr>
+<tr class="separator:ae28debc796b59aaa2318759f10536224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17075fc38fcae9f1c4e6099dfffdc939"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a17075fc38fcae9f1c4e6099dfffdc939">on_push6Button_released</a> ()</td></tr>
+<tr class="memdesc:a17075fc38fcae9f1c4e6099dfffdc939"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push6Button_released when 6 tab was selected  <a href="#a17075fc38fcae9f1c4e6099dfffdc939">More...</a><br /></td></tr>
+<tr class="separator:a17075fc38fcae9f1c4e6099dfffdc939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6400d93005ea376d742c2ab90e79e91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#ae6400d93005ea376d742c2ab90e79e91">on_push7Button_released</a> ()</td></tr>
+<tr class="memdesc:ae6400d93005ea376d742c2ab90e79e91"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push7Button_released when 7 tab was selected  <a href="#ae6400d93005ea376d742c2ab90e79e91">More...</a><br /></td></tr>
+<tr class="separator:ae6400d93005ea376d742c2ab90e79e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b16cd1da0651161cf9a4d57a42a68a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a8b16cd1da0651161cf9a4d57a42a68a0">on_push8Button_released</a> ()</td></tr>
+<tr class="memdesc:a8b16cd1da0651161cf9a4d57a42a68a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push8Button_released when 8 tab was selected  <a href="#a8b16cd1da0651161cf9a4d57a42a68a0">More...</a><br /></td></tr>
+<tr class="separator:a8b16cd1da0651161cf9a4d57a42a68a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c95bf1ab75964f6bf79cc029b3ea468"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a4c95bf1ab75964f6bf79cc029b3ea468">on_push9Button_released</a> ()</td></tr>
+<tr class="memdesc:a4c95bf1ab75964f6bf79cc029b3ea468"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push9Button_released when 9 tab was selected  <a href="#a4c95bf1ab75964f6bf79cc029b3ea468">More...</a><br /></td></tr>
+<tr class="separator:a4c95bf1ab75964f6bf79cc029b3ea468"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab21281e614b383efc7f3d40c416fc6f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#ab21281e614b383efc7f3d40c416fc6f9">on_push0Button_released</a> ()</td></tr>
+<tr class="memdesc:ab21281e614b383efc7f3d40c416fc6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_push0Button_released when 0 tab was selected  <a href="#ab21281e614b383efc7f3d40c416fc6f9">More...</a><br /></td></tr>
+<tr class="separator:ab21281e614b383efc7f3d40c416fc6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ec50bf1038948d1077b3b4bdb9c6343"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a9ec50bf1038948d1077b3b4bdb9c6343">setCurrentLay</a> (int lay)</td></tr>
+<tr class="memdesc:a9ec50bf1038948d1077b3b4bdb9c6343"><td class="mdescLeft">&#160;</td><td class="mdescRight">setCurrentLay - setting new lay. Refresh status of all buttons  <a href="#a9ec50bf1038948d1077b3b4bdb9c6343">More...</a><br /></td></tr>
+<tr class="separator:a9ec50bf1038948d1077b3b4bdb9c6343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08071305d80af04b8f098bf409f8f71f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a08071305d80af04b8f098bf409f8f71f">on_capsLockButton_pressed</a> ()</td></tr>
+<tr class="memdesc:a08071305d80af04b8f098bf409f8f71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_capsLockButton_pressed - slot, that was performed, when CapsLock was pressed  <a href="#a08071305d80af04b8f098bf409f8f71f">More...</a><br /></td></tr>
+<tr class="separator:a08071305d80af04b8f098bf409f8f71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa57043c8ccd96fae5ad8ecfbb9f1a998"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#aa57043c8ccd96fae5ad8ecfbb9f1a998">on_capsLockButton_released</a> ()</td></tr>
+<tr class="memdesc:aa57043c8ccd96fae5ad8ecfbb9f1a998"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_capsLockButton_released - slot, that was performed, when CapsLock was released  <a href="#aa57043c8ccd96fae5ad8ecfbb9f1a998">More...</a><br /></td></tr>
+<tr class="separator:aa57043c8ccd96fae5ad8ecfbb9f1a998"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a333b2e527c97393fee095a771cc6d732"><td class="memItemLeft" align="right" valign="top">Ui::PlayWindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a333b2e527c97393fee095a771cc6d732">ui</a></td></tr>
+<tr class="separator:a333b2e527c97393fee095a771cc6d732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b0f3de2393e10f0e050b16bb74c951c"><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_play_button.html">PlayButton</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a5b0f3de2393e10f0e050b16bb74c951c">buttons</a></td></tr>
+<tr class="separator:a5b0f3de2393e10f0e050b16bb74c951c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a73e8f01612786498c0c30d74bbe1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a48a73e8f01612786498c0c30d74bbe1e">shift</a></td></tr>
+<tr class="separator:a48a73e8f01612786498c0c30d74bbe1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd9eeffc346b9063aeda8371e7d9096"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#abdd9eeffc346b9063aeda8371e7d9096">caps</a></td></tr>
+<tr class="separator:abdd9eeffc346b9063aeda8371e7d9096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a073c1971d081ea7ce217c0443bad2f5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a073c1971d081ea7ce217c0443bad2f5e">currentLay</a></td></tr>
+<tr class="separator:a073c1971d081ea7ce217c0443bad2f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a238cb4edad20605d4873874f62d48ede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_properties.html">Properties</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_play_window.html#a238cb4edad20605d4873874f62d48ede">prop</a></td></tr>
+<tr class="separator:a238cb4edad20605d4873874f62d48ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_play_window.html" title="The PlayWindow class the window with virtual keyboard and logic system. Sending signals with pressed/...">PlayWindow</a> class the window with virtual keyboard and logic system. Sending signals with pressed/released keys to main window. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9ddd1abf315464db50c6545d3f341d01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ddd1abf315464db50c6545d3f341d01">&#9670;&nbsp;</a></span>PlayWindow()</h2>
 
-<p class="definition">Definition at line <a class="el" href="playwindow_8h_source.html#l00015">15</a> of file <a class="el" href="playwindow_8h_source.html">playwindow.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PlayWindow::PlayWindow </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_properties.html">Properties</a> *&#160;</td>
+          <td class="paramname"><em>prop</em> = <code>new&#160;<a class="el" href="class_null_properties.html">NullProperties</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5a861fa52f5a40b13f0819aa174573c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a861fa52f5a40b13f0819aa174573c0">&#9670;&nbsp;</a></span>~PlayWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PlayWindow::~PlayWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa931ee4edcea15ecb535c45db914fd83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa931ee4edcea15ecb535c45db914fd83">&#9670;&nbsp;</a></span>keyPressEvent()</h2>
 
@@ -144,8 +298,6 @@ Protected Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="playwindow_8cpp_source.html#l00074">74</a> of file <a class="el" href="playwindow_8cpp_source.html">playwindow.cpp</a>.</p>
 
 </div>
 </div>
@@ -181,7 +333,755 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="playwindow_8cpp_source.html#l00125">125</a> of file <a class="el" href="playwindow_8cpp_source.html">playwindow.cpp</a>.</p>
+</div>
+</div>
+<a id="a08071305d80af04b8f098bf409f8f71f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08071305d80af04b8f098bf409f8f71f">&#9670;&nbsp;</a></span>on_capsLockButton_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_capsLockButton_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_capsLockButton_pressed - slot, that was performed, when CapsLock was pressed </p>
+
+</div>
+</div>
+<a id="aa57043c8ccd96fae5ad8ecfbb9f1a998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa57043c8ccd96fae5ad8ecfbb9f1a998">&#9670;&nbsp;</a></span>on_capsLockButton_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_capsLockButton_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_capsLockButton_released - slot, that was performed, when CapsLock was released </p>
+
+</div>
+</div>
+<a id="a4e31c8e7ef8e7f08bf50eb0dc6b15e11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e31c8e7ef8e7f08bf50eb0dc6b15e11">&#9670;&nbsp;</a></span>on_keyShiftButton_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_keyShiftButton_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_keyShiftButton_pressed when SHIFTButton was pressed </p>
+
+</div>
+</div>
+<a id="a99fa277b635cc8171292e5aee2284cff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99fa277b635cc8171292e5aee2284cff">&#9670;&nbsp;</a></span>on_keyShiftButton_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_keyShiftButton_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_keyShiftButton_released when SHIFTButton was released </p>
+
+</div>
+</div>
+<a id="a03d911fc58b331fa400c9cc7982df271"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03d911fc58b331fa400c9cc7982df271">&#9670;&nbsp;</a></span>on_playButton_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_playButton_pressed </td>
+          <td>(</td>
+          <td class="paramtype">QChar&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_playButton_pressed - the slot, that performed, when some button was pressed </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>- the pressed key </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a66e78b1be02dd7858d539ca85fbc8768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66e78b1be02dd7858d539ca85fbc8768">&#9670;&nbsp;</a></span>on_playButton_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_playButton_released </td>
+          <td>(</td>
+          <td class="paramtype">QChar&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_playButton_released - the slot, that was performed, when some button was released </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>- the released key </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a83de74aff501fb4cbf102628895ccc44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83de74aff501fb4cbf102628895ccc44">&#9670;&nbsp;</a></span>on_push0Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push0Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push0Button_pressed when 0 tab was selected </p>
+
+</div>
+</div>
+<a id="ab21281e614b383efc7f3d40c416fc6f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab21281e614b383efc7f3d40c416fc6f9">&#9670;&nbsp;</a></span>on_push0Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push0Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push0Button_released when 0 tab was selected </p>
+
+</div>
+</div>
+<a id="a00583d7d679781632557443ea56e3e0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00583d7d679781632557443ea56e3e0a">&#9670;&nbsp;</a></span>on_push1Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push1Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push1Button_pressed when 1 tab was selected </p>
+
+</div>
+</div>
+<a id="a2b2a0ebd3b3a28c7bc08ab07eaf99535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b2a0ebd3b3a28c7bc08ab07eaf99535">&#9670;&nbsp;</a></span>on_push1Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push1Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push1Button_released when 1 tab was selected </p>
+
+</div>
+</div>
+<a id="a4bb658dab91fdd64083f94a8979d860c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bb658dab91fdd64083f94a8979d860c">&#9670;&nbsp;</a></span>on_push2Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push2Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push2Button_pressed when 2 tab was selected </p>
+
+</div>
+</div>
+<a id="a616ef8ca06fb51c3470b458d5e1d4538"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a616ef8ca06fb51c3470b458d5e1d4538">&#9670;&nbsp;</a></span>on_push2Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push2Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push2Button_released when 2 tab was selected </p>
+
+</div>
+</div>
+<a id="a20a1fbd8bbdb5003a4720bf1745f6263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a1fbd8bbdb5003a4720bf1745f6263">&#9670;&nbsp;</a></span>on_push3Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push3Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push3Button_pressed when 3 tab was selected </p>
+
+</div>
+</div>
+<a id="a89b68211449fb0390758bc8fbddad308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89b68211449fb0390758bc8fbddad308">&#9670;&nbsp;</a></span>on_push3Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push3Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push3Button_released when 3 tab was selected </p>
+
+</div>
+</div>
+<a id="aca63fd0dfaab3dbffc95e0d890eca7c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca63fd0dfaab3dbffc95e0d890eca7c1">&#9670;&nbsp;</a></span>on_push4Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push4Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push4Button_pressed when 4 tab was selected </p>
+
+</div>
+</div>
+<a id="a8518407009bd1692fe78604f5931a369"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8518407009bd1692fe78604f5931a369">&#9670;&nbsp;</a></span>on_push4Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push4Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push4Button_released when 4 tab was selected </p>
+
+</div>
+</div>
+<a id="a6025ad8d24eac7351b1779410f37be43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6025ad8d24eac7351b1779410f37be43">&#9670;&nbsp;</a></span>on_push5Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push5Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push5Button_pressed when 5 tab was selected </p>
+
+</div>
+</div>
+<a id="ae28debc796b59aaa2318759f10536224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae28debc796b59aaa2318759f10536224">&#9670;&nbsp;</a></span>on_push5Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push5Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push5Button_released when 5 tab was selected </p>
+
+</div>
+</div>
+<a id="abf97e52db9c2f0b7694e0b1fa7f7d17c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf97e52db9c2f0b7694e0b1fa7f7d17c">&#9670;&nbsp;</a></span>on_push6Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push6Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push6Button_pressed when 6 tab was selected </p>
+
+</div>
+</div>
+<a id="a17075fc38fcae9f1c4e6099dfffdc939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17075fc38fcae9f1c4e6099dfffdc939">&#9670;&nbsp;</a></span>on_push6Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push6Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push6Button_released when 6 tab was selected </p>
+
+</div>
+</div>
+<a id="a22ade12a0f5bbd8f8ced33989bda8ced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22ade12a0f5bbd8f8ced33989bda8ced">&#9670;&nbsp;</a></span>on_push7Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push7Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push7Button_pressed when 7 tab was selected </p>
+
+</div>
+</div>
+<a id="ae6400d93005ea376d742c2ab90e79e91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6400d93005ea376d742c2ab90e79e91">&#9670;&nbsp;</a></span>on_push7Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push7Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push7Button_released when 7 tab was selected </p>
+
+</div>
+</div>
+<a id="abbb5f26866c52af42fe97820509ece56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbb5f26866c52af42fe97820509ece56">&#9670;&nbsp;</a></span>on_push8Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push8Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push8Button_pressed when 8 tab was selected </p>
+
+</div>
+</div>
+<a id="a8b16cd1da0651161cf9a4d57a42a68a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b16cd1da0651161cf9a4d57a42a68a0">&#9670;&nbsp;</a></span>on_push8Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push8Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push8Button_released when 8 tab was selected </p>
+
+</div>
+</div>
+<a id="a721ef6de11288b5e7e1b0e08ec738ffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a721ef6de11288b5e7e1b0e08ec738ffd">&#9670;&nbsp;</a></span>on_push9Button_pressed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push9Button_pressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push9Button_pressed when 9 tab was selected </p>
+
+</div>
+</div>
+<a id="a4c95bf1ab75964f6bf79cc029b3ea468"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c95bf1ab75964f6bf79cc029b3ea468">&#9670;&nbsp;</a></span>on_push9Button_released</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::on_push9Button_released </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_push9Button_released when 9 tab was selected </p>
+
+</div>
+</div>
+<a id="a9ec50bf1038948d1077b3b4bdb9c6343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec50bf1038948d1077b3b4bdb9c6343">&#9670;&nbsp;</a></span>setCurrentLay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayWindow::setCurrentLay </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lay</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>setCurrentLay - setting new lay. Refresh status of all buttons </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lay</td><td>- new lay </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -276,9 +1176,142 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5b0f3de2393e10f0e050b16bb74c951c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b0f3de2393e10f0e050b16bb74c951c">&#9670;&nbsp;</a></span>buttons</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="class_play_button.html">PlayButton</a>*&gt; PlayWindow::buttons</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abdd9eeffc346b9063aeda8371e7d9096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdd9eeffc346b9063aeda8371e7d9096">&#9670;&nbsp;</a></span>caps</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayWindow::caps</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a073c1971d081ea7ce217c0443bad2f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a073c1971d081ea7ce217c0443bad2f5e">&#9670;&nbsp;</a></span>currentLay</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PlayWindow::currentLay</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a238cb4edad20605d4873874f62d48ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a238cb4edad20605d4873874f62d48ede">&#9670;&nbsp;</a></span>prop</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_properties.html">Properties</a>* PlayWindow::prop</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48a73e8f01612786498c0c30d74bbe1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48a73e8f01612786498c0c30d74bbe1e">&#9670;&nbsp;</a></span>shift</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayWindow::shift</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a333b2e527c97393fee095a771cc6d732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a333b2e527c97393fee095a771cc6d732">&#9670;&nbsp;</a></span>ui</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Ui::PlayWindow* PlayWindow::ui</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="playwindow_8h_source.html">playwindow.h</a></li>
-<li><a class="el" href="playwindow_8cpp_source.html">playwindow.cpp</a></li>
+<li><a class="el" href="playwindow_8cpp.html">playwindow.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

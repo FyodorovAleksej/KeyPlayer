@@ -23,9 +23,9 @@
   <td id="projectlogo"><img alt="Logo" src="w256h2561350657674tone.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">KeyPlayer
-   &#160;<span id="projectnumber">0.31</span>
+   &#160;<span id="projectnumber">0.32</span>
    </div>
-   <div id="projectbrief">The music syntezator</div>
+   <div id="projectbrief">music synthesizer</div>
   </td>
  </tr>
  </tbody>
@@ -64,6 +64,8 @@ $(function() {
   <div class="summary">
 <a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_key_edit_dialog-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">KeyEditDialog Class Reference</div>  </div>
@@ -85,26 +87,47 @@ Inheritance diagram for KeyEditDialog:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:a97e7fe242369a04650fea473fb1d68a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a97e7fe242369a04650fea473fb1d68a4">finish</a> (<a class="el" href="class_key_element.html">KeyElement</a> *element)</td></tr>
-<tr class="memdesc:a97e7fe242369a04650fea473fb1d68a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish the signal of correct ending editing.  <a href="#a97e7fe242369a04650fea473fb1d68a4">More...</a><br /></td></tr>
-<tr class="separator:a97e7fe242369a04650fea473fb1d68a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39a00f67de22c59ce92e4f985722058f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a39a00f67de22c59ce92e4f985722058f">finish</a> (<a class="el" href="class_key_element.html">KeyElement</a> *element)</td></tr>
+<tr class="memdesc:a39a00f67de22c59ce92e4f985722058f"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish the signal of correct ending editing.  <a href="#a39a00f67de22c59ce92e4f985722058f">More...</a><br /></td></tr>
+<tr class="separator:a39a00f67de22c59ce92e4f985722058f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad71e9b9fec5ecb5fc89010dd17b60478"><td class="memItemLeft" align="right" valign="top"><a id="ad71e9b9fec5ecb5fc89010dd17b60478"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>KeyEditDialog</b> (QWidget *parent=0)</td></tr>
-<tr class="separator:ad71e9b9fec5ecb5fc89010dd17b60478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac160aa641ee4ffb2922a9cb4bf9f0d9c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#ac160aa641ee4ffb2922a9cb4bf9f0d9c">KeyEditDialog</a> (QWidget *parent=0, <a class="el" href="class_properties.html">Properties</a> *<a class="el" href="class_key_edit_dialog.html#aea74b55e862c9cd0f76b4efef3baed82">prop</a>=NULL)</td></tr>
+<tr class="memdesc:ac160aa641ee4ffb2922a9cb4bf9f0d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_key_edit_dialog.html" title="The KeyEditDialog class of window for binding key for music file, and setup some properties for it&#39;s ...">KeyEditDialog</a> - creating new <a class="el" href="class_key_edit_dialog.html" title="The KeyEditDialog class of window for binding key for music file, and setup some properties for it&#39;s ...">KeyEditDialog</a> window for build <a class="el" href="class_key_element.html" title="The KeyElement class of element with all propetyies of played file. Such as path/key/volume/repeating...">KeyElement</a>.  <a href="#ac160aa641ee4ffb2922a9cb4bf9f0d9c">More...</a><br /></td></tr>
+<tr class="separator:ac160aa641ee4ffb2922a9cb4bf9f0d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e7534d33148ea3125c57019b83da8e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a4e7534d33148ea3125c57019b83da8e7">~KeyEditDialog</a> ()</td></tr>
+<tr class="separator:a4e7534d33148ea3125c57019b83da8e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88b517565674d5112be255d7f0808efe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a88b517565674d5112be255d7f0808efe">setPath</a> (QTreeWidgetItem *newPath)</td></tr>
 <tr class="memdesc:a88b517565674d5112be255d7f0808efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">setPath setting path of current file for setting propeties of playing this file  <a href="#a88b517565674d5112be255d7f0808efe">More...</a><br /></td></tr>
 <tr class="separator:a88b517565674d5112be255d7f0808efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr class="memitem:a6fc92529a8ad24e1609434b98cde8101"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a6fc92529a8ad24e1609434b98cde8101">on_keySequenceEdit_editingFinished</a> ()</td></tr>
+<tr class="memdesc:a6fc92529a8ad24e1609434b98cde8101"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_keySequenceEdit_editingFinished the action, when property key was pressed. unblocked OK Button  <a href="#a6fc92529a8ad24e1609434b98cde8101">More...</a><br /></td></tr>
+<tr class="separator:a6fc92529a8ad24e1609434b98cde8101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740ee7dc65faf9bb35b8624ecb15cc0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a740ee7dc65faf9bb35b8624ecb15cc0d">on_okButton_clicked</a> ()</td></tr>
+<tr class="memdesc:a740ee7dc65faf9bb35b8624ecb15cc0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_okButton_clicked the action, when "OK" button was pressed closed window and send properties to main window  <a href="#a740ee7dc65faf9bb35b8624ecb15cc0d">More...</a><br /></td></tr>
+<tr class="separator:a740ee7dc65faf9bb35b8624ecb15cc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32bbca5da9432b9459370b88db6241a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a32bbca5da9432b9459370b88db6241a9">on_cancelButton_clicked</a> ()</td></tr>
+<tr class="memdesc:a32bbca5da9432b9459370b88db6241a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">on_cancelButton_clicked the action, when "Cancel" button was pressed closed window and don't send signal to main window  <a href="#a32bbca5da9432b9459370b88db6241a9">More...</a><br /></td></tr>
+<tr class="separator:a32bbca5da9432b9459370b88db6241a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a293460a703b55e7e896eda461d8ded06"><td class="memItemLeft" align="right" valign="top">Ui::KeyEditDialog *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a293460a703b55e7e896eda461d8ded06">ui</a></td></tr>
+<tr class="separator:a293460a703b55e7e896eda461d8ded06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e58b1c43b65e999dc804978f01903f8"><td class="memItemLeft" align="right" valign="top">QTreeWidgetItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#a5e58b1c43b65e999dc804978f01903f8">path</a></td></tr>
+<tr class="separator:a5e58b1c43b65e999dc804978f01903f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea74b55e862c9cd0f76b4efef3baed82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_properties.html">Properties</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_key_edit_dialog.html#aea74b55e862c9cd0f76b4efef3baed82">prop</a></td></tr>
+<tr class="separator:aea74b55e862c9cd0f76b4efef3baed82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_key_edit_dialog.html" title="The KeyEditDialog class of window for binding key for music file, and setup some properties for it&#39;s ...">KeyEditDialog</a> class of window for binding key for music file, and setup some properties for it's playing such as: Volume - the volume of music file, that will played Repeating - file will repeated, when it was finished Key - the key, that will linked with this music file. </p>
-
-<p class="definition">Definition at line <a class="el" href="keyeditdialog_8h_source.html#l00018">18</a> of file <a class="el" href="keyeditdialog_8h_source.html">keyeditdialog.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a97e7fe242369a04650fea473fb1d68a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97e7fe242369a04650fea473fb1d68a4">&#9670;&nbsp;</a></span>finish</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac160aa641ee4ffb2922a9cb4bf9f0d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac160aa641ee4ffb2922a9cb4bf9f0d9c">&#9670;&nbsp;</a></span>KeyEditDialog()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -113,7 +136,70 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">KeyEditDialog::finish </td>
+          <td class="memname">KeyEditDialog::KeyEditDialog </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_properties.html">Properties</a> *&#160;</td>
+          <td class="paramname"><em>prop</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_key_edit_dialog.html" title="The KeyEditDialog class of window for binding key for music file, and setup some properties for it&#39;s ...">KeyEditDialog</a> - creating new <a class="el" href="class_key_edit_dialog.html" title="The KeyEditDialog class of window for binding key for music file, and setup some properties for it&#39;s ...">KeyEditDialog</a> window for build <a class="el" href="class_key_element.html" title="The KeyElement class of element with all propetyies of played file. Such as path/key/volume/repeating...">KeyElement</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>parent object for destroying </td></tr>
+    <tr><td class="paramname">prop</td><td>object with properties </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e7534d33148ea3125c57019b83da8e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e7534d33148ea3125c57019b83da8e7">&#9670;&nbsp;</a></span>~KeyEditDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KeyEditDialog::~KeyEditDialog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a39a00f67de22c59ce92e4f985722058f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39a00f67de22c59ce92e4f985722058f">&#9670;&nbsp;</a></span>finish</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyEditDialog::finish </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_key_element.html">KeyElement</a> *&#160;</td>
           <td class="paramname"><em>element</em></td><td>)</td>
@@ -134,6 +220,87 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a32bbca5da9432b9459370b88db6241a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32bbca5da9432b9459370b88db6241a9">&#9670;&nbsp;</a></span>on_cancelButton_clicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyEditDialog::on_cancelButton_clicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_cancelButton_clicked the action, when "Cancel" button was pressed closed window and don't send signal to main window </p>
+
+</div>
+</div>
+<a id="a6fc92529a8ad24e1609434b98cde8101"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fc92529a8ad24e1609434b98cde8101">&#9670;&nbsp;</a></span>on_keySequenceEdit_editingFinished</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyEditDialog::on_keySequenceEdit_editingFinished </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_keySequenceEdit_editingFinished the action, when property key was pressed. unblocked OK Button </p>
+
+</div>
+</div>
+<a id="a740ee7dc65faf9bb35b8624ecb15cc0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740ee7dc65faf9bb35b8624ecb15cc0d">&#9670;&nbsp;</a></span>on_okButton_clicked</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void KeyEditDialog::on_okButton_clicked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>on_okButton_clicked the action, when "OK" button was pressed closed window and send properties to main window </p>
 
 </div>
 </div>
@@ -161,13 +328,78 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="keyeditdialog_8cpp_source.html#l00040">40</a> of file <a class="el" href="keyeditdialog_8cpp_source.html">keyeditdialog.cpp</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5e58b1c43b65e999dc804978f01903f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e58b1c43b65e999dc804978f01903f8">&#9670;&nbsp;</a></span>path</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTreeWidgetItem* KeyEditDialog::path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea74b55e862c9cd0f76b4efef3baed82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea74b55e862c9cd0f76b4efef3baed82">&#9670;&nbsp;</a></span>prop</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_properties.html">Properties</a>* KeyEditDialog::prop</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a293460a703b55e7e896eda461d8ded06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a293460a703b55e7e896eda461d8ded06">&#9670;&nbsp;</a></span>ui</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Ui::KeyEditDialog* KeyEditDialog::ui</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="keyeditdialog_8h_source.html">keyeditdialog.h</a></li>
-<li><a class="el" href="keyeditdialog_8cpp_source.html">keyeditdialog.cpp</a></li>
+<li><a class="el" href="keyeditdialog_8cpp.html">keyeditdialog.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
