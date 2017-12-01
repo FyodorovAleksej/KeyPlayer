@@ -3,46 +3,73 @@
 
 KeyEditDialog::KeyEditDialog(QWidget *parent, Properties* prop) :
     QDialog(parent),
-    ui(new Ui::KeyEditDialog)
+    ui_(new Ui::KeyEditDialog)
 {
-    this->prop = prop;
-    ui->setupUi(this);
-    ui->okButton->setEnabled(false);
-    ui->volumeSlider->setValue(prop->getVolume());
-    ui->volumeSpin->setValue(prop->getVolume());
-    ui->repeatBox->setChecked(prop->getRepeat());
+    ui_->setupUi(this);
+    prop_ = prop;
+
+    Initialize();
 }
 
 KeyEditDialog::~KeyEditDialog()
 {
-    delete ui;
+    delete ui_;
 }
 
-void KeyEditDialog::on_keySequenceEdit_editingFinished()
+void KeyEditDialog::OnKeySequenceEditEditingFinished() const
 {
-    ui->okButton->setEnabled(true);
+    ui_->okButton->setEnabled(true);
 }
 
-void KeyEditDialog::on_okButton_clicked()
+void KeyEditDialog::OnOkButtonClicked()
 {
-    qDebug() << ui->keySequenceEdit->keySequence().toString();
-    qDebug() << path->text(0);
-    KeyElement* element = new KeyElement(path->text(0));
-    element->setItem(path);
-    element->setKey(ui->keySequenceEdit->keySequence().toString().at(0));
-    element->setVolume(ui->volumeSpin->value());
-    element->setRepeated(ui->repeatBox->isChecked());
+    qDebug() << ui_->keySequenceEdit->keySequence().toString();
+    qDebug() << path_->text(0);
+    KeyElement* element = new KeyElement(path_->text(0));
+    element->SetItem(path_);
+    element->SetKey(ui_->keySequenceEdit->keySequence().toString().at(0));
+    element->set_volume(ui_->volumeSpin->value());
+    element->SetRepeated(ui_->repeatBox->isChecked());
     emit finish(element);
     this->close();
 }
 
-void KeyEditDialog::on_cancelButton_clicked()
+void KeyEditDialog::OnCancelButtonClicked()
 {
-    this->close();
+    close();
 }
 
-void KeyEditDialog::setPath(QTreeWidgetItem *newPath)
+void KeyEditDialog::Initialize()
 {
-    this->path = newPath;
-    ui->pathLabel->setText("path: " + path->text(0));
+    ui_->okButton->setEnabled(false);
+    ui_->volumeSlider->setValue(prop_->GetVolume());
+    ui_->volumeSpin->setValue(prop_->GetVolume());
+    ui_->repeatBox->setChecked(prop_->GetRepeat());
+
+    InitializeButtonsConnections();
+    InitializeSpecificConnections();
+}
+
+
+
+
+void KeyEditDialog::InitializeButtonsConnections()
+{
+    connect(ui_->okButton, SIGNAL(clicked(bool)), this, SLOT(accept()));
+    connect(ui_->cancelButton, SIGNAL(clicked(bool)), this, SLOT(OnCancelButtonClicked()));
+}
+
+
+
+void KeyEditDialog::InitializeSpecificConnections()
+{
+    connect(ui_->volumeSlider, SIGNAL(valueChanged(int)), ui_->volumeSpin, SLOT(setValue(int)));
+    connect(ui_->volumeSpin, SIGNAL(valueChanged(int)), ui_->volumeSlider, SLOT(setValue(int)));
+    connect(ui_->keySequenceEdit,SIGNAL(editingFinished()), this, SLOT(OnKeySequenceEditEditingFinished()));
+}
+
+void KeyEditDialog::SetPath(QTreeWidgetItem *new_path)
+{
+    path_ = new_path;
+    ui_->pathLabel->setText("path: " + path_->text(0));
 }

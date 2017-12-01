@@ -17,12 +17,12 @@ public:
     /**
      * @brief Properties - creating new Properties object with all properties of all application
      * @param theme - the name of choosing theme
-     * @param repeatDefault - the default repeating flag
-     * @param volumeDefault - the default volume of music file
-     * @param capsDefault - the default value of CapsLock
-     * @param shiftInv - inverse logic of Shift key
+     * @param repeat_default - the default repeating flag
+     * @param volume_default - the default volume of music file
+     * @param caps_default - the default value of CapsLock
+     * @param shift_inv - inverse logic of Shift key
      */
-    Properties(QString theme, bool repeatDefault, int volumeDefault, bool capsDefault, bool shiftInv);
+    Properties(QString theme, bool repeat_default, int volume_default, bool caps_default, bool shift_inv);
 
     /**
      * @brief getTheme - getting the name of choosed theme
@@ -32,43 +32,43 @@ public:
      * - "Union" - the theme with red color as base
      * @return name of the theme
      */
-    QString getTheme();
+    QString GetTheme() const;
 
     /**
-     * @brief getRepeat - getting the repeating settings (starting repeating flag of KeyEditDialog)
+     * @brief getRepeat - getting the repeating settings (starting repeating flag of key_edit_dialog)
      * @return default repeating flag
      */
-    bool getRepeat();
+    bool GetRepeat() const;
 
     /**
      * @brief getVolume - getting the value of volume (starting volume of KeyEdit Dialog)
      * @return default volume
      */
-    int getVolume();
+    int GetVolume() const;
 
     /**
      * @brief getCaps - getting default caps state (state of CapsLock when PlayWindow was run)
      * @return default CapsLock state
      */
-    bool getCaps();
+    bool GetCaps() const;
 
     /**
      * @brief getShift - getting default ShiftInverse flag (the logic of Shift key when CapsLock was activated)
      * @return enable shift inverse
      */
-    bool getShift();
+    bool GetShift() const;
 
     /**
      * @brief getPalette - getting Palette for choosing theme of all application
      * @return QPalette with all colors for choosed theme
      */
-    QPalette getPalette();
+    QPalette GetPalette() const;
 
     /**
      * @brief isNull - compare with default properties class (NullProperties)
      * @return true
      */
-    virtual bool isNull();
+    virtual bool IsNull();
 
     /**
      * @brief saveProperties - saving current parametres in file (./prop.kps) in next fprmat:
@@ -76,7 +76,7 @@ public:
      * []: byte
      * []xA -> A: count of bytes
      */
-    void saveProperties();
+    void SaveProperties() const;
 
     /**
      * @brief loadProperties - loading properties from file (./prop.kps) in next format
@@ -87,16 +87,16 @@ public:
      * @return the object of Properties when loading was successed
      *               the object of NullProperties with default properties when loading was failed
      */
-    static Properties* loadProperties();
+    static Properties* LoadProperties();
 signals:
 
 public slots:
 protected:
-    QString theme;
-    bool repeatDef;
-    int volumeDef;
-    bool capsDef;
-    bool shiftInv;
+    QString theme_;
+    bool repeat_def_;
+    int volume_def_;
+    bool caps_def_;
+    bool shift_inv_;
 };
 
 #endif // PROPERTIES_H

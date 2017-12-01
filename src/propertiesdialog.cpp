@@ -3,68 +3,82 @@
 
 PropertiesDialog::PropertiesDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::PropertiesDialog)
+    ui_(new Ui::PropertiesDialog)
 {
-    ui->setupUi(this);
-    Properties* prop = Properties::loadProperties();
-    ui->themeComboBox->addItem("Default");
-    ui->themeComboBox->addItem("Calibri");
-    ui->themeComboBox->addItem("Dark");
-    ui->themeComboBox->addItem("Union");
-    ui->themeComboBox->setCurrentText(prop->getTheme());
-    const QColor txt = prop->getPalette().buttonText().color();
-    ui->themeComboBox->setStyleSheet("QComboBox{color: rgb(" + QString::number(txt.red()) + "," + QString::number(txt.green()) + "," + QString::number(txt.red()) + ")}");
-    const QColor but = prop->getPalette().button().color();
-    ui->volumeSlider->setStyleSheet("QSlider{color: rgb(" + QString::number(but.red()) + "," + QString::number(but.green()) + "," + QString::number(but.red()) + ")}");
-    ui->repeatCheckBox->setChecked(prop->getRepeat());
-    ui->volumeSlider->setValue(prop->getVolume());
-    ui->volumeSpinBox->setValue(prop->getVolume());
-    ui->capsCheckBox->setChecked(prop->getCaps());
-    ui->shiftCheckBox->setChecked(prop->getShift());
-    ui->themeComboBox->repaint();
-    delete prop;
+    ui_->setupUi(this);
+    Initialize();
 }
 
 PropertiesDialog::~PropertiesDialog()
 {
-    delete ui;
+    delete ui_;
 }
-void PropertiesDialog::on_buttonBox_accepted()
+void PropertiesDialog::OnButtonBoxAccepted()
 {
-    emit changeProperties(new Properties(this->getTheme(), this->getRepeat(), this->getVolume(), this->getCaps(), this->getShift()));
-}
-
-QString PropertiesDialog::getTheme()
-{
-    return this->ui->themeComboBox->currentText();
+    emit changeProperties(new Properties(this->GetTheme(), this->GetRepeat(), this->GetVolume(), this->GetCaps(), this->GetShift()));
 }
 
-bool PropertiesDialog::getRepeat()
+QString PropertiesDialog::GetTheme() const
 {
-    return this->ui->repeatCheckBox->isChecked();
+    return this->ui_->themeComboBox->currentText();
 }
 
-int PropertiesDialog::getVolume()
+bool PropertiesDialog::GetRepeat() const
 {
-    return this->ui->volumeSlider->value();
+    return this->ui_->repeatCheckBox->isChecked();
 }
 
-bool PropertiesDialog::getCaps()
+int PropertiesDialog::GetVolume() const
 {
-    return this->ui->capsCheckBox->isChecked();
+    return this->ui_->volumeSlider->value();
 }
 
-bool PropertiesDialog::getShift()
+bool PropertiesDialog::GetCaps() const
 {
-    return this->ui->shiftCheckBox->isChecked();
+    return this->ui_->capsCheckBox->isChecked();
 }
 
-void PropertiesDialog::on_volumeSpinBox_valueChanged(int arg1)
+bool PropertiesDialog::GetShift() const
 {
-    this->ui->volumeSlider->setValue(arg1);
+    return this->ui_->shiftCheckBox->isChecked();
 }
 
-void PropertiesDialog::on_volumeSlider_valueChanged(int value)
+void PropertiesDialog::Initialize()
 {
-    this->ui->volumeSpinBox->setValue(value);
+    Properties* prop = Properties::LoadProperties();
+
+    ui_->themeComboBox->addItem("Default");
+    ui_->themeComboBox->addItem("Calibri");
+    ui_->themeComboBox->addItem("Dark");
+    ui_->themeComboBox->addItem("Union");
+    ui_->themeComboBox->setCurrentText(prop->GetTheme());
+
+    const QColor txt = prop->GetPalette().buttonText().color();
+    ui_->themeComboBox->setStyleSheet("QComboBox{color: rgb(" + QString::number(txt.red()) + "," + QString::number(txt.green()) + "," + QString::number(txt.red()) + ")}");
+
+    const QColor but = prop->GetPalette().button().color();
+    ui_->volumeSlider->setStyleSheet("QSlider{color: rgb(" + QString::number(but.red()) + "," + QString::number(but.green()) + "," + QString::number(but.red()) + ")}");
+
+    ui_->repeatCheckBox->setChecked(prop->GetRepeat());
+    ui_->volumeSlider->setValue(prop->GetVolume());
+    ui_->volumeSpinBox->setValue(prop->GetVolume());
+    ui_->capsCheckBox->setChecked(prop->GetCaps());
+    ui_->shiftCheckBox->setChecked(prop->GetShift());
+    ui_->themeComboBox->repaint();
+
+    delete prop;
+
+    InitializeButtonsConnections();
+    InitializeSpecificConnections();
+}
+
+void PropertiesDialog::InitializeButtonsConnections()
+{
+    connect(ui_->buttonBox, SIGNAL(accepted()), this, SLOT(OnButtonBoxAccepted()));
+}
+
+void PropertiesDialog::InitializeSpecificConnections()
+{
+    connect(ui_->volumeSlider, SIGNAL(valueChanged(int)), ui_->volumeSpinBox, SLOT(setValue(int)));
+    connect(ui_->volumeSpinBox, SIGNAL(valueChanged(int)), ui_->volumeSlider, SLOT(setValue(int)));
 }

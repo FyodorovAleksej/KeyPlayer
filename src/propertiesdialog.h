@@ -16,26 +16,14 @@ class PropertiesDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit PropertiesDialog(QWidget *parent = 0);
+    explicit PropertiesDialog(QWidget *parent = nullptr);
     ~PropertiesDialog();
 
 private slots:
     /**
      * @brief on_buttonBox_accepted action, when OKbutton was pressed. Send signal with setted properties to main window
      */
-    void on_buttonBox_accepted();
-
-    /**
-     * @brief on_volumeSpinBox_valueChanged action, when volumeSpinBox was changed. Change value of volumeSlider
-     * @param arg1
-     */
-    void on_volumeSpinBox_valueChanged(int arg1);
-
-    /**
-     * @brief on_volumeSlider_valueChanged action, when volumeSlider was changed. Change value of volumeSpinBox
-     * @param value
-     */
-    void on_volumeSlider_valueChanged(int value);
+    void OnButtonBoxAccepted();
 
 signals:
     /**
@@ -49,33 +37,40 @@ private:
      * @brief getTheme getting theme from themeComboBox
      * @return name of choosed theme
      */
-    QString getTheme();
+    QString GetTheme() const;
 
     /**
      * @brief getRepeat getting flag of repeating from repeatCheckBox
      * @return choosed repeat flag as default
      */
-    bool getRepeat();
+    bool GetRepeat() const;
 
     /**
      * @brief getVolume getting choosed default volume value from volumeSpinBox
      * @return value of default volume
      */
-    int getVolume();
+    int GetVolume() const;
 
     /**
      * @brief getCaps getting flag of CapsLock from capsCheckBox
      * @return choosed capsLock flag as default
      */
-    bool getCaps();
+    bool GetCaps() const;
 
     /**
      * @brief getShift getting flag of shift inverse from shiftInverseCheckBox
      * @return choosed shiftInverse flag as default
      */
-    bool getShift();
+    bool GetShift() const;
 
-    Ui::PropertiesDialog *ui;
+    void Initialize();
+
+    void InitializeButtonsConnections();
+
+    void InitializeSpecificConnections();
+
+
+    Ui::PropertiesDialog *ui_;
 };
 
 #endif // PROPERTIESDIALOG_H

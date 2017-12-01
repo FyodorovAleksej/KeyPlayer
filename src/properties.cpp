@@ -8,43 +8,43 @@ Properties::Properties(QObject *parent) : QObject(parent)
 
 }
 
-Properties::Properties(QString theme, bool repeatDefault, int volumeDefault, bool capsDefault, bool shiftInv)
+Properties::Properties(const QString theme, const bool repeat_default, const int volume_default, const bool caps_default, const bool shift_inv)
 {
-    this->theme = theme;
-    this->repeatDef = repeatDefault;
-    this->volumeDef = volumeDefault;
-    this->capsDef = capsDefault;
-    this->shiftInv = shiftInv;
+    this->theme_ = theme;
+    this->repeat_def_ = repeat_default;
+    this->volume_def_ = volume_default;
+    this->caps_def_ = caps_default;
+    this->shift_inv_ = shift_inv;
 }
 
-QString Properties::getTheme()
+QString Properties::GetTheme() const
 {
-    return this->theme;
+    return this->theme_;
 }
 
-bool Properties::getRepeat()
+bool Properties::GetRepeat() const
 {
-    return this->repeatDef;
+    return this->repeat_def_;
 }
 
-int Properties::getVolume()
+int Properties::GetVolume() const
 {
-    return this->volumeDef;
+    return this->volume_def_;
 }
 
-bool Properties::getCaps()
+bool Properties::GetCaps() const
 {
-    return this->capsDef;
+    return this->caps_def_;
 }
 
-bool Properties::getShift()
+bool Properties::GetShift() const
 {
-    return this->shiftInv;
+    return this->shift_inv_;
 }
 
-QPalette Properties::getPalette()
+QPalette Properties::GetPalette() const
 {
-    if (this->getTheme() == "Dark")
+    if (this->GetTheme() == "Dark")
     {
         QPalette palette;
         palette.setColor(QPalette::Window, QColor(53, 53, 53));
@@ -63,12 +63,12 @@ QPalette Properties::getPalette()
         return palette;
     }
 
-    if (this->getTheme() == "Default")
+    if (this->GetTheme() == "Default")
     {
         return QApplication::style()->standardPalette();
     }
 
-    if (this->getTheme() == "Calibri")
+    if (this->GetTheme() == "Calibri")
     {
         QPalette palette;
         palette.setColor(QPalette::Window, QColor(100, 155, 255));
@@ -87,7 +87,7 @@ QPalette Properties::getPalette()
         return palette;
     }
 
-    if (this->getTheme() == "Union")
+    if (this->GetTheme() == "Union")
     {
         QPalette palette;
         palette.setColor(QPalette::Window, QColor(255, 100, 140));
@@ -108,57 +108,55 @@ QPalette Properties::getPalette()
     return QPalette();
 }
 
-bool Properties::isNull()
+bool Properties::IsNull()
 {
     return false;
 }
 
-void Properties::saveProperties()
+void Properties::SaveProperties() const
 {
-    FILE *file;
-    QString name = QApplication::applicationDirPath() + "/prop.kps";
+	QString name = QApplication::applicationDirPath() + "/prop.kps";
     if (name.isEmpty())
     {
         return;
     }
-    file = fopen(name.toLatin1().data(), "w+b");
+    FILE *file = fopen(name.toLatin1().data(), "w+b");
     if (!file)
     {
         return;
     }
-    fwrite(&(this->shiftInv), sizeof(bool),1,file);
-    fwrite(&(this->capsDef), sizeof(bool),1,file);
-    fwrite(&(this->volumeDef), sizeof(int),1,file);
-    fwrite(&(this->repeatDef), sizeof(bool),1,file);
+    fwrite(&(this->shift_inv_), sizeof(bool),1,file);
+    fwrite(&(this->caps_def_), sizeof(bool),1,file);
+    fwrite(&(this->volume_def_), sizeof(int),1,file);
+    fwrite(&(this->repeat_def_), sizeof(bool),1,file);
 
-    const char *str = this->theme.toLatin1().data();
-    fwrite(str, sizeof(char), this->theme.length(), file);
+    const char *str = this->theme_.toLatin1().data();
+    fwrite(str, sizeof(char), this->theme_.length(), file);
     fwrite("\n", sizeof(char), 1, file);
     fclose(file);
     delete file;
 }
 
-Properties* Properties::loadProperties()
+Properties* Properties::LoadProperties()
 {
-    FILE *file;
-    QString name = QApplication::applicationDirPath() + "/prop.kps";
+	QString name = QApplication::applicationDirPath() + "/prop.kps";
     if (name.isEmpty())
     {
         return new NullProperties();
     }
-    file = fopen(name.toLatin1().data(), "r+b");
+    FILE *file = fopen(name.toLatin1().data(), "r+b");
     if (!file)
     {
         return new NullProperties();
     }
-    bool shiftInv;
-    bool capsDef;
-    int volumeDef;
-    bool repeatDef;
-    fread(&shiftInv, sizeof(bool),1,file);
-    fread(&capsDef, sizeof(bool),1,file);
-    fread(&volumeDef, sizeof(int),1,file);
-    fread(&repeatDef, sizeof(bool),1,file);
+    bool shift_inv;
+    bool caps_def;
+    int volume_def;
+    bool repeat_def;
+    fread(&shift_inv, sizeof(bool),1,file);
+    fread(&caps_def, sizeof(bool),1,file);
+    fread(&volume_def, sizeof(int),1,file);
+    fread(&repeat_def, sizeof(bool),1,file);
     char temp = '\n';
     QString theme = "";
     while (true)
@@ -175,5 +173,5 @@ Properties* Properties::loadProperties()
     }
     fclose(file);
     delete file;
-    return new Properties(theme, repeatDef, volumeDef, capsDef, shiftInv);
+    return new Properties(theme, repeat_def, volume_def, caps_def, shift_inv);
 }

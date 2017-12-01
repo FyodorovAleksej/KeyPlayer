@@ -2,88 +2,88 @@
 
 KeyElement::KeyElement(QObject *parent) : QObject(parent)
 {
-    this->key = ' ';
-    this->player = NULL;
-    this->format = 0;
-    this->valid = false;
-    this->item = NULL;
-    this->repeating = false;
+    this->key_ = ' ';
+    this->player_ = nullptr;
+    this->format_ = 0;
+    this->valid_ = false;
+    this->item_ = nullptr;
+    this->repeating_ = false;
 }
 
 KeyElement::~KeyElement()
 {
-    disconnect(player, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
+    disconnect(player_, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(ErrorSlot()));
 }
 
-KeyElement::KeyElement(QString name)
+KeyElement::KeyElement(const QString name)
 {
-    this->key = ' ';
-    this->valid = true;
-    this->player = new QMediaPlayer();
-    connect(player, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
-    player->setMedia(QMediaContent(QUrl::fromLocalFile(name)));
-    this->format = 0;
-    this->valid = player->isAvailable();
-    this->item = new QTreeWidgetItem();
-    this->repeating = false;
+    this->key_ = ' ';
+    this->valid_ = true;
+    this->player_ = new QMediaPlayer();
+    connect(player_, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(ErrorSlot()));
+    player_->setMedia(QMediaContent(QUrl::fromLocalFile(name)));
+    this->format_ = 0;
+    this->valid_ = player_->isAvailable();
+    this->item_ = new QTreeWidgetItem();
+    this->repeating_ = false;
 }
 
 
-QChar KeyElement::getKey()
+QChar KeyElement::GetKey() const
 {
-    return this->key;
+    return this->key_;
 }
 
-void KeyElement::setKey(QChar key)
+void KeyElement::SetKey(const QChar key)
 {
-    this->key = key;
+    this->key_ = key;
 }
 
-QString KeyElement::getName()
+QString KeyElement::GetName() const
 {
-    return this->item->text(1);
+    return this->item_->text(1);
 }
 
-QString KeyElement::getPath()
+QString KeyElement::GetPath() const
 {
-    return this->item->text(0);
+    return this->item_->text(0);
 }
 
-int KeyElement::getFormat()
+int KeyElement::GetFormat() const
 {
-    return this->format;
+    return this->format_;
 }
 
-void KeyElement::setFormat(int format)
+void KeyElement::SetFormat(const int format)
 {
-    this->format = format;
+    this->format_ = format;
 }
 
-QTreeWidgetItem* KeyElement::getItem()
+QTreeWidgetItem* KeyElement::GetItem() const
 {
-    return this->item;
+    return this->item_;
 }
 
-void KeyElement::setItem(QTreeWidgetItem *item)
+void KeyElement::SetItem(QTreeWidgetItem *item)
 {
-    QColor color = this->item->backgroundColor(1);
-    this->item = item;
-    this->item->setBackgroundColor(1,color);
+	const QColor color = this->item_->backgroundColor(1);
+    this->item_ = item;
+    this->item_->setBackgroundColor(1,color);
 }
 
-void KeyElement::setVolume(int volume)
+void KeyElement::set_volume(const int volume) const
 {
-    if (this->player != NULL)
+    if (this->player_ != nullptr)
     {
-        this->player->setVolume(volume);
+        this->player_->setVolume(volume);
     }
 }
 
-int KeyElement::getVolume()
+int KeyElement::GetVolume() const
 {
-    if (this->player != NULL)
+    if (this->player_ != nullptr)
     {
-        return this->player->volume();
+        return this->player_->volume();
     }
     else
     {
@@ -91,49 +91,49 @@ int KeyElement::getVolume()
     }
 }
 
-QMediaPlayer* KeyElement::getPlayer()
+QMediaPlayer* KeyElement::GetPlayer() const
 {
-    return this->player;
+    return this->player_;
 }
 
-qint64 KeyElement::duration()
+qint64 KeyElement::Duration() const
 {
-    return this->player->duration();
+    return this->player_->duration();
 }
 
-bool KeyElement::isValid()
+bool KeyElement::IsValid() const
 {
-    return valid;
+    return valid_;
 }
 
-void KeyElement::setRepeated(bool repeat)
+void KeyElement::SetRepeated(const bool repeat)
 {
-    this->repeating = repeat;
+    this->repeating_ = repeat;
 }
 
-bool KeyElement::isRepeated()
+bool KeyElement::IsRepeated() const
 {
-    return this->repeating;
+    return this->repeating_;
 }
 
 
-void KeyElement::play()
+void KeyElement::Play() const
 {
-    if (this->player != NULL)
+    if (this->player_ != nullptr)
     {
-        this->player->play();
+        this->player_->play();
     }
 }
 
-void KeyElement::stop()
+void KeyElement::Stop() const
 {
-    if (this->player != NULL)
+    if (this->player_ != nullptr)
     {
-        this->player->stop();
+        this->player_->stop();
     }
 }
-void KeyElement::errorSlot()
+void KeyElement::ErrorSlot()
 {
-    this->valid = false;
-    this->item->setBackgroundColor(1,QColor(250,80,80,235));
+    this->valid_ = false;
+    this->item_->setBackgroundColor(1, QColor(250, 80, 80, 235));
 }

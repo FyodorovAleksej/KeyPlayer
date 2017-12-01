@@ -11,7 +11,7 @@ class KeyEditDialog;
 }
 
 /**
- * @brief The KeyEditDialog class of window for binding key for music file, and setup some properties for it's playing
+ * @brief The key_edit_dialog class of window for binding key for music file, and setup some properties for it's playing
  * such as: Volume - the volume of music file, that will played
  *              Repeating - file will repeated, when it was finished
  *              Key - the key, that will linked with this music file
@@ -22,18 +22,18 @@ class KeyEditDialog : public QDialog
 
 public:
     /**
-     * @brief KeyEditDialog - creating new KeyEditDialog window for build KeyElement
+     * @brief key_edit_dialog - creating new key_edit_dialog window for build KeyElement
      * @param parent parent object for destroying
      * @param prop object with properties
      */
-    explicit KeyEditDialog(QWidget *parent = 0, Properties *prop = NULL);
+    explicit KeyEditDialog(QWidget *parent = nullptr, Properties *prop = nullptr);
     ~KeyEditDialog();
 
     /**
      * @brief setPath setting path of current file for setting propeties of playing this file
-     * @param newPath the path for setting
+     * @param new_path the path for setting
      */
-    void setPath(QTreeWidgetItem* newPath);
+    void SetPath(QTreeWidgetItem* new_path);
 
 signals:
     /**
@@ -47,24 +47,31 @@ private slots:
      * @brief on_keySequenceEdit_editingFinished the action, when property key was pressed.
      * unblocked OK Button
      */
-    void on_keySequenceEdit_editingFinished();
+    void OnKeySequenceEditEditingFinished() const;
 
     /**
      * @brief on_okButton_clicked the action, when "OK" button was pressed
      * closed window and send properties to main window
      */
-    void on_okButton_clicked();
+    void OnOkButtonClicked();
 
     /**
      * @brief on_cancelButton_clicked the action, when "Cancel" button was pressed
      * closed window and don't send signal to main window
      */
-    void on_cancelButton_clicked();
+    void OnCancelButtonClicked();
 
 private:
-    Ui::KeyEditDialog *ui;
-    QTreeWidgetItem* path;
-    Properties* prop;
+
+    void Initialize();
+
+    void InitializeButtonsConnections();
+
+    void InitializeSpecificConnections();
+
+    Ui::KeyEditDialog *ui_;
+    QTreeWidgetItem* path_;
+    Properties* prop_;
 };
 
 #endif // KEYEDITDIALOG_H

@@ -19,7 +19,7 @@ public:
      * @brief isNull - compare with Properties class
      * @return false
      */
-    bool isNull();
+    bool IsNull() override;
 
 };
 

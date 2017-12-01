@@ -3,36 +3,36 @@
 
 TryPlayer::TryPlayer(QObject *parent) : QObject(parent)
 {
-    this->item = NULL;
-    this->player = NULL;
+    this->item_ = nullptr;
+    this->player_ = nullptr;
 }
 
 TryPlayer::TryPlayer(QTreeWidgetItem *item)
 {
-    this->item = item;
-    this->player = new QMediaPlayer();
-    connect(player, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
-    connect(player, SIGNAL(durationChanged(qint64)), this, SLOT(durationChangedSlot()));
-    player->setMedia(QMediaContent(QUrl::fromLocalFile(item->text(0))));
+    this->item_ = item;
+    this->player_ = new QMediaPlayer();
+    connect(player_, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
+    connect(player_, SIGNAL(durationChanged(qint64)), this, SLOT(durationChangedSlot()));
+    player_->setMedia(QMediaContent(QUrl::fromLocalFile(item->text(0))));
     qDebug() << "add new try" << item->text(0);
 }
 
 TryPlayer::~TryPlayer()
 {
-    disconnect(player, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
-    disconnect(player, SIGNAL(durationChanged(qint64)), this, SLOT(durationChangedSlot()));
-    delete this->player;
+    disconnect(player_, SIGNAL(error(QMediaPlayer::Error)), this, SLOT(errorSlot()));
+    disconnect(player_, SIGNAL(durationChanged(qint64)), this, SLOT(durationChangedSlot()));
+    delete this->player_;
 }
 
-void TryPlayer::errorSlot()
+void TryPlayer::ErrorSlot()
 {
-    qDebug() << "error" << item->text(0);
-    item->setBackgroundColor(1,QColor(250,80,80,235));
+    qDebug() << "error" << item_->text(0);
+    item_->setBackgroundColor(1,QColor(250,80,80,235));
     this->deleteLater();
 }
 
-void TryPlayer::durationChangedSlot()
+void TryPlayer::DurationChangedSlot()
 {
-    qDebug() << "correct" << item->text(0);
+    qDebug() << "correct" << item_->text(0);
     this->deleteLater();
 }

@@ -2,8 +2,8 @@
 #define TRYPLAYER_H
 
 #include <QObject>
-#include <QMediaPlayer>
 #include <QTreeWidgetItem>
+#include <QtMultimedia/QMediaPlayer>
 
 /**
  * @brief The TryPlayer class class for checking valid music files, when files was added in tree directory. Deleting itself
@@ -12,13 +12,13 @@ class TryPlayer : public QObject
 {
     Q_OBJECT
 public:
-    explicit TryPlayer(QObject *parent = 0);
+    explicit TryPlayer(QObject *parent = nullptr);
 
     /**
      * @brief TryPlayer creating selfdestructed object of TryPlayer, with this file.
      * @param item the file for checking
      */
-    TryPlayer(QTreeWidgetItem* item);
+	explicit TryPlayer(QTreeWidgetItem* item);
     ~TryPlayer();
 signals:
 
@@ -27,15 +27,15 @@ public slots:
     /**
      * @brief durationChangedSlot slot activated, when duration of music file was loaded
      */
-    void durationChangedSlot();
+    void DurationChangedSlot();
 
     /**
      * @brief errorSlot slot activated, when file can't loaded
      */
-    void errorSlot();
+    void ErrorSlot();
 private:
-    QTreeWidgetItem *item;
-    QMediaPlayer *player;
+    QTreeWidgetItem *item_;
+    QMediaPlayer *player_;
 };
 
 #endif // TRYPLAYER_H

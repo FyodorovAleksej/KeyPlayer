@@ -1,22 +1,25 @@
 #include "keymainwindow.h"
 #include "ui_keymainwindow.h"
+#include <QApplication>
 
 
-QString rgbToString(QColor color)
+QString rgb_to_string(QColor color)
 {
     return "rgb(" + QString::number(color.red()) + "," + QString::number(color.green()) + "," + QString::number(color.blue()) + ");";
 }
 
 
-QTreeWidgetItem* KeyMainWindow::getDir(QString path, QTreeWidgetItem* parent)
+
+
+QTreeWidgetItem* KeyMainWindow::GetDir(QString path, QTreeWidgetItem* parent) const
 {
     int check = 1;
-    QTreeWidgetItem* item = NULL;
+    QTreeWidgetItem* item = nullptr;
     QDir folder(path);
-    QFileInfo pathInfo(path);
-    if (pathInfo.isDir())
+    QFileInfo path_info(path);
+    if (path_info.isDir())
     {
-        logging("adding folder...");
+        Logging("adding folder...");
         for (QFileInfo temp : folder.entryInfoList())
         {
             if (check > 2)
@@ -26,418 +29,397 @@ QTreeWidgetItem* KeyMainWindow::getDir(QString path, QTreeWidgetItem* parent)
                     item = new QTreeWidgetItem(parent);
                     item->setText(0, temp.absoluteFilePath());
                     item->setText(1, temp.fileName());
-                    ui->fileTreeWidget->addTopLevelItem(item);
+                    ui_->fileTreeWidget->addTopLevelItem(item);
                     new TryPlayer(item);
                 }
                 if (temp.isDir())
                 {
-                    QTreeWidgetItem* parentFolder;
-                    parentFolder = new QTreeWidgetItem(parent);
+	                QTreeWidgetItem * parentFolder = new QTreeWidgetItem(parent);
                     parentFolder->setText(0, temp.absoluteFilePath());
-                    getDir(temp.absoluteFilePath(), parentFolder);
+                    GetDir(temp.absoluteFilePath(), parentFolder);
                 }
             }
             check++;
         }
-        logging("folder was added");
+        Logging("folder was added");
     }
     else
     {
-        logging("adding file...");
+        Logging("adding file...");
         item = new QTreeWidgetItem(parent);
-        item->setText(0,pathInfo.absoluteFilePath());
-        item->setText(1, pathInfo.fileName());
-        ui->fileTreeWidget->addTopLevelItem(item);
-        logging("file was added");
+        item->setText(0,path_info.absoluteFilePath());
+        item->setText(1, path_info.fileName());
+        ui_->fileTreeWidget->addTopLevelItem(item);
+        Logging("file was added");
     }
     return item;
 }
 
 
+
+
 KeyMainWindow::KeyMainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::KeyMainWindow)
+    ui_(new Ui::KeyMainWindow)
 {
-    this->prop = NULL;
-    ui->setupUi(this);
-<<<<<<< HEAD
-    this->changeMainProp(Properties::loadProperties());
-=======
-
->>>>>>> origin/master
-    ui->fileTreeWidget->setColumnCount(2);
-    QStringList headsList(QString("Path"));
-    headsList.append("Name");
-    ui->fileTreeWidget->setHeaderLabels(headsList);
-    ui->fileTreeWidget->setSortingEnabled(true);
-
-    //this->keyPagesList = new QList<QListWidget*>;
-    this->keyPagesList.append(ui->keyListWidget_0);
-    this->keyPagesList.append(ui->keyListWidget_1);
-    this->keyPagesList.append(ui->keyListWidget_2);
-    this->keyPagesList.append(ui->keyListWidget_3);
-    this->keyPagesList.append(ui->keyListWidget_4);
-    this->keyPagesList.append(ui->keyListWidget_5);
-    this->keyPagesList.append(ui->keyListWidget_6);
-    this->keyPagesList.append(ui->keyListWidget_7);
-    this->keyPagesList.append(ui->keyListWidget_8);
-    this->keyPagesList.append(ui->keyListWidget_9);
-
-    connect(ui->keyListWidget_0, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->keyListWidget_1, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->keyListWidget_2, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->keyListWidget_3, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->keyListWidget_4, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->keyListWidget_5, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->keyListWidget_6, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->keyListWidget_7, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->keyListWidget_8, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-    connect(ui->keyListWidget_9, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(on_keyListWidget_itemClicked(QListWidgetItem*)));
-
-
-    connect(ui->keyListWidget_0, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-    connect(ui->keyListWidget_1, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-    connect(ui->keyListWidget_2, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-    connect(ui->keyListWidget_3, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-    connect(ui->keyListWidget_4, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-    connect(ui->keyListWidget_5, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-    connect(ui->keyListWidget_6, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-    connect(ui->keyListWidget_7, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-    connect(ui->keyListWidget_8, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-    connect(ui->keyListWidget_9, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_keyListWidget_doubleClicked(QModelIndex)));
-
-
-    //this->keys = new QList<QList<KeyElement*>*>;
-    this->keys.append(new QList<KeyElement*>); //0
-    this->keys.append(new QList<KeyElement*>); //1
-    this->keys.append(new QList<KeyElement*>); //2
-    this->keys.append(new QList<KeyElement*>); //3
-    this->keys.append(new QList<KeyElement*>); //4
-    this->keys.append(new QList<KeyElement*>); //5
-    this->keys.append(new QList<KeyElement*>); //6
-    this->keys.append(new QList<KeyElement*>); //7
-    this->keys.append(new QList<KeyElement*>); //8
-    this->keys.append(new QList<KeyElement*>); //9
-
-    this->currentPage = 0;
-
-    prelistening = false;
+    ui_->setupUi(this);
+    this->Initialize();
 }
+
+
+
 
 KeyMainWindow::~KeyMainWindow()
 {
-    stopAllPlay();
-    on_deleteAllButton_clicked();
-    for (int i = 0; i < keys.length(); i++)
+    StopAllPlay();
+    OnDeleteAllButtonClicked();
+    for (int i = 0; i < keys_.length(); i++)
     {
-        keys.at(i)->clear();
-        delete keys.at(i);
+        keys_.at(i)->clear();
+        delete keys_.at(i);
     }
-    delete ui;
+    delete ui_;
 }
 
-void KeyMainWindow::on_editButton_clicked()
+
+
+
+void KeyMainWindow::OnEditButtonClicked() const
 {
-    if (ui->fileTreeWidget->currentItem() != NULL)
+    if (ui_->fileTreeWidget->currentItem() != NULL)
     {
-        if (ui->fileTreeWidget->currentItem()->text(1).endsWith(".mp3") || ui->fileTreeWidget->currentItem()->text(1).endsWith(".wav"))
+        if (ui_->fileTreeWidget->currentItem()->text(1).endsWith(".mp3") || ui_->fileTreeWidget->currentItem()->text(1).endsWith(".wav"))
         {
-            logging("start editing...");
+            Logging("start editing...");
             KeyEditDialog* dialog = new KeyEditDialog();
-            dialog->setPath(ui->fileTreeWidget->currentItem());
-            connect(dialog,SIGNAL(finish(KeyElement*)),this, SLOT(editOk(KeyElement*)));
+            dialog->SetPath(ui_->fileTreeWidget->currentItem());
+            connect(dialog,SIGNAL(finish(KeyElement*)),this, SLOT(EditOk(KeyElement*)));
             dialog->show();
-            logging("finish editing");
+            Logging("finish editing");
         }
         else
         {
-            logging("it's folder");
+            Logging("it's folder");
         }
     }
     else
     {
-        logging("nothing to edit");
+        Logging("nothing to edit");
     }
 }
 
-void KeyMainWindow::on_addButton_clicked()
+
+
+
+
+void KeyMainWindow::OnAddButtonClicked() const
 {
-    logging("adding folder with resources...");
+    Logging("adding folder with resources...");
     QString root = QFileDialog::getExistingDirectoryUrl().toLocalFile();
     if (root.isEmpty())
     {
-        logging("cancelling adding dirictory");
+        Logging("cancelling adding dirictory");
         return;
     }
     QTreeWidgetItem* item = new QTreeWidgetItem();
     item->setText(0, root);
-    ui->fileTreeWidget->addTopLevelItem(item);
-    getDir(root, item);
-    logging("dirictory was added");
+    ui_->fileTreeWidget->addTopLevelItem(item);
+    GetDir(root, item);
+    Logging("dirictory was added");
 }
 
 
-void KeyMainWindow::on_deleteButton_clicked()
+
+
+
+void KeyMainWindow::OnDeleteButtonClicked()
 {
-    int index = this->keyPagesList.at(ui->tabWidget->currentIndex())->currentIndex().row();
+	const int index = this->key_pages_list_.at(ui_->tabWidget->currentIndex())->currentIndex().row();
     if (index >= 0)
     {
-        logging("deleting element...");
-        KeyElement* elem = this->keys.at(getCurrentPage())->at(index);
-        keys.at(getCurrentPage())->removeAt(index);
-        if (elem->getItem()->backgroundColor(1) != QColor(250,80,80,235))
+        Logging("deleting element...");
+        KeyElement* elem = this->keys_.at(GetCurrentPage())->at(index);
+        keys_.at(GetCurrentPage())->removeAt(index);
+        if (elem->GetItem()->backgroundColor(1) != QColor(250, 80, 80, 235))
         {
-            elem->getItem()->setBackgroundColor(1,QColor(0,0,0,0));
+            elem->GetItem()->setBackgroundColor(1, QColor(0, 0, 0, 0));
         }
-        keyPagesList.at(getCurrentPage())->takeItem(index);
+        key_pages_list_.at(GetCurrentPage())->takeItem(index);
         if (index > 0)
         {
-            keyPagesList.at(getCurrentPage())->setCurrentRow(index - 1);
+            key_pages_list_.at(GetCurrentPage())->setCurrentRow(index - 1);
         }
         else
         {
-            keyPagesList.at(getCurrentPage())->setCurrentRow(index);
+            key_pages_list_.at(GetCurrentPage())->setCurrentRow(index);
         }
         delete elem;
-        logging("key element was deleted");
+        Logging("key element was deleted");
     }
     else
     {
-        logging("nothing to delete");
+        Logging("nothing to delete");
     }
 }
 
-void KeyMainWindow::on_deleteAllButton_clicked()
+
+
+
+
+void KeyMainWindow::OnDeleteAllButtonClicked()
 {
-    logging("deleting all key elements...");
-    for (int j= 0; j < keys.length(); j++)
+    Logging("deleting all key elements...");
+    for (int j = 0; j < keys_.length(); j++)
     {
-        for (int i = 0; i < keys.at(j)->length(); i++)
+        for (int i = 0; i < keys_.at(j)->length(); i++)
         {
-            if (keys.at(j)->at(i)->getItem()->backgroundColor(1) != QColor(250,80,80,235))
+            if (keys_.at(j)->at(i)->GetItem()->backgroundColor(1) != QColor(250,80,80,235))
             {
-                keys.at(j)->at(i)->getItem()->setBackgroundColor(1,QColor(0,0,0,0));
+                keys_.at(j)->at(i)->GetItem()->setBackgroundColor(1,QColor(0,0,0,0));
             }
-            delete keys.at(j)->at(i);
+            delete keys_.at(j)->at(i);
         }
-        keys.at(j)->clear();
-        keyPagesList.at(j)->clear();
+        keys_.at(j)->clear();
+        key_pages_list_.at(j)->clear();
     }
-    logging("all key elements was deleted");
+    Logging("all key elements was deleted");
 }
 
-void KeyMainWindow::on_playButton_clicked()
+
+
+
+void KeyMainWindow::OnPlayButtonClicked()
 {
-    stopAllPlay();
-    currentPage = 0;
-    logging("start playing... Enjoy =)");
-    PlayWindow* window = new PlayWindow(this, this->prop);
-    //connect (window,SIGNAL(buttonPressedSignal(QChar)),this,SLOT(startPlay(QChar)));
-    //connect (window,SIGNAL(buttonReleasedSignal(QChar)),this,SLOT(stopPlay(QChar)));
+    StopAllPlay();
+    current_page_ = 0;
+    Logging("start playing... Enjoy =)");
+    PlayWindow* window = new PlayWindow(this, this->prop_);;
 
-    connect(window, SIGNAL(startSignal(QChar,int)), this, SLOT(start(QChar,int)));
-    connect(window, SIGNAL(stopSignal(QChar,int)), this, SLOT(stop(QChar,int)));
+    connect(window, SIGNAL(startSignal(QChar,int)), this, SLOT(Start(QChar,int)));
+    connect(window, SIGNAL(stopSignal(QChar,int)), this, SLOT(Stop(QChar,int)));
 
-    connect(window,SIGNAL(rejected()),this,SLOT(stopAllPlay()));
-    shift = false;
+    connect(window,SIGNAL(rejected()),this,SLOT(StopAllPlay()));
+    shift_ = false;
     window->show();
 }
 
-void KeyMainWindow::on_fileTreeWidget_doubleClicked(const QModelIndex &index)
+
+
+
+void KeyMainWindow::OnFileTreeWidgetDoubleClicked(const QModelIndex &index)
 {
-    on_editButton_clicked();
+    OnEditButtonClicked();
 }
 
-void KeyMainWindow::on_keyListWidget_doubleClicked(const QModelIndex &index)
+
+
+
+void KeyMainWindow::OnKeyListWidgetDoubleClicked(const QModelIndex &index)
 {
-    if (!prelistening)
+    if (!prelistening_)
     {
-        keys.at(getCurrentPage())->at(index.row())->play();
-        logging("listening - " + keys.at(getCurrentPage())->at(index.row())->getName());
+        keys_.at(GetCurrentPage())->at(index.row())->Play();
+        Logging("listening - " + keys_.at(GetCurrentPage())->at(index.row())->GetName());
     }
     else
     {
-        stopAllPlay();
+        StopAllPlay();
     }
-    prelistening = !prelistening;
+    prelistening_ = !prelistening_;
 }
 
 
-void KeyMainWindow::start(QChar key, int page)
+
+
+void KeyMainWindow::Start(const QChar key, const int page) const
 {
-    QList<QListWidgetItem*> list = keyPagesList.at(page)->findItems(key,Qt::MatchStartsWith);
+    QList<QListWidgetItem*> list = key_pages_list_.at(page)->findItems(key,Qt::MatchStartsWith);
     if (!list.isEmpty())
     {
         if (list.at(0)->text()[0] == key)
         {
-            for (int i = 0; i < keys.at(page)->length(); i++)
+            for (int i = 0; i < keys_.at(page)->length(); i++)
             {
-                if (keys.at(page)->value(i)->getKey() == key)
+                if (keys_.at(page)->value(i)->GetKey() == key)
                 {
-                    KeyElement *elem = keys.at(page)->value(i);
-                    if (elem->getFormat() == 1)
+                    KeyElement *elem = keys_.at(page)->value(i);
+                    if (elem->GetFormat() == 1)
                     {
-                        elem->setFormat(0);
-                        if (elem->isRepeated())
+                        elem->SetFormat(0);
+                        if (elem->IsRepeated())
                         {
-                            disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
+                            disconnect(elem->GetPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->GetPlayer(), SLOT(play()));
                         }
-                        elem->stop();
+                        elem->Stop();
                         return;
                     }
-                    if (elem->getFormat() == 0)
+                    if (elem->GetFormat() == 0)
                     {
-                        elem->setFormat(1);
-                        elem->play();
-                        if (elem->isRepeated())
+                        elem->SetFormat(1);
+                        elem->Play();
+                        if (elem->IsRepeated())
                         {
-                            connect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
+                            connect(elem->GetPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->GetPlayer(), SLOT(play()));
                         }
                         return;
                     }
-                    elem->play();
+                    elem->Play();
                 }
             }
         }
     }
 }
 
-void KeyMainWindow::stop(QChar key, int page)
+
+
+
+void KeyMainWindow::Stop(const QChar key, const int page) const
 {
-    QList<QListWidgetItem*> list = keyPagesList.at(page)->findItems(key,Qt::MatchStartsWith);
+    QList<QListWidgetItem*> list = key_pages_list_.at(page)->findItems(key,Qt::MatchStartsWith);
     if (!list.isEmpty())
     {
         if (list.at(0)->text()[0] == key)
         {
-            for (int i = 0; i < keys.at(page)->length(); i++)
+            for (int i = 0; i < keys_.at(page)->length(); i++)
             {
-                if (keys.at(page)->value(i)->getKey() == key)
+                if (keys_.at(page)->value(i)->GetKey() == key)
                 {
-                    KeyElement *elem = keys.at(page)->value(i);
-                    if (elem->isRepeated())
+                    KeyElement *elem = keys_.at(page)->value(i);
+                    if (elem->IsRepeated())
                     {
-                        disconnect(elem->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->getPlayer(), SLOT(play()));
+                        disconnect(elem->GetPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), elem->GetPlayer(), SLOT(play()));
                     }
-                    elem->setFormat(0);
-                    elem->stop();
+                    elem->SetFormat(0);
+                    elem->Stop();
                 }
             }
         }
     }
 }
 
-void KeyMainWindow::stopAllPlay()
+
+
+
+
+void KeyMainWindow::StopAllPlay()
 {
-    logging("stopping all...");
-    for (int j = 0; j < keys.length(); j++)
+    Logging("stopping all...");
+    for (int j = 0; j < keys_.length(); j++)
     {
-        for (int i = 0; i < keys.at(j)->length(); i++)
+        for (int i = 0; i < keys_.at(j)->length(); i++)
         {
-            keys.at(j)->value(i)->setFormat(0);
-            if (keys.at(j)->value(i)->isRepeated())
+            keys_.at(j)->value(i)->SetFormat(0);
+            if (keys_.at(j)->value(i)->IsRepeated())
             {
-                disconnect(keys.at(j)->value(i)->getPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), keys.at(j)->value(i)->getPlayer(), SLOT(play()));
+                disconnect(keys_.at(j)->value(i)->GetPlayer(), SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), keys_.at(j)->value(i)->GetPlayer(), SLOT(play()));
             }
-            keys.at(j)->value(i)->stop();
+            keys_.at(j)->value(i)->Stop();
         }
     }
-    shift = false;
-    logging("all plays was stopped");
+    shift_ = false;
+    Logging("all plays was stopped");
 }
 
-void KeyMainWindow::editOk(KeyElement *element)
+
+
+
+
+void KeyMainWindow::EditOk(KeyElement *element)
 {
-    addInList(element);
-    if (element->isValid())
+    AddInList(element);
+    if (element->IsValid())
     {
-        if (element->isRepeated())
+        if (element->IsRepeated())
         {
-            element->getItem()->setBackgroundColor(1,QColor(80,80,250,235));
+            element->GetItem()->setBackgroundColor(1,QColor(80,80,250,235));
         }
         else
         {
-            element->getItem()->setBackgroundColor(1,QColor(80,250,80,235));
+            element->GetItem()->setBackgroundColor(1,QColor(80,250,80,235));
         }
     }
     else
     {
-        element->getItem()->setBackgroundColor(1,QColor(250,80,80,235));
+        element->GetItem()->setBackgroundColor(1,QColor(250,80,80,235));
     }
-    logging("element was added");
+    Logging("element was added");
 }
 
-void KeyMainWindow::on_actionSaveFile_triggered()
+
+
+
+void KeyMainWindow::OnActionSaveFileTriggered()
 {
-    FILE *file;
-    logging("choosing file...");
+	Logging("choosing file...");
     QString name = QFileDialog::getSaveFileName(this, tr("Save Key List"), QDir::currentPath(), tr("Key List files (*.kpl);; All files(*.*)"));
     if (name.isEmpty())
     {
-        logging("canceling saving file");
+        Logging("canceling saving file");
         return;
     }
-    file = fopen(name.toLatin1().data(), "w+b");
-    logging("rewriting file...");
+    FILE *file = fopen(name.toLatin1().data(), "w+b");
+    Logging("rewriting file...");
     if (!file)
     {
-        logging("can't create file...");
+        Logging("can't create file...");
         return;
     }
-    logging("file was created. Writting...");
-    int len = keys.length();
+    Logging("file was created. Writting...");
+    int len = keys_.length();
     fwrite(&len,sizeof(int),1,file);
-    for (int j = 0; j < keys.length(); j++)
+    for (int j = 0; j < keys_.length(); j++)
     {
-        len = keys.at(j)->length();
+        len = keys_.at(j)->length();
         fwrite(&len,sizeof(int),1,file);
-        for (int i = 0; i < keys.at(j)->length(); i++)
+        for (int i = 0; i < keys_.at(j)->length(); i++)
         {
-            QString qstr = keys.at(j)->at(i)->getKey();
+            QString qstr = keys_.at(j)->at(i)->GetKey();
             qstr += "\t";
-            qstr += keys.at(j)->at(i)->getPath();
+            qstr += keys_.at(j)->at(i)->GetPath();
             qstr += "\n";
             const char *str = qstr.toLatin1().data();
-            const int volume = keys.at(j)->at(i)->getVolume();
-            const bool repeat = keys.at(j)->at(i)->isRepeated();
+            const int volume = keys_.at(j)->at(i)->GetVolume();
+            const bool repeat = keys_.at(j)->at(i)->IsRepeated();
             fwrite(&repeat, sizeof(bool), 1, file);
             fwrite(&volume, sizeof(int), 1, file);
             fwrite(str, sizeof(char), qstr.length(), file);
         }
     }
     fclose(file);
-    logging("file - " + name +" was saved");
+    Logging("file - " + name +" was saved");
     delete file;
 }
 
-void KeyMainWindow::on_actionOpenFile_triggered()
-{
 
-    FILE *file;
-    logging("choosing file...");
+
+
+void KeyMainWindow::OnActionOpenFileTriggered()
+{
+	Logging("choosing file...");
 
     QString name = QFileDialog::getOpenFileName(this, tr("Open Key List"), QDir::currentPath(), tr("Key List files (*.kpl);; All files(*.*)"));
     if (name.isEmpty())
     {
-        logging("canceling opening file");
+        Logging("canceling opening file");
         return;
     }
-    file = fopen(name.toLatin1().data(), "r+b");
+    FILE *file = fopen(name.toLatin1().data(), "r+b");
     if (!file)
     {
-        logging("file not founded");
+        Logging("file not founded");
         return;
     }
 
-    logging("opening file...");
+    Logging("opening file...");
 
-    on_deleteAllButton_clicked();
+    OnDeleteAllButtonClicked();
     int len = 0;
-    int temp = getCurrentPage();
+    int temp = GetCurrentPage();
     int pages = 0;
     fread(&pages,sizeof(int),1,file);
     for (int j = 0; j < pages; j++)
     {
-        ui->tabWidget->setCurrentIndex(j);
+        ui_->tabWidget->setCurrentIndex(j);
         fread(&len,sizeof(int),1,file);
 
         for (int i = 0; i < len; i++)
@@ -445,7 +427,7 @@ void KeyMainWindow::on_actionOpenFile_triggered()
             bool repeat = false;
             int volume = 0;
             char key;
-            char temp = ' ';
+            char current_char = ' ';
             fread(&repeat, sizeof(bool), 1, file);
             fread(&volume, sizeof(int), 1, file);
             fread(&key, sizeof(char), 1, file);
@@ -453,10 +435,10 @@ void KeyMainWindow::on_actionOpenFile_triggered()
             QString qstr = "";
             while (true)
             {
-                fread(&temp, sizeof(char), 1, file);
-                if (temp != '\n')
+                fread(&current_char, sizeof(char), 1, file);
+                if (current_char != '\n')
                 {
-                    qstr.append(temp);
+                    qstr.append(current_char);
                 }
                 else
                 {
@@ -464,84 +446,104 @@ void KeyMainWindow::on_actionOpenFile_triggered()
                 }
             }
             KeyElement* elem = new KeyElement(qstr);
-            elem->setVolume(volume);
-            elem->setKey(key);
-            elem->setRepeated(repeat);
+            elem->set_volume(volume);
+            elem->SetKey(key);
+            elem->SetRepeated(repeat);
 
-            QList<QTreeWidgetItem*> list = ui->fileTreeWidget->findItems(qstr, Qt::MatchRecursive | Qt::MatchFixedString, 0);
+            QList<QTreeWidgetItem*> list = ui_->fileTreeWidget->findItems(qstr, Qt::MatchRecursive | Qt::MatchFixedString, 0);
             if (list.isEmpty())
             {
-                elem->setItem(getDir(qstr, NULL));
-                logging("adding Item - " + elem->getItem()->text(0));
+                elem->SetItem(GetDir(qstr, nullptr));
+                Logging("adding Item - " + elem->GetItem()->text(0));
             }
             else
             {
-                elem->setItem(list.at(0));
+                elem->SetItem(list.at(0));
             }
-            editOk(elem);
-            logging("added key item from file");
+            EditOk(elem);
+            Logging("added key item from file");
         }
     }
     fclose(file);
-    ui->tabWidget->setCurrentIndex(temp);
-    logging("file - " + name + " was readed");
+    ui_->tabWidget->setCurrentIndex(temp);
+    Logging("file - " + name + " was readed");
     delete file;
 }
 
-void KeyMainWindow::on_actionSaveFileMenu_triggered()
+
+
+
+void KeyMainWindow::OnActionSaveFileMenuTriggered()
 {
-    on_actionSaveFile_triggered();
+    OnActionSaveFileTriggered();
 }
 
-void KeyMainWindow::on_actionOpenFileMenu_triggered()
+
+
+
+
+void KeyMainWindow::OnActionOpenFileMenuTriggered()
 {
-    on_actionOpenFile_triggered();
+    OnActionOpenFileTriggered();
 }
 
 
-void KeyMainWindow::logging(QString message)
+
+
+void KeyMainWindow::Logging(const QString message) const
 {
-    this->ui->infoLabel->setText("Info: " + message);
+    this->ui_->infoLabel->setText("Info: " + message);
     qDebug() << message;
 }
 
-void KeyMainWindow::addInList(KeyElement *element)
+
+
+
+
+void KeyMainWindow::AddInList(KeyElement *element) const
 {
     QString buffer = ": ";
-    logging("adding key element...");
-    buffer.insert(0, element->getKey());
-    buffer += element->getName();
-    keyPagesList.at(getCurrentPage())->addItem(buffer);
-    keys.at(getCurrentPage())->append(element);
+    Logging("adding key element...");
+    buffer.insert(0, element->GetKey());
+    buffer += element->GetName();
+    key_pages_list_.at(GetCurrentPage())->addItem(buffer);
+    keys_.at(GetCurrentPage())->append(element);
 }
 
-void KeyMainWindow::on_autoButton_clicked()
+
+
+
+
+void KeyMainWindow::OnAutoButtonClicked()
 {
-    logging("autoFilling...");
-    int oldPage = ui->tabWidget->currentIndex();
-    on_deleteAllButton_clicked();
-    sum = 0;
-    currentPage = 0;
-    ui->tabWidget->setCurrentIndex(currentPage);
-    for (int i = 0; i < ui->fileTreeWidget->topLevelItemCount(); i++)
+    Logging("autoFilling...");
+	const int old_page = ui_->tabWidget->currentIndex();
+    OnDeleteAllButtonClicked();
+    sum_ = 0;
+    current_page_ = 0;
+    ui_->tabWidget->setCurrentIndex(current_page_);
+    for (int i = 0; i < ui_->fileTreeWidget->topLevelItemCount(); i++)
     {
-        if (!autoFill(ui->fileTreeWidget->topLevelItem(i)))
+        if (!AutoFill(ui_->fileTreeWidget->topLevelItem(i)))
         {
             return;
         }
     }
-    currentPage = oldPage;
-    ui->tabWidget->setCurrentIndex(currentPage);
-    logging("autoFilling finished sucessfully");
+    current_page_ = old_page;
+    ui_->tabWidget->setCurrentIndex(current_page_);
+    Logging("autoFilling finished sucessfully");
 }
 
-bool KeyMainWindow::autoFill(QTreeWidgetItem* current)
+
+
+
+bool KeyMainWindow::AutoFill(QTreeWidgetItem* current)
 {
     if (current->childCount() > 0)
     {
         for (int j = 0; j < current->childCount(); j++)
         {
-            if (!(this->autoFill(current->child(j))))
+            if (!(this->AutoFill(current->child(j))))
             {
                 return false;
             }
@@ -553,98 +555,204 @@ bool KeyMainWindow::autoFill(QTreeWidgetItem* current)
         {
             if (current->backgroundColor(1) != QColor(250,80,80,235))
             {
-                if (sum + 'A' > 'Z')
+                if (sum_ + 'A' > 'Z')
                 {
-                    if (++currentPage >= 10)
+                    if (++current_page_ >= 10)
                     {
                         return false;
                     }
-                    sum = 0;
-                    ui->tabWidget->setCurrentIndex(currentPage);
+                    sum_ = 0;
+                    ui_->tabWidget->setCurrentIndex(current_page_);
                 }
                 KeyElement* element = new KeyElement(current->text(0));
-                element->setKey('A' + sum);
-                sum++;
-                element->setItem(current);
-                element->setRepeated(this->prop->getRepeat());
-                element->setVolume(this->prop->getVolume());
-                editOk(element);
+                element->SetKey('A' + sum_);
+                sum_++;
+                element->SetItem(current);
+                element->SetRepeated(this->prop_->GetRepeat());
+                element->set_volume(this->prop_->GetVolume());
+                EditOk(element);
             }
         }
     }
     return true;
 }
 
-void KeyMainWindow::on_keyListWidget_itemClicked(QListWidgetItem *item)
+
+
+
+void KeyMainWindow::OnKeyListWidgetItemClicked(QListWidgetItem *item)
 {
-    int i = keyPagesList.at(getCurrentPage())->currentIndex().row();
-    QString out = keys.at(getCurrentPage())->at(i)->getName() + " ";
-    qint64 sec = keys.at(getCurrentPage())->at(i)->duration()/1000;
+	const int i = key_pages_list_.at(GetCurrentPage())->currentIndex().row();
+    QString out = keys_.at(GetCurrentPage())->at(i)->GetName() + " ";
+	const qint64 sec = keys_.at(GetCurrentPage())->at(i)->Duration()/1000;
     out += QString::number(sec / 3600  % 24);
     out += ":";
     out += QString::number(sec / 60 % 60);
     out += ":";
     out += QString::number(sec % 60);
-    fileInfo(out);
+    FileInfo(out);
 }
 
-void KeyMainWindow::fileInfo(QString info)
+
+
+
+void KeyMainWindow::FileInfo(const QString info) const
 {
-    ui->fileLabel->setText("File Info: " + info);
+    ui_->fileLabel->setText("File Info: " + info);
 }
 
-int KeyMainWindow::getCurrentPage()
+
+
+
+int KeyMainWindow::GetCurrentPage() const
 {
-    return ui->tabWidget->currentIndex();
+    return ui_->tabWidget->currentIndex();
 }
 
-void KeyMainWindow::on_actionProperties_triggered()
+
+
+
+void KeyMainWindow::Initialize()
+{
+    this->prop_ = nullptr;
+    this->current_page_ = 0;
+    prelistening_ = false;
+
+    this->ChangeMainProp(Properties::LoadProperties());
+
+    ui_->fileTreeWidget->setColumnCount(2);
+    QStringList headsList(QString("Path"));
+    headsList.append("Name");
+    ui_->fileTreeWidget->setHeaderLabels(headsList);
+    ui_->fileTreeWidget->setSortingEnabled(true);
+
+    this->key_pages_list_.append(ui_->keyListWidget_0);
+    this->key_pages_list_.append(ui_->keyListWidget_1);
+    this->key_pages_list_.append(ui_->keyListWidget_2);
+    this->key_pages_list_.append(ui_->keyListWidget_3);
+    this->key_pages_list_.append(ui_->keyListWidget_4);
+    this->key_pages_list_.append(ui_->keyListWidget_5);
+    this->key_pages_list_.append(ui_->keyListWidget_6);
+    this->key_pages_list_.append(ui_->keyListWidget_7);
+    this->key_pages_list_.append(ui_->keyListWidget_8);
+    this->key_pages_list_.append(ui_->keyListWidget_9);
+
+    this->keys_.append(new QList<KeyElement*>); //0
+    this->keys_.append(new QList<KeyElement*>); //1
+    this->keys_.append(new QList<KeyElement*>); //2
+    this->keys_.append(new QList<KeyElement*>); //3
+    this->keys_.append(new QList<KeyElement*>); //4
+    this->keys_.append(new QList<KeyElement*>); //5
+    this->keys_.append(new QList<KeyElement*>); //6
+    this->keys_.append(new QList<KeyElement*>); //7
+    this->keys_.append(new QList<KeyElement*>); //8
+    this->keys_.append(new QList<KeyElement*>); //9
+
+    this->InitializeButtonsConnections();
+    this->InitializeActionsConnections();
+    this->InitializeSpecificConnections();
+}
+
+void KeyMainWindow::InitializeButtonsConnections()
+{
+    connect(ui_->addButton, SIGNAL(clicked(bool)), this, SLOT(OnAddButtonClicked()));
+    connect(ui_->playButton, SIGNAL(clicked(bool)), this, SLOT(OnPlayButtonClicked()));
+    connect(ui_->editButton, SIGNAL(clicked(bool)), this, SLOT(OnEditButtonClicked()));
+    connect(ui_->autoButton, SIGNAL(clicked(bool)), this, SLOT(OnAutoButtonClicked()));
+    connect(ui_->deleteButton, SIGNAL(clicked(bool)), this, SLOT(OnDeleteButtonClicked()));
+    connect(ui_->deleteAllButton, SIGNAL(clicked(bool)), this, SLOT(OnDeleteAllButtonClicked()));
+}
+
+void KeyMainWindow::InitializeActionsConnections()
+{
+    connect(ui_->actionSaveFile, SIGNAL(triggered(bool)), this, SLOT(OnActionSaveFileTriggered()));
+    connect(ui_->actionSaveFileMenu, SIGNAL(triggered(bool)), this, SLOT(OnActionSaveFileMenuTriggered()));
+    connect(ui_->actionOpenFile, SIGNAL(triggered(bool)), this, SLOT(OnActionOpenFileTriggered()));
+    connect(ui_->actionOpenFileMenu, SIGNAL(triggered(bool)), this, SLOT(OnActionOpenFileMenuTriggered()));
+    connect(ui_->actionProperties, SIGNAL(triggered(bool)), this, SLOT(OnActionPropertiesTriggered()));
+}
+
+
+
+
+void KeyMainWindow::InitializeSpecificConnections()
+{
+    connect(ui_->keyListWidget_0, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+    connect(ui_->keyListWidget_1, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+    connect(ui_->keyListWidget_2, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+    connect(ui_->keyListWidget_3, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+    connect(ui_->keyListWidget_4, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+    connect(ui_->keyListWidget_5, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+    connect(ui_->keyListWidget_6, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+    connect(ui_->keyListWidget_7, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+    connect(ui_->keyListWidget_8, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+    connect(ui_->keyListWidget_9, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(OnKeyListWidgetItemClicked(QListWidgetItem*)));
+
+
+    connect(ui_->keyListWidget_0, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+    connect(ui_->keyListWidget_1, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+    connect(ui_->keyListWidget_2, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+    connect(ui_->keyListWidget_3, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+    connect(ui_->keyListWidget_4, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+    connect(ui_->keyListWidget_5, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+    connect(ui_->keyListWidget_6, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+    connect(ui_->keyListWidget_7, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+    connect(ui_->keyListWidget_8, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+    connect(ui_->keyListWidget_9, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(OnKeyListWidgetDoubleClicked(QModelIndex)));
+
+}
+
+
+
+
+void KeyMainWindow::OnActionPropertiesTriggered()
 {
     PropertiesDialog* dialog = new PropertiesDialog(this);
-    connect(dialog, SIGNAL(changeProperties(Properties*)), this, SLOT(changeMainProp(Properties*)));
+    connect(dialog, SIGNAL(changeProperties(Properties*)), this, SLOT(ChangeMainProp(Properties*)));
     dialog->show();
 }
 
-void KeyMainWindow::changeMainProp(Properties *prop)
+
+
+
+void KeyMainWindow::ChangeMainProp(Properties *prop)
 {
-    if (prop != NULL)
+    if (prop != nullptr)
     {
-        QApplication::setPalette(prop->getPalette());
-        ui->fileTreeWidget->headerItem()->setBackgroundColor(0, prop->getPalette().button().color());
-        ui->fileTreeWidget->headerItem()->setBackgroundColor(1, prop->getPalette().button().color());
-        ui->addButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->deleteButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->editButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->playButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->deleteAllButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->autoButton->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        QApplication::setPalette(prop->GetPalette());
+        ui_->fileTreeWidget->headerItem()->setBackgroundColor(0, prop->GetPalette().button().color());
+        ui_->fileTreeWidget->headerItem()->setBackgroundColor(1, prop->GetPalette().button().color());
+        ui_->addButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->deleteButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->editButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->playButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->deleteAllButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->autoButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
 
-        ui->keyListWidget_0->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->keyListWidget_1->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->keyListWidget_2->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->keyListWidget_3->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->keyListWidget_4->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->keyListWidget_5->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->keyListWidget_6->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->keyListWidget_7->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->keyListWidget_8->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->keyListWidget_9->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
+        ui_->keyListWidget_0->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->keyListWidget_1->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->keyListWidget_2->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->keyListWidget_3->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->keyListWidget_4->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->keyListWidget_5->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->keyListWidget_6->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->keyListWidget_7->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->keyListWidget_8->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->keyListWidget_9->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
 
-        ui->tabWidget->setStyleSheet("background-color:" + rgbToString(prop->getPalette().button().color()));
-        ui->tabWidget->setStyleSheet("qproperty-titleColor:" + rgbToString(prop->getPalette().button().color()));
-        ui->tabWidget->setStyleSheet("qproperty-titleButtonColor:" + rgbToString(prop->getPalette().button().color()));
-
+        ui_->tabWidget->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
+        ui_->tabWidget->setStyleSheet("qproperty-titleColor:" + rgb_to_string(prop->GetPalette().button().color()));
 #ifdef __WIN32
-        qDebug() << prop->getPalette().button().color();
-        qDebug() << prop->getPalette().window().color();
+        qDebug() << prop->GetPalette().button().color();
+        qDebug() << prop->GetPalette().window().color();
 
 #endif
 
-        if (this->prop != NULL)
+        if (this->prop_ != nullptr)
         {
-            delete this->prop;
+            delete this->prop_;
         }
-        this->prop = prop;
-        this->prop->saveProperties();
+        this->prop_ = prop;
+        this->prop_->SaveProperties();
     }
 }

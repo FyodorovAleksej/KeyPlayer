@@ -2,85 +2,85 @@
 
 PlayButton::PlayButton(QObject *parent) : QObject(parent)
 {
-
+	current_status_ = 0;
+	widget_button_ = nullptr;
 }
 
-PlayButton::PlayButton(QPushButton *button, QChar key)
+PlayButton::PlayButton(QPushButton *button, const QChar key)
 {
-    this->widgetButton = button;
-    this->key = key;
-    this->currentStatus = 0;
+    this->widget_button_ = button;
+    this->key_ = key;
+    this->current_status_ = 0;
     for (int i = 0; i < LEN; i++)
     {
-        this->allStatus[i] = 0;
+        this->all_status_[i] = 0;
     }
-    this->widgetButton->setStyleSheet(passiveButtonColor);
-    connect(button, SIGNAL(pressed()), this, SLOT(press()));
-    connect(button, SIGNAL(released()), this, SLOT(release()));
+    this->widget_button_->setStyleSheet(PASSIVE_BUTTON_COLOR);
+    connect(button, SIGNAL(pressed()), this, SLOT(Press()));
+    connect(button, SIGNAL(released()), this, SLOT(Release()));
 }
 
 PlayButton::~PlayButton()
 {
-    disconnect(widgetButton, SIGNAL(pressed()), this, SLOT(press()));
-    disconnect(widgetButton, SIGNAL(released()), this, SLOT(release()));
-    //delete this->widgetButton;
+    disconnect(widget_button_, SIGNAL(pressed()), this, SLOT(Press()));
+    disconnect(widget_button_, SIGNAL(released()), this, SLOT(Release()));
 }
 
-bool PlayButton::wasPressed(int lay, bool shift)
+bool PlayButton::WasPressed(const int lay, const bool shift)
 {
-    this->widgetButton->setStyleSheet(activeButtonColor);
-    this->allStatus[lay] = 1;
+    this->widget_button_->setStyleSheet(ACTIVE_BUTTON_COLOR);
+    this->all_status_[lay] = 1;
     if (shift)
     {
-        currentStatus = !currentStatus;
+        current_status_ = !current_status_;
     }
-    return currentStatus;
+    return current_status_;
 }
 
-bool PlayButton::wasReleased(int lay, bool shift)
+bool PlayButton::WasReleased(const int lay, const bool shift)
 {
-    if (!currentStatus || !shift)
+    if (!current_status_ || !shift)
     {
-        this->currentStatus = false;
-        this->widgetButton->setStyleSheet(passiveButtonColor);
-        this->allStatus[lay] = 0;
+        this->current_status_ = false;
+        this->widget_button_->setStyleSheet(PASSIVE_BUTTON_COLOR);
+        this->all_status_[lay] = 0;
         return true;
     }
     else
     {
-        this->widgetButton->setStyleSheet(startButtonColor);
-        this->allStatus[lay] = 2;
+        this->widget_button_->setStyleSheet(START_BUTTON_COLOR);
+        this->all_status_[lay] = 2;
     }
     return false;
 }
 
-void PlayButton::changeLay(int lay)
+void PlayButton::ChangeLay(const int lay)
 {
-    switch(this->allStatus[lay])
+    switch(this->all_status_[lay])
     {
-    case 0: {this->widgetButton->setStyleSheet(passiveButtonColor); break;}
-    case 1: {this->widgetButton->setStyleSheet(activeButtonColor); break;}
-    case 2: {this->widgetButton->setStyleSheet(startButtonColor); break;}
-    default: {this->widgetButton->setStyleSheet(passiveButtonColor); break;}
+    case 0: {this->widget_button_->setStyleSheet(PASSIVE_BUTTON_COLOR); break;}
+    case 1: {this->widget_button_->setStyleSheet(ACTIVE_BUTTON_COLOR); break;}
+    case 2: {this->widget_button_->setStyleSheet(START_BUTTON_COLOR); break;}
+    default: {this->widget_button_->setStyleSheet(PASSIVE_BUTTON_COLOR); break;}
     }
-    this->currentStatus = allStatus[lay];
+    this->current_status_ = all_status_[lay];
 }
 
-QChar PlayButton::getKey()
+QChar PlayButton::GetKey() const
 {
-    return this->key;
+    return this->key_;
 }
 
-QPushButton* PlayButton::getButton()
+QPushButton* PlayButton::GetButton() const
 {
-    return this->widgetButton;
+    return this->widget_button_;
 }
 
-void PlayButton::press()
+void PlayButton::Press()
 {
-    emit pressed(this->key);
+    emit pressed(this->key_);
 }
-void PlayButton::release()
+void PlayButton::Release()
 {
-    emit released(this->key);
+    emit released(this->key_);
 }

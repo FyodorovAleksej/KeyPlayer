@@ -1,9 +1,9 @@
 #ifndef PLAYBUTTON_H
 #define PLAYBUTTON_H
 #define LEN 10
-#define passiveButtonColor QString::fromUtf8("background-color: rgb(248, 248, 10);")
-#define activeButtonColor QString::fromUtf8("background-color: rgb(100, 248, 40);")
-#define startButtonColor QString::fromUtf8("background-color: rgb(50, 50, 248);")
+#define PASSIVE_BUTTON_COLOR QString::fromUtf8("background-color: rgb(248, 248, 10);")
+#define ACTIVE_BUTTON_COLOR QString::fromUtf8("background-color: rgb(100, 248, 40);")
+#define START_BUTTON_COLOR QString::fromUtf8("background-color: rgb(50, 50, 248);")
 
 #include <QObject>
 #include <QPushButton>
@@ -15,7 +15,7 @@ class PlayButton : public QObject
 {
     Q_OBJECT
 public:
-    explicit PlayButton(QObject *parent = 0);
+    explicit PlayButton(QObject *parent = nullptr);
 
     /**
      * @brief PlayButton - create PlayButton with this graphical button and this key
@@ -30,13 +30,13 @@ public:
      * @brief getKey - getting key, that was linked with this object
      * @return - the key, that was linked with this object
      */
-    QChar getKey();
+    QChar GetKey() const;
 
     /**
      * @brief getButton - getting graphical button from PlayWindow, that was linked with this object
      * @return - the graphical button, that was linked with this object
      */
-    QPushButton* getButton();
+    QPushButton* GetButton() const;
 
     /**
      * @brief wasPressed - the method, that called, when this button was activate. Called from PlayWindow
@@ -44,7 +44,7 @@ public:
      * @param shift - the current status of shift on PlayWindow
      * @return - always true
      */
-    bool wasPressed(int lay, bool shift);
+    bool WasPressed(int lay, bool shift);
 
     /**
      * @brief wasReleased - the method, that called, when this button was released. Called from PlayWindow
@@ -53,13 +53,13 @@ public:
      * @return  - true - if the status was changed by shift
      *              - false - if the status wasn't changed by shift
      */
-    bool wasReleased(int lay, bool shift);
+    bool WasReleased(int lay, bool shift);
 
     /**
      * @brief changeLay - the method for refresh status and graphical button, when lay of PlayWindow was changed.
      * @param lay - the new lay of PlayWindow
      */
-    void changeLay(int lay);
+    void ChangeLay(int lay);
 
 signals:
 
@@ -77,18 +77,18 @@ public slots:
     /**
      * @brief press - the slot, that resending signal of pressing with linked key. Perform, when button was pressed
      */
-    void press();
+    void Press();
 
     /**
      * @brief release - the slot, that resending signal of releasing with linked key. Perform, when button was released
      */
-    void release();
+    void Release();
 
 private:
-    char currentStatus;
-    char allStatus[LEN];
-    QPushButton* widgetButton;
-    QChar key;
+    char current_status_;
+    char all_status_[LEN];
+    QPushButton* widget_button_;
+    QChar key_;
 };
 
 #endif // PLAYBUTTON_H

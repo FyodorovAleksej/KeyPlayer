@@ -14,38 +14,38 @@ class KeyElement : public QObject
 {
     Q_OBJECT
 public:
-    explicit KeyElement(QObject* parent = 0);
+    explicit KeyElement(QObject* parent = nullptr);
 
     /**
      * @brief KeyElement the constructor with path of the music file
      * @param name the path of music file to create link
      */
-    KeyElement(QString name);
+	explicit KeyElement(QString name);
     ~KeyElement();
 
     /**
      * @brief getKey getting the binded key
      * @return the binded key
      */
-    QChar getKey();
+    QChar GetKey() const;
 
     /**
      * @brief setKey setting the binded key
      * @param key for binding
      */
-    void setKey(QChar key);
+    void SetKey(QChar key);
 
     /**
      * @brief getName getting name of music file
      * @return name of file
      */
-    QString getName();
+    QString GetName() const;
 
     /**
      * @brief getPath getting full path of music file
      * @return path of file
      */
-    QString getPath();
+    QString GetPath() const;
 
     /**
      * @brief getFormat getting status of played/nonPlayed file
@@ -53,7 +53,7 @@ public:
      * 0 - is nonPlayed by SHIFT
      * 1 - is Played by SHIFT
      */
-    int getFormat();
+    int GetFormat() const;
 
     /**
      * @brief setFormat setting current status of file
@@ -61,86 +61,86 @@ public:
      * 0 - is nonPlayed by SHIFT
      * 1 - is Played by SHIFT
      */
-    void setFormat(int format);
+    void SetFormat(int format);
 
     /**
      * @brief getItem getting linked tree item from main window
      * @return linked tree item
      */
-    QTreeWidgetItem* getItem();
+    QTreeWidgetItem* GetItem() const;
 
     /**
      * @brief setItem setting link with tree item from main window
      * @param item item for linking
      */
-    void setItem(QTreeWidgetItem* item);
+    void SetItem(QTreeWidgetItem* item);
 
     /**
      * @brief setVolume setting value of volume
      * @param volume int value of volume (0-100)
      */
-    void setVolume(int volume);
+    void set_volume(int volume) const;
 
     /**
      * @brief getVolume getting current value of volume
      * @return int value of volume (0-100)
      */
-    int getVolume();
+    int GetVolume() const;
 
     /**
      * @brief getPlayer getting player of this file
      * @return player of file
      */
-    QMediaPlayer* getPlayer();
+    QMediaPlayer* GetPlayer() const;
 
     /**
      * @brief duration getting duration of music file
      * @return long int (ms)
      */
-    qint64 duration();
+    qint64 Duration() const;
 
     /**
      * @brief isValid getting status of player
      * @return status of player
      */
-    bool isValid();
+    bool IsValid() const;
 
     /**
      * @brief isRepeated property of repeting, when was started by SHIFT
      * @return bool - is Repeated
      */
-    bool isRepeated();
+    bool IsRepeated() const;
 
     /**
      * @brief setRepeated setting repeating, when was starting by SHIFT
      * @param repeat - is Repeated
      */
-    void setRepeated(bool repeat);
+    void SetRepeated(bool repeat);
 
 public slots:
     /**
      * @brief play start playing music file
      */
-    void play();
+    void Play() const;
 
     /**
      * @brief stop stop playing music file
      */
-    void stop();
+    void Stop() const;
 
     /**
      * @brief errorSlot slot of error, when file was loading
      * used for check validation of music file for QMediaPlayer
      */
-    void errorSlot();
+    void ErrorSlot();
 
 private:
-    QChar key;
-    QMediaPlayer *player;
-    int format;
-    bool valid;
-    QTreeWidgetItem *item;
-    bool repeating;
+    QChar key_;
+    QMediaPlayer *player_;
+    int format_;
+    bool valid_;
+    QTreeWidgetItem *item_;
+    bool repeating_;
 };
 
 #endif // KEYELEMENT_H
