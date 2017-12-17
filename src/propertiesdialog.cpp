@@ -1,6 +1,16 @@
 #include "propertiesdialog.h"
 #include "ui_propertiesdialog.h"
 
+
+
+
+QString PropertiesDialog::RgbToString(QColor color)
+{
+    return "rgb(" + QString::number(color.red()) + "," + QString::number(color.green()) + "," + QString::number(color.blue()) + ");";
+}
+
+
+
 PropertiesDialog::PropertiesDialog(QWidget *parent) :
     QDialog(parent),
     ui_(new Ui::PropertiesDialog)
@@ -43,33 +53,38 @@ bool PropertiesDialog::GetShift() const
     return this->ui_->shiftCheckBox->isChecked();
 }
 
+void PropertiesDialog::ButtonsPaint(Properties *prop)
+{
+    ui_->buttonBox->setStyleSheet("background-color:" + RgbToString(prop->GetPalette().button().color()));
+    ui_->volumeSpinBox->setStyleSheet("background-color:" + RgbToString(prop->GetPalette().button().color()));
+
+}
+
 void PropertiesDialog::Initialize()
 {
     Properties* prop = Properties::LoadProperties();
-
     ui_->themeComboBox->addItem("Default");
     ui_->themeComboBox->addItem("Calibri");
     ui_->themeComboBox->addItem("Dark");
     ui_->themeComboBox->addItem("Union");
     ui_->themeComboBox->setCurrentText(prop->GetTheme());
 
-    const QColor txt = prop->GetPalette().buttonText().color();
-    ui_->themeComboBox->setStyleSheet("QComboBox{color: rgb(" + QString::number(txt.red()) + "," + QString::number(txt.green()) + "," + QString::number(txt.red()) + ")}");
-
-    const QColor but = prop->GetPalette().button().color();
-    ui_->volumeSlider->setStyleSheet("QSlider{color: rgb(" + QString::number(but.red()) + "," + QString::number(but.green()) + "," + QString::number(but.red()) + ")}");
+    ui_->themeComboBox->setStyleSheet("QComboBox{color:" + RgbToString(prop->GetPalette().buttonText().color()) + "}");
+    ui_->volumeSlider->setStyleSheet("QSlider{color:" + RgbToString(prop->GetPalette().button().color()) + "}");
 
     ui_->repeatCheckBox->setChecked(prop->GetRepeat());
     ui_->volumeSlider->setValue(prop->GetVolume());
     ui_->volumeSpinBox->setValue(prop->GetVolume());
     ui_->capsCheckBox->setChecked(prop->GetCaps());
     ui_->shiftCheckBox->setChecked(prop->GetShift());
-    ui_->themeComboBox->repaint();
 
+
+    ButtonsPaint(prop);
     delete prop;
 
     InitializeButtonsConnections();
     InitializeSpecificConnections();
+    this->repaint();
 }
 
 void PropertiesDialog::InitializeButtonsConnections()

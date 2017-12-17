@@ -50,7 +50,7 @@ QPalette Properties::GetPalette() const
         palette.setColor(QPalette::Window, QColor(53, 53, 53));
         palette.setColor(QPalette::WindowText, QColor(72, 120, 255));
         palette.setColor(QPalette::Base, QColor(25, 25, 25));
-        palette.setColor(QPalette::AlternateBase, QColor(53, 3, 53));
+        palette.setColor(QPalette::AlternateBase, QColor(55, 55, 55));
         palette.setColor(QPalette::ToolTipBase, QColor(155, 155, 155));
         palette.setColor(QPalette::ToolTipText, QColor(72, 120, 255));
         palette.setColor(QPalette::Text, QColor(205, 25, 235));

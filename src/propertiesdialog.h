@@ -63,11 +63,15 @@ private:
      */
     bool GetShift() const;
 
+    void ButtonsPaint(Properties* prop);
+
     void Initialize();
 
     void InitializeButtonsConnections();
 
     void InitializeSpecificConnections();
+
+    QString RgbToString(QColor);
 
 
     Ui::PropertiesDialog *ui_;

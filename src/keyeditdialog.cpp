@@ -55,7 +55,7 @@ void KeyEditDialog::Initialize()
 
 void KeyEditDialog::InitializeButtonsConnections()
 {
-    connect(ui_->okButton, SIGNAL(clicked(bool)), this, SLOT(accept()));
+    connect(ui_->okButton, SIGNAL(clicked(bool)), this, SLOT(OnOkButtonClicked()));
     connect(ui_->cancelButton, SIGNAL(clicked(bool)), this, SLOT(OnCancelButtonClicked()));
 }
 
@@ -65,7 +65,7 @@ void KeyEditDialog::InitializeSpecificConnections()
 {
     connect(ui_->volumeSlider, SIGNAL(valueChanged(int)), ui_->volumeSpin, SLOT(setValue(int)));
     connect(ui_->volumeSpin, SIGNAL(valueChanged(int)), ui_->volumeSlider, SLOT(setValue(int)));
-    connect(ui_->keySequenceEdit,SIGNAL(editingFinished()), this, SLOT(OnKeySequenceEditEditingFinished()));
+    connect(ui_->keySequenceEdit, SIGNAL(editingFinished()), this, SLOT(OnKeySequenceEditEditingFinished()));
 }
 
 void KeyEditDialog::SetPath(QTreeWidgetItem *new_path)

@@ -91,7 +91,7 @@ void KeyMainWindow::OnEditButtonClicked() const
         if (ui_->fileTreeWidget->currentItem()->text(1).endsWith(".mp3") || ui_->fileTreeWidget->currentItem()->text(1).endsWith(".wav"))
         {
             Logging("start editing...");
-            KeyEditDialog* dialog = new KeyEditDialog();
+            KeyEditDialog* dialog = new KeyEditDialog(nullptr, this->prop_);
             dialog->SetPath(ui_->fileTreeWidget->currentItem());
             connect(dialog,SIGNAL(finish(KeyElement*)),this, SLOT(EditOk(KeyElement*)));
             dialog->show();
@@ -720,8 +720,10 @@ void KeyMainWindow::ChangeMainProp(Properties *prop)
     if (prop != nullptr)
     {
         QApplication::setPalette(prop->GetPalette());
+        QApplication::setStyle("Fusion");
         ui_->fileTreeWidget->headerItem()->setBackgroundColor(0, prop->GetPalette().button().color());
         ui_->fileTreeWidget->headerItem()->setBackgroundColor(1, prop->GetPalette().button().color());
+
         ui_->addButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
         ui_->deleteButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
         ui_->editButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
@@ -729,24 +731,7 @@ void KeyMainWindow::ChangeMainProp(Properties *prop)
         ui_->deleteAllButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
         ui_->autoButton->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
 
-        ui_->keyListWidget_0->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->keyListWidget_1->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->keyListWidget_2->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->keyListWidget_3->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->keyListWidget_4->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->keyListWidget_5->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->keyListWidget_6->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->keyListWidget_7->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->keyListWidget_8->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->keyListWidget_9->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-
-        ui_->tabWidget->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
-        ui_->tabWidget->setStyleSheet("qproperty-titleColor:" + rgb_to_string(prop->GetPalette().button().color()));
-#ifdef __WIN32
-        qDebug() << prop->GetPalette().button().color();
-        qDebug() << prop->GetPalette().window().color();
-
-#endif
+        ui_->toolBar->setStyleSheet("background-color:" + rgb_to_string(prop->GetPalette().button().color()));
 
         if (this->prop_ != nullptr)
         {
